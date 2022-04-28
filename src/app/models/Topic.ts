@@ -1,9 +1,9 @@
 export class Topic{
     id: number;
     banned: boolean;
-    datePublished: string;
+    datePublished: Date;
     dateRemoved : string;
-    //tag : string;
+    tag : string;
     text : string;
     title : string;
     score : number;

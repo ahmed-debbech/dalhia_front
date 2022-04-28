@@ -8,6 +8,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { TopicComponent } from './topic/topic.component';
+import { TopicDetailsComponent } from './topic-details/topic-details.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { TopicComponent } from './topic/topic.component';
     AppComponent,
     AdminLayoutComponent,
     TopicComponent,
+    TopicDetailsComponent,
 
   ],
   providers: [],
