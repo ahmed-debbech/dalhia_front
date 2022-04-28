@@ -4,8 +4,10 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AddOfferComponent } from './pages/add-offer/add-offer.component';
 
-const routes: Routes =[
+
+ const routes: Routes =[
   {
     path: '',
     redirectTo: 'dashboard',
@@ -24,11 +26,11 @@ const routes: Routes =[
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-       useHash: true
-    })
+    RouterModule.forRoot(routes)
+    
   ],
-  exports: [
-  ],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const ArrayOfComponents = [AddOfferComponent]
+

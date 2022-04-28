@@ -16,4 +16,9 @@ export class OfferService {
   getOffers() {
     return this.http.get<Offer>(this.server+"retrieve-all-offers",{responseType: 'json'});
   }
+
+  addOffer(offer:Offer){
+    return this.http.post<Offer>(this.server+"add-offer/"+offer.categoryId,offer);
+
+  }
 }

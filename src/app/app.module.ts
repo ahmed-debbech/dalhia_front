@@ -2,12 +2,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app.routing';
+import { RouterModule} from '@angular/router';
+import { AppRoutingModule,ArrayOfComponents } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { OfferComponent } from './pages/offer/offer.component';
+import { AddOfferComponent } from './pages/add-offer/add-offer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -18,11 +20,14 @@ import { OfferComponent } from './pages/offer/offer.component';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    NgbModule,
+    
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     OfferComponent,
+    ArrayOfComponents,
 
   ],
   providers: [],

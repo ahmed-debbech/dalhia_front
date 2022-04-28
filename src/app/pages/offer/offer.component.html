@@ -4,7 +4,14 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
+                        
                         <h4 class="card-title ">Offer Table</h4>
+                        <!-- <div class="save-button">
+                            
+                        </div> -->
+                        <a [routerLink]="['/offer/offerAdd']">
+                            link to user component
+                          </a>
                         <p class="card-category"> Here is a subtitle for this table</p>
                     </div>
                     <div class="card-body">
@@ -12,19 +19,19 @@
                             <table class="table">
                                 <thead class=" text-primary">
                                     <th>
-                                        ID
-                                    </th>
-                                    <th>
-                                        Name
+                                        Title
                                     </th>
                                     <th>
                                         Country
                                     </th>
                                     <th>
-                                        City
+                                        E-mail
                                     </th>
                                     <th>
-                                        Salary
+                                        JobType
+                                    </th>
+                                    <th>
+                                        StartDate
                                     </th>
                                 </thead>
                                 <tbody>
@@ -36,17 +43,15 @@
                                            {{item.title}}
                                         </td>
                                         <td>
-                                            Mason Porter
+                                            {{item.address}}                                        </td>
+                                        <td>
+                                            {{item.email}}
                                         </td>
                                         <td>
-                                            Chile
-                                        </td>
-                                        <td>
-                                            Gloucester
+                                            {{item.jobType}}
                                         </td>
                                         <td class="text-primary">
-                                            $78,615
-                                        </td>
+                                            {{item.startDate| date: 'dd/MM/yyyy'}}                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

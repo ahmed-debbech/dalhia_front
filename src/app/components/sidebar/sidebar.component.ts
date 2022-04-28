@@ -16,8 +16,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
-    { path: '/offer', title: 'Offer List',  icon:'content_paste', class: '' },
-];
+    { path: '/offer', title: 'Offer List',  icon:'content_paste', class: '' }
+  ];
 
 @Component({
   selector: 'app-sidebar',
