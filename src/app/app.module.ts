@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CertificateComponent } from './certificate/certificate.component';
+import { AddCoursesComponent } from './add-courses/add-courses.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { CertificateComponent } from './certificate/certificate.component';
     AdminLayoutComponent,
     CoursesComponent,
     CertificateComponent,
+    AddCoursesComponent,
 
   ],
   providers: [],

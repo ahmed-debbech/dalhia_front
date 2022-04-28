@@ -53,9 +53,14 @@
                        <td>{{c.nbrPhases}}</td>
                        <td>{{c.rate}}</td>
                        <td>{{c.nbrOfEnrolls}}</td>
+                       <td>
+                        <a [routerLink]="[c.id,'certificates']" class="btn btn-success btn-round">Show Certificates</a>
+                       </td>
                    </tr>
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>
+<a routerLink="addcourses" >ADD </a>

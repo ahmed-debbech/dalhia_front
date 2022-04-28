@@ -1,1 +1,49 @@
-<p>certificate works!</p>
+<div class="main-content">
+    <div class="card">
+        <div class="card-header card-header-tabs card-header-primary">
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                    <span class="nav-tabs-title">Tasks:</span>
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                        <li class="nav-item">
+                            <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                <i class="material-icons">bug_report</i> Bugs
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                                <i class="material-icons">code</i> Website
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a mat-button class="nav-link" href="#settings" data-toggle="tab">
+                                <i class="material-icons">cloud</i> Server
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-hover">
+                <thead class="text-warning">
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Date Added</th>
+                    <th>Date Affected</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let c of listCertificates"> 
+                        <td> {{c.id}}</td>
+                        <td> {{c.title}} </td>
+                        <td>{{c.dateAdded}}</td>
+                       <td>{{c.dateAffected}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
