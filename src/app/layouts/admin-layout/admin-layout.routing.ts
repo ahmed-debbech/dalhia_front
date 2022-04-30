@@ -8,6 +8,9 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { LoginComponent } from 'app/user/login/login.component';
+import { UserComponent } from 'app/user/user.component';
+import { UpdateComponent } from 'app/user/update/update.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -52,7 +55,10 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
+    { path: 'login',        component: LoginComponent },
     { path: 'dashboard',      component: DashboardComponent },
+    { path: 'user',      component: UserComponent    },
+    { path: 'user/update/:id',      component: UpdateComponent    },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
@@ -60,4 +66,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
+    
 ];

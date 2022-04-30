@@ -1,0 +1,158 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title mt-0"> Update User</h4>
+                        <p class="card-category"> Update</p>
+                    </div>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Add new User</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" >
+                                <div class="form-group">
+                                  <label for="first_name" class="col-form-label">First name :</label>
+                                  <input type="text" class="form-control"  id="first_name" formControlName="first_name" >
+                                  <span class="text-danger" *ngIf="!updateForm.get('first_name').valid && updateForm.get('first_name').touched">invalid input</span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="last_name" class="col-form-label">Last name :</label>
+                                  <input type="text" class="form-control" id="last_name" formControlName="last_name">
+                                  <span class="text-danger" *ngIf="!updateForm.get('last_name').valid && updateForm.get('last_name').touched">invalid input</span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="email" class="col-form-label">Email :</label>
+                                  <input type="email" class="form-control" id="email" formControlName="email">
+                                  <span class="text-danger" *ngIf="!updateForm.get('email').valid && updateForm.get('email').touched">invalid input</span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="password" class="col-form-label">Password :</label>
+                                  <input type="password" class="form-control" id="password" formControlName="password">
+                                  <span class="text-danger" *ngIf="!updateForm.get('password').valid && updateForm.get('password').touched">invalid input</span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="phone" class="col-form-label">Phone :</label>
+                                  <input type="tel" class="form-control" id="phone" formControlName="phone">
+                                  <span class="text-danger" *ngIf="!updateForm.get('phone').valid && updateForm.get('phone').touched">invalid input</span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="date_birth" class="col-form-label">BirthDate :</label>
+                                  <input type="date" class="form-control" id="date_birth" formControlName="date_birth">
+                                  <span class="text-danger" *ngIf="!updateForm.get('date_birth').valid && updateForm.get('date_birth').touched">invalid input</span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="city" class="col-form-label">City :</label>
+                                  <input type="text" class="form-control" id="city" formControlName="city">
+                                  <span class="text-danger" *ngIf="!updateForm.get('city').valid && updateForm.get('city').touched">invalid input</span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="state" class="col-form-label">State :</label>
+                                  <input type="text" class="form-control" id="state" formControlName="state">
+                                  <span class="text-danger" *ngIf="!updateForm.get('state').valid && updateForm.get('state').touched">invalid input</span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="zipCode" class="col-form-label">ZipCode :</label>
+                                  <input type="text" class="form-control" id="zipCode" formControlName="zipCode">
+                                  <span class="text-danger" *ngIf="!updateForm.get('zipCode').valid && updateForm.get('zipCode').touched">invalid input</span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="address" class="col-form-label">Address :</label>
+                                  <input type="text" class="form-control" id="address" formControlName="address">
+                                  <span class="text-danger" *ngIf="!updateForm.get('address').valid && updateForm.get('address').touched">invalid input</span>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" onClick="window.location.reload();">Add</button>
+                                  </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="">
+                                    <th>
+                                        First_Name
+                                    </th>
+                                    <th>
+                                        Last_Name
+                                    </th>
+                                    <th>
+                                        BirthDate
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Phone
+                                    </th>
+                                    <th>
+                                        City
+                                    </th>
+                                    <th>
+                                        State
+                                    </th>
+                                    <th>
+                                        ZipCode
+                                    </th>
+                                    <th>
+                                        Address
+                                    </th>
+                                    <th>
+                                        Update
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            {{user.first_name}}
+                                        </td>
+                                        <td>
+                                            {{user.last_name}}
+                                        </td>
+                                        <td>
+                                            {{user.date_birth}}
+                                        </td>
+                                        <td>
+                                            {{user.email}}
+                                        </td>
+                                        <td>
+                                            {{user.phone}}
+                                        </td>
+                                        <td>
+                                            {{user.city}}
+                                        </td>
+                                        <td>
+                                            {{user.state}}
+                                        </td>
+                                        <td>
+                                            {{user.zipCode}}
+                                        </td>
+                                        <td>
+                                            {{user.address}}
+                                        </td>
+                                        
+                                        <td>
+                                            <button type="button" class="btn btn-primary" (click)="onUpdate()" data-toggle="modal" data-target="#exampleModal">Click To update</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
