@@ -6,19 +6,19 @@
                     <div class="card-header card-header-danger">
                         <h4 class="card-title mt-0"> Users Table</h4>
                         <p class="card-category"> Here all our users , add new one , update or delete one</p>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add new User</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" (click)="unsubscribe()">Add new User</button>
                     </div>
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Add new User</h5>
+                              <h5 class="modal-title" id="exampleModalLabel">{{editMode? 'Update User' : 'Add User'}}</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
                             <div class="modal-body">
-                              <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" >
+                              <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"  >
                                 <div class="form-group">
                                   <label for="first_name" class="col-form-label">First name :</label>
                                   <input type="text" class="form-control"  id="first_name" name="first_name" formControlName="first_name" >
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" onClick="window.location.reload();" [disabled]="!signupForm.valid">Add</button>
+                                    <button type="submit" class="btn btn-primary" onClick="window.location.reload();" [disabled]="!signupForm.valid">{{editMode? 'Update' : 'Add'}}</button>
                                   </div>
                               </form>
                             </div>
@@ -120,7 +120,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let user of users">
+                                    <tr *ngFor="let user of users" >
                                         <td>
                                             {{user.id}}
                                         </td>
@@ -131,7 +131,7 @@
                                             {{user.last_name}}
                                         </td>
                                         <td>
-                                            {{user.date_birth}}
+                                            {{user.date_birth | date: 'dd-MM-yyyy'}}
                                         </td>
                                         <td>
                                             {{user.email}}
