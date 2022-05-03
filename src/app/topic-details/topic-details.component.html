@@ -53,7 +53,7 @@
                     <div class="tim-typo">
                         <p>
                             <span class="tim-note">Has ever been a 'Post of the day'</span>
-                            <ng-template ngIf = "topic.lastBeTopicOfTheDay != null; else vv">{{topic.lastBeTopicOfTheDay}}</ng-template>
+                            <ng-template [ngIf] = "topic.lastBeTopicOfTheDay != null" [ngIfElse]="vv">{{topic.lastBeTopicOfTheDay}}</ng-template>
                           <ng-template #vv>Never</ng-template>
                           </p>
                           

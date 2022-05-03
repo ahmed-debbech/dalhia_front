@@ -37,12 +37,12 @@
                             <td>{{t.banned}}</td>
                             <td><a [routerLink]="[t.id]">Details</a></td>
                             <ng-template [ngIf]="!t.banned" [ngIfElse]="unban">
-                                <td><button (click) = "ban(t.id)">Ban</button></td>
+                                <td><button mat-raised-button (click) = "ban(t.id)">Ban</button></td>
                             </ng-template>
                             <ng-template #unban>
-                                <td><button (click) = "unban(t.id)">Unban</button></td>
+                                <td><button mat-raised-button (click) = "unban(t.id)">Unban</button></td>
                             </ng-template>
-                                <td><button [disabled] = "t.dateRemoved != null" (click) = "remove(t.id)">Remove</button></td>
+                                <td><button mat-raised-button [disabled] = "t.dateRemoved != null" (click) = "remove(t.id)">Remove</button></td>
     
                         </tr>
                     </tbody>
