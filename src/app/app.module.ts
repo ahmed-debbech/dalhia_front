@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ForumRoutes } from './forum.routing';
+import { ForumNewsFeedComponent } from './forum-news-feed/forum-news-feed.component';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import { ForumRoutes } from './forum.routing';
     TopicComponent,
     TopicDetailsComponent,
     AddTopicComponent,
+    ForumNewsFeedComponent,
 
   ],
   providers: [],
