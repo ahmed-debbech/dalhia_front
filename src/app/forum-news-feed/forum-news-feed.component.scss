@@ -1,0 +1,24 @@
+#arrow{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    color: orange;
+    align-content: center;
+}
+#score{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    color: gray;
+    text-align: center;
+}
+.action-bar{
+    background-color: rgb(233, 233, 233);
+    height: 40px;
+    width: auto;
+    border-radius: 20px !important;
+    margin: 9px;
+}
+#comments{
+    display: inline-block;
+}

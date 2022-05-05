@@ -4,9 +4,12 @@ import { ForumNewsFeedComponent } from "./forum-news-feed/forum-news-feed.compon
 import { TopicDetailsComponent } from "./topic-details/topic-details.component";
 import { TopicComponent } from "./topic/topic.component";
 
-export const ForumRoutes: Routes = [
+export const AdminForumRoutes: Routes = [
     { path : 'topics',        component : TopicComponent },
     { path : 'topics/:id',    component : TopicDetailsComponent },
     { path : 'topicsadd',    component : AddTopicComponent },
-    { path : 'feed',    component : ForumNewsFeedComponent },
 ];
+export const ClientForumRoutes: Routes = [
+    { path : 'feed/add',    component : AddTopicComponent },
+    { path : 'feed',    component : ForumNewsFeedComponent },
+]

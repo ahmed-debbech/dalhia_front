@@ -1,50 +1,71 @@
-<div class="row">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="container">
+    
+<div class="main-content">
+<div class="tim-typo" style="align-items:center;">
+  
+    <h1> Your feed </h1>
+
+</div>
     <div class="col-md-6">
+        <a routerLink="add" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i> Post</a>
         <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">Regular header</h4>
-                <p class="card-category">Category subtitle</p>
+            <div class="card-header card-header-tabs card-header-primary">
+                <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                        <span class="nav-tabs-title">Sort By:</span>
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="nav-item">
+                                <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                    New
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                                     Top
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a mat-button class="nav-link" href="#settings" data-toggle="tab">
+                                    Post of the day
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona...
-            </div>
+            
         </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header card-header-danger">
-                <h4 class="card-title">Full header coloured</h4>
-                <p class="card-category">Category subtitle</p>
-            </div>
-            <div class="card-body">
-                The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona...
-            </div>
-        </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-        <div class="card">
+        <div *ngFor="let post of listPosts" class="card">
             <div class="card-header card-header-icon card-header-rose">
               <div class="card-icon">
-                <i class="material-icons"></i>
               </div>
-              <h4 class="card-title">Here is the Icon</h4>
+              <h5 style="color: black; margin-top: 20px">
+                <span style="color: rgb(153, 153, 153); margin-top: 20px" class="tim-note">By {{post.user.first_name}} {{post.user.last_name}}</span>
+                <span style="font-size: 10px; color: rgb(153, 153, 153); margin-top: 20px" class="tim-note">  • on {{post.datePublished}}</span>
+            </h5>
+              <h4 style="font-style: bold;" class="card-title">{{post.title}}</h4>
             </div>
             <div class="card-body">
-                The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona...
+                {{post.text}}
             </div>
+            <div class="action-bar">
+                <div class="container">
+                <i id="arrow" class="fa fa-arrow-up" aria-hidden="true"></i>
+                <p id="score"> {{post.score}}</p>
+                <i id="arrow" class="fa fa-arrow-down" aria-hidden="true"></i>
+                <i id="comments" class="fa fa-comments" aria-hidden="true"></i>
+                <p id="comments" > Comments ({{post.forumComments.length}})</p>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header card-header-primary">
-                <h4 class="card-title">Here is the Text</h4>
-                <p class="card-category">Category subtitle</p>
-            </div>
-            <div class="card-body">
-                The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona...
-            </div>
-        </div>
-    </div>
-  </div>
+
+</div>
+
+</div>

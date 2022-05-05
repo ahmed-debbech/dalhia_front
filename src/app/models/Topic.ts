@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export class Topic{
     id: number;
     banned: boolean;
@@ -8,5 +10,6 @@ export class Topic{
     title : string;
     score : number;
     lastBeTopicOfTheDay : string;
-    //user : user;
+    forumComments: Comment[];
+    user : User;
 }

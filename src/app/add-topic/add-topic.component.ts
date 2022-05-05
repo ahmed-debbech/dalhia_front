@@ -11,5 +11,4 @@ export class AddTopicComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
