@@ -8,8 +8,11 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { UserComponent } from './user/user.component';
-import { LoginComponent } from './user/login/login.component';
-import { UpdateComponent } from './user/update/update.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+
+
+
 
 @NgModule({
   imports: [
@@ -25,9 +28,8 @@ import { UpdateComponent } from './user/update/update.component';
     AppComponent,
     AdminLayoutComponent,
     UserComponent,
-    LoginComponent,
-    UpdateComponent,
-
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,6 +16,10 @@ export class UserComponent implements OnInit  {
 
 users :User[];
 user : User ;
+isFetching = true;
+error = null 
+check = false;
+
 
 signupForm : FormGroup
 disabled=true;
@@ -32,8 +36,12 @@ authRequest: any = {
 
   ngOnInit(): void {
     //this.getAccessToken(this.authRequest)
-    this.service.getUserss().subscribe(user => {
+    this.service.getUsers().subscribe(user => {
       this.users=user
+      this.isFetching=false
+      } , error => {
+        this.isFetching=false
+        this.error =  error.message
       }
     );
    
@@ -61,14 +69,22 @@ authRequest: any = {
  
 
   onSubmit() {
-    
+    this.check=true
     if (this.editMode){
       console.log('hello')
       console.log(this.signupForm.value)
-      this.service.updateUser(this.user.userId,this.signupForm.value).subscribe();
+      this.service.updateUser(this.user.userId,this.signupForm.value).subscribe(() => {
+        this.check= false;
+      } , error => {
+        this.error.next(error.message)
+      });
       this.signupForm.reset();
     }else {
-   this.service.addUser(this.signupForm.value).subscribe();
+   this.service.addUser(this.signupForm.value).subscribe(() => {
+     this.check =false;
+   }, error => {
+    this.error.next(error.message)
+  });
    this.signupForm.reset();
     }
   }
@@ -108,7 +124,6 @@ authRequest: any = {
   onEditItem(){
 
   }
-  //chouf fazet date
 
   dateValidator(control: FormControl): { [s: string]: boolean } {
     if (control.value) {
@@ -120,6 +135,10 @@ authRequest: any = {
       }
     }
     return null;
+  }
+
+  onHandleError(){
+    this.error = null
   }
 
 }

@@ -3,10 +3,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-plain">
+                    
                     <div class="card-header card-header-danger">
                         <h4 class="card-title mt-0"> Users Table</h4>
                         <p class="card-category"> Here all our users , add new one , update or delete one</p>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" (click)="unsubscribe()">Add new User</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" (click)="unsubscribe()" [disabled]="check">Add new User</button>
                     </div>
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
@@ -152,14 +153,21 @@
                                             {{user.address}}
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-danger" (click)="onDelete(user.userId)" onClick="window.location.reload();">Delete</button>
+                                            <button type="button" class="btn btn-danger" (click)="onDelete(user.userId)" onClick="window.location.reload();" [disabled]="check">Delete</button>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-primary"  (click)="onUpdate(user.userId)" data-toggle="modal" data-target="#exampleModal">Update</button>
+                                            <button type="button" class="btn btn-primary"  (click)="onUpdate(user.userId)" data-toggle="modal" data-target="#exampleModal" [disabled]="check">Update</button>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
+                            <h3 *ngIf="isFetching && !error" style=" margin: 0 auto;
+                            width: 100px;">Loading..</h3>
+                            <div class="alert alert-danger" *ngIf="error">
+                                <h1>An Error Occured! </h1>
+                                <p>{{error}} </p>
+                                <button class="btn btn-danger" (click)="onHandleError()">Okey</button>
+                              </div>
                         </div>
                     </div>
                 </div>

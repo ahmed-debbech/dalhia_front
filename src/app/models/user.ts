@@ -4,6 +4,7 @@ export class User {
         role: string
         first_name: string
         last_name: string
+        password?:string
         email: string
         phone: string
         date_birth: Date
@@ -36,4 +37,5 @@ export class User {
         event: any
         donation: any
         applications: any
+        token? : string
 }

@@ -21,8 +21,10 @@ export class UserService {
   //   return this.http.get("http://localhost:8089/api/v1/users/get-users",{headers,responseType: 'text' as 'json'})
   // }
 
-   getUserss(): Observable<User[]> {
-    return this.http.get<User[]>(this.url+ "get-users");
+   getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.url+ "get-users" , {
+      headers : new HttpHeaders({'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJheml6QGdtYWlsLmNvbSIsImV4cCI6MTY1MTc3NjM1MH0.zOkkVcI0D2JBx5aFq4-krmlXn5o4EkKYvtYIH8NAKl1bNgAtl2gN-8Pkfrkae4imMw8tTiMQOwomLQMJ61zxyw'})
+    });
   }
 
   addUser(user : User) {
