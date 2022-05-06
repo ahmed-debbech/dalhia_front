@@ -1,11 +1,15 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { User } from "app/models/user";
-import { catchError, tap, throwError } from "rxjs";
+import { catchError, Subject, tap, throwError } from "rxjs";
+import { UserStored } from "./user-stored";
 
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
+
+    user = new Subject<UserStored>()
+
     constructor(private http : HttpClient) {}
     signup(user : User) {
        return this.http.post<User>('http://localhost:8089/api/v1/users' ,user)
@@ -21,13 +25,20 @@ export class AuthService {
     }
 
     login(email : string , password : string) {
-        this.http.post('http://localhost:8089/api/v1/users/login', {
+       return this.http.post('http://localhost:8089/api/v1/users/login', {
             email : email,
             password : password
         }, {
             observe : 'response'
-        }).subscribe(responseData => {
-            console.log(responseData.headers.get('authorization'))
-        })
-    }
+        } ).pipe(catchError(errorRes => {
+            let errorMessage = 'Authentication failed'
+            return throwError(errorMessage);
+         
+         
+        }) , tap(resData => {
+            const expirationDate = new Date(new Date().getTime() + 3600000)
+            const user = new UserStored(email , resData.headers.get('userid'),resData.headers.get('authorization'),expirationDate)
+            this.user.next(user);
+        }))
+     }
 }

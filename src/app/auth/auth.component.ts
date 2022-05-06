@@ -25,7 +25,15 @@ export class AuthComponent implements OnInit {
     const password = form.value.password
     console.log(email)
     console.log(password)
-    this.authService.login(email , password)
+    this.isLoading=true
+    this.authService.login(email , password).subscribe(responseData => {
+      console.log(responseData.headers.get('authorization'))
+      console.log(responseData.headers.get('userid'))
+      this.isLoading=false
+  }, errorMessage => {
+    this.error = errorMessage
+      this.isLoading=false
+  });
     form.reset()
   }
 
@@ -34,6 +42,8 @@ export class AuthComponent implements OnInit {
     if (!form.valid) { 
       return;
     }
+
+ 
   
     this.user.email = form.value.email
     this.user.password = form.value.password
