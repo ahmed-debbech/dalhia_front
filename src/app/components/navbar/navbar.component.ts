@@ -1,23 +1,27 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
+import { AuthService } from 'app/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit ,OnDestroy {
     private listTitles: any[];
     location: Location;
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
     hide : Subject<boolean>
+    private userSub : Subscription
+    isAuthenticated = false;
+    isAdmin=false;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(location: Location,  private element: ElementRef, private router: Router , private authService : AuthService) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -34,6 +38,13 @@ export class NavbarComponent implements OnInit {
            this.mobile_menu_visible = 0;
          }
      });
+
+    this.userSub= this.authService.user.subscribe(user => {
+        this.isAuthenticated = !user ? false : true;
+        if(this.isAuthenticated){
+        this.isAdmin = user.role==="ADMIN"? true : false;
+        }
+    })
     }
 
     sidebarOpen() {
@@ -124,6 +135,11 @@ export class NavbarComponent implements OnInit {
       }
       return 'Dashboard';
     }
+    onLogout() {
+        this.authService.logout()
+    }
 
-
+ngOnDestroy(): void {
+    this.userSub.unsubscribe()
+}
 }

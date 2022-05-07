@@ -1,4 +1,6 @@
 export class User {
+
+    constructor(){}
     email: string
     password?:string
     first_name: string

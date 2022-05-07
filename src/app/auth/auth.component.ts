@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'app/models/user';
+
 
 import { AuthService } from './auth.service';
 
@@ -15,7 +17,7 @@ export class AuthComponent implements OnInit {
   user : User = new User()
   isLoading = false;
   error : string = null
-  constructor(private authService : AuthService) { }
+  constructor(private authService : AuthService , private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +31,9 @@ export class AuthComponent implements OnInit {
     this.authService.login(email , password).subscribe(responseData => {
       console.log(responseData.headers.get('authorization'))
       console.log(responseData.headers.get('userid'))
+      console.log(responseData.headers.get('role'))
       this.isLoading=false
+      this.router.navigate(['/dashboard']);
   }, errorMessage => {
     this.error = errorMessage
       this.isLoading=false

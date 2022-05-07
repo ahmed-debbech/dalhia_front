@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AuthService } from 'app/auth/auth.service';
 import { User } from 'app/models/user';
-import { Observable } from 'rxjs';
+import { exhaustMap, Observable, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,21 +10,27 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   url ="http://localhost:8089/api/v1/users/"
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient , private authService : AuthService) { }
 
 
    getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.url+ "get-users" , {
-      headers : new HttpHeaders({'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJheml6QGdtYWlsLmNvbSIsImV4cCI6MTY1MTc3NjM1MH0.zOkkVcI0D2JBx5aFq4-krmlXn5o4EkKYvtYIH8NAKl1bNgAtl2gN-8Pkfrkae4imMw8tTiMQOwomLQMJ61zxyw'})
-    });
+     //exhaust map tkhadem 2 observable : tlanci loula tkmlha o taamlelha unsubscribe o bead tlanci thenya
+   
+      return this.http.get<User[]>(this.url+ "get-users")
+     
+    
   }
 
   addUser(user : User) {
+    
     return this.http.post<User>(this.url,user);
   }
 
   deleteUser(id:string){
-    return this.http.delete<User>(this.url+id)
+    
+    return this.http.delete<User>(this.url+id
+     )
+ 
   }
 
   getById(id:string) {
