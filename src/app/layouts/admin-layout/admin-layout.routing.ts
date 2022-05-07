@@ -11,6 +11,8 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { UserComponent } from 'app/user/user.component';
 import { AuthComponent } from 'app/auth/auth.component';
 
+import { AuthAdminGuard } from 'app/auth/auth-admin.guard';
+
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -58,7 +60,7 @@ export const AdminLayoutRoutes: Routes = [
    
     { path: 'dashboard',      component: DashboardComponent },
     {path : 'auth' , component: AuthComponent},
-    { path: 'user',      component: UserComponent    },
+    { path: 'user',      component: UserComponent  ,canActivate : [AuthAdminGuard]  },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },

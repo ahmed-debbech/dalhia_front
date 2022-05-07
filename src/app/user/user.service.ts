@@ -1,3 +1,4 @@
+import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from 'app/auth/auth.service';
@@ -39,5 +40,9 @@ export class UserService {
 
   updateUser(id:string, user: User) {
     return this.http.put<User>(this.url+id,user);
+  }
+
+  getUsersPdf() {
+    return this.http.get(this.url+"get-users-pdf")
   }
 }

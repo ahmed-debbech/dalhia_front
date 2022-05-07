@@ -41,6 +41,7 @@ authRequest: any = {
       this.isFetching=false
       } , error => {
         this.isFetching=false
+        console.log(error)
         this.error =  error.message
       }
     );
@@ -139,6 +140,10 @@ authRequest: any = {
 
   onHandleError(){
     this.error = null
+  }
+
+  getUsersPDF() {
+    this.service.getUsersPdf().subscribe();
   }
 
 }
