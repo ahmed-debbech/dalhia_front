@@ -30,4 +30,10 @@ export class TopicService {
   removeTopic(id: string) : Observable<any> {
     return this.http.delete<any>(this.baseUrl + "/" + id)
   }
+  upvote(id : number) : any{
+    return this.http.put<any>(this.baseUrl + "/" + id + "/rate/" + "UPVOTE", {})
+  }
+  downvote(id : number) : any{
+    return this.http.put<any>(this.baseUrl + "/" + id + "/rate/" + "DOWNVOTE", {})
+  }
 }

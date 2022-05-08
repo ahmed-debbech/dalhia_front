@@ -8,6 +8,9 @@
       <div class="col-sm-4">
           <div class="form-group">
               <input #title type="text" value="" placeholder="Title" class="form-control" />
+              <mat-error *ngIf="checkTitle(title.value)">
+                Title is <strong>required</strong> 
+              </mat-error>
           </div>
       </div>
     </div>
@@ -19,6 +22,12 @@
           <div class="col-sm-4">
               <div class="form-group">
                   <textarea #text type="text" value="" style="height: 60px;" placeholder="Text" class="form-control"></textarea>
+                  <mat-error *ngIf="checkText(text.value)">
+                    
+                  </mat-error>
+                  <mat-error *ngIf="checkText(text.value)">
+                    Text should be <strong>more</strong> then 10 caracters
+                  </mat-error>
               </div>
           </div>
         </div>

@@ -8,7 +8,7 @@
     <h1> Your feed </h1>
 
 </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
         <a routerLink="add" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i> Post</a>
         <div class="card">
             <div class="card-header card-header-tabs card-header-primary">
@@ -55,15 +55,65 @@
             </div>
             <div class="action-bar">
                 <div class="container">
-                <i id="arrow" class="fa fa-arrow-up" aria-hidden="true"></i>
+                <i (click)="upvote(post.id)" id="arrow" class="fa fa-arrow-up" aria-hidden="true"></i>
                 <p id="score"> {{post.score}}</p>
-                <i id="arrow" class="fa fa-arrow-down" aria-hidden="true"></i>
+                <i (click)="downvote(post.id)" id="arrow" class="fa fa-arrow-down" aria-hidden="true"></i>
                 <i id="comments" class="fa fa-comments" aria-hidden="true"></i>
-                <p id="comments" > Comments ({{post.forumComments.length}})</p>
+                <p id="comments" (click)="showComments(post.id)" >  Comments ({{post.forumComments.length}})</p>
                 </div>
             </div>
 
+            
+            <div *ngIf="(post.forumComments.length != 0) && (onhover == post.id)" class="card">
+
+                <!-- Contenedor Principal -->
+                 <div class="comments-container">
+                     <ul id="comments-list" class="comments-list">
+                     <li *ngFor="let comment of post.forumComments" >
+                         <div class="comment-main-level">
+                             <!-- Avatar -->
+                             <div class="comment-avatar"><img src="https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg" alt=""></div>
+                             <!-- Contenedor del Comentario -->
+                             <div class="comment-box">
+                                 <div class="comment-head">
+                                 <h6 class="comment-name"><a href="http://creaticode.com/blog">{{comment.user.first_name}} {{comment.user.last_name}}</a></h6>
+                                 <span>{{comment.datePublished}}</span>
+                                
+                                 </div>
+                                 <div class="comment-content">
+                                     {{comment.text}}
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- responses -->
+                         <ul class="comments-list reply-list">
+                             <li *ngFor="let reply of comment.replies">
+                                 <!-- Avatar -->
+                                 <div class="comment-avatar"><img src="https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg" alt=""></div>
+                                 <!-- Contenedor del Comentario -->
+                                 <div class="comment-box">
+                                 <div class="comment-head">
+                                     <h6 class="comment-name"><a href="http://creaticode.com/blog">{{reply.user.first_name}} {{reply.user.last_name}}</a></h6>
+                                     <span>{{reply.datePublished}}</span>
+                                 </div>
+                                 <div class="comment-content">
+                                     {{reply.text}}
+                                 </div>
+                                 </div>
+                             </li>
+                         </ul>
+                     </li>
+                     </ul>
+                 </div>
+                 <mat-form-field style="margin: 2%;" class="example-full-width">
+                    <input #inputcmt (keyup.enter)="onComment(inputcmt.value)" matInput placeholder="Write a comment" type="text">
+                  </mat-form-field>
+             </div>
+
         </div>
+    </div>  
+    <div class="col-md-6">
+        <h1>ADS</h1>
     </div>
 
 </div>
