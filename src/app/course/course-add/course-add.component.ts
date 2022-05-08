@@ -25,26 +25,10 @@ export class AddCoursesComponent implements OnInit {
     this.cs.getAllCourses().subscribe(res=>{this.courses=res; console.log(this.courses);});
   }
 
-  save() {
-    /*this.cs.addCourse(this.course).subscribe(data => {
-      console.log(data)
-      this.course = new Course();
-      this.reloadData();
-    }, 
-    error => console.log(error));*/
-
-      var course  = new Course();
-      this.cs.addCourse(course).subscribe(res => {console.log(res)})
-    }
-  
-
-  onSubmit() {
-    this.submitted = true;
-    this.save();    
+  save(name : string, mod : string) {
+    var course  = new Course();
+    course.name = name
+    course.modality = mod
+    this.cs.addCourse(course, 1).subscribe(res => {console.log(res)})
   }
-
-
-  
-
-
 }

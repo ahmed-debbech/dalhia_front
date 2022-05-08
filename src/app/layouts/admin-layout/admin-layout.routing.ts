@@ -8,11 +8,15 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import { CoursesComponent } from 'app/courses/courses.component';
-import { CertificateComponent } from 'app/certificate/certificate.component';
-import { CourseUpdateComponent } from 'app/course-update/course-update.component';
-import { AddCoursesComponent } from 'app/course-add/course-add.component';
-import { CourseDetailsComponent } from 'app/course-details/course-details.component';
+import { CoursesComponent } from 'app/course/courses/courses.component';
+import { CertificateComponent } from 'app/certificatee/certificate/certificate.component';
+import { CourseUpdateComponent } from 'app/course/course-update/course-update.component';
+import { AddCoursesComponent } from 'app/course/course-add/course-add.component';
+import { CourseDetailsComponent } from 'app/course/course-details/course-details.component';
+import { AllphasesComponent } from 'app/phase/allphases/allphases.component';
+import { PhaseAddComponent } from 'app/phase/phase-add/phase-add.component';
+import { PhaseDetailsComponent } from 'app/phase/phase-details/phase-details.component';
+import { PhaseUpdateComponent } from 'app/phase/phase-update/phase-update.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -65,11 +69,17 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
+
     { path: 'courses',        component : CoursesComponent},
     { path: 'courses/:id/certificates',        component : CertificateComponent},
     { path: 'courses/addcourses',        component : AddCoursesComponent},
     { path: 'courses/:id/updatecourse' , component: CourseUpdateComponent},
-    { path: 'courses/:id/detailscourse/:id/upc' , component: CourseUpdateComponent},
-    { path: 'courses/:id/detailscourse', component: CourseDetailsComponent}
+    { path: 'courses/:id/detailscourse/:idd/upc' , component: CourseUpdateComponent},
+    { path: 'courses/:id/detailscourse', component: CourseDetailsComponent},
+
+    { path: 'courses/:id/detailscourse/:idd/allphases', component: AllphasesComponent},
+    { path: 'courses/addcourses/addphases', component: PhaseAddComponent},
+    { path: 'allphases/:id/updatephase', component: PhaseUpdateComponent},
+    { path: 'allphases/:id/detailsphase', component: PhaseDetailsComponent},
 
 ];

@@ -27,18 +27,23 @@ export class CourseUpdateComponent implements OnInit {
       }, error => console.log(error));
   }
 
-  updateCourse() {
-    this.cs.updateCourse(this.id, this.course)
+
+
+  save(name : string, mod : string, price : number , courseStatus : string) {
+    var course  = new Course();
+    course.id = Number(this.route.snapshot.paramMap.get('id'))
+    course.name = name
+    course.modality = mod
+    course.price = price
+    course.courseStatus = courseStatus
+    this.cs.updateCourse(course)
       .subscribe(data => {
         console.log(data);
         this.course = new Course();
         this.gotoList();
       }, error => console.log(error));
   }
-
-  onSubmit() {
-    this.updateCourse();    
-  }
+  
 
   gotoList() {
     this.router.navigate(['/courses']);

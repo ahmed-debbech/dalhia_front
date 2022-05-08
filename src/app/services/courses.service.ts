@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Course } from 'app/models/Course';
 import { Observable } from 'rxjs';
 
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 export class CoursesService {
 
 
-  constructor( private http:HttpClient ) { }
+  constructor( private http:HttpClient) { }
 
   baseUrl = "http://localhost:8089/api/v1/course/course";
 
@@ -22,14 +23,14 @@ export class CoursesService {
     //return this.http.get<Course>(this.baseUrl+ "/" + id);
   }
 
-  addCourse(course: Object): Observable<Object> {
+
+  addCourse(course: Course, idcat : number): Observable<Course> {
     //return this.http.post(`${this.baseUrl}` + "/addcourses" , course);
-    return this.http.post<Course>(this.baseUrl+ "/addcourses" , course);
+    return this.http.post<Course>(this.baseUrl+ "/" + idcat + "/add" , course);
   }
 
-  updateCourse(id: number, value: any): Observable<Object> {
-    //return this.http.put(`${this.baseUrl}/${id}`, value);
-    return this.http.put<any>(this.baseUrl + "/" + id , value);
+  updateCourse(cors : Course): Observable<Course> {
+    return this.http.put<Course>(this.baseUrl + "/" + cors.id , cors);
   }
 
   deleteCourse(id: number) : Observable<any> {

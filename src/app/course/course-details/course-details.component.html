@@ -28,7 +28,8 @@
               Rate : {{course.rate}}
             </p>
             <p class="card-description">
-              Phases Number : {{course.nbrPhases}}
+              Phases Number : {{course.nbrPhases}} <a [routerLink]="[course.id,'allphases']" matTooltip="Course phases" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon"><i class="material-icons">remove_red_eye</i></a>
+
             </p>
             <p class="card-description">
               Number of Enrolls : {{course.nbrOfEnrolls}}

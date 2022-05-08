@@ -7,18 +7,23 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { CoursesComponent } from './courses/courses.component';
-import { CertificateComponent } from './certificate/certificate.component';
+import { CoursesComponent } from './course/courses/courses.component';
+import { CertificateComponent } from './certificatee/certificate/certificate.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule, MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { CourseDetailsComponent } from './course-details/course-details.component';
-import { CourseUpdateComponent } from './course-update/course-update.component';
-import { AddCoursesComponent } from './course-add/course-add.component';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { CourseDetailsComponent } from './course/course-details/course-details.component';
+import { CourseUpdateComponent } from './course/course-update/course-update.component';
+import { AddCoursesComponent } from './course/course-add/course-add.component';
+import { MatGridListModule} from '@angular/material/grid-list';
+import { AllphasesComponent } from './phase/allphases/allphases.component';
+import { PhaseUpdateComponent } from './phase/phase-update/phase-update.component';
+import { PhaseDetailsComponent } from './phase/phase-details/phase-details.component';
+import { PhaseAddComponent } from './phase/phase-add/phase-add.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   imports: [
@@ -36,7 +41,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatSelectModule,
     MatTooltipModule,
     MatNativeDateModule,
-    MatGridListModule
+    MatGridListModule,
+    MatRadioModule
   ],
   declarations: [
     AppComponent,
@@ -46,6 +52,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
     CourseDetailsComponent,
     AddCoursesComponent,
     CourseUpdateComponent,
+    AllphasesComponent,
+    PhaseUpdateComponent,
+    PhaseDetailsComponent,
+    PhaseAddComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
