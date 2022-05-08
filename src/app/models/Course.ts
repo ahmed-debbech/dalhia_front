@@ -3,9 +3,10 @@ export class Course {
     name : string;
     price : number;
     modality : string;
-    dateAdded : string;
-    datePublished : string;
-    dateRemoved : string;
+    dateAdded : Date;
+    courseStatus : string;
+    datePublished : Date;
+    dateRemoved : Date;
     nbrPhases : number;
     rate : number;
     nbrOfEnrolls : number;

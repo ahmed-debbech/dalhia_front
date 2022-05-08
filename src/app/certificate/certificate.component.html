@@ -47,3 +47,42 @@
         </div>
     </div>
 </div>
+
+
+<!--<table width="100%">
+    <tbody>
+        <tr>
+            <td align="center"> <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <div style="font-size:30pt">
+                    $courseSession.getCourse().getName() - $courseSession.getCourse().getCode()
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                Successfully completed by <br/>
+                <div style="font-size:30pt">
+                    ${student.firstName} ${student.lastName}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                #if ($gradingScheme.getDisplayType().name() == "LETTER")
+                    Grade: $grade.getGrade()
+                #elseif ($gradingScheme.getDisplayType().name() == "PERCEN")
+                    Score: $Utility.format($grade.getPoints(), 0, 2)%
+                #elseif ($gradingScheme.getDisplayType() == "POINT")
+                    Score: $Utility.format($grade.getPoints(), 0, 2) / $Utility.format($gradingScheme.getMaxScore(), 0, 2)
+                #end
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <div style="font-size:20pt">
+                    <i>$DateFormatter.getFormattedDate($grade.getAwardDate(), "dd MMM yyyy")</i>
+                </div>
+            </td>
+        </tr>
+    <tbody>
+</table> -->

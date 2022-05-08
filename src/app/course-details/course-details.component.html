@@ -1,0 +1,45 @@
+<div class="main-content">
+  <div class="col-md-4" layout-align="center">
+    <div  class="card card-profile">
+        <div class="card-avatar">
+            <a>
+                <img class="img" src="./assets/img/courses/kitchen.jpg"/>
+            </a>
+        </div>
+        <div class="card-body">
+            <h6 class="card-category text-gray">{{course.id}}</h6>
+            <h4 class="card-title">{{course.name}}</h4>
+            <p class="card-description">
+              Modality : {{course.modality}}
+            </p>
+            <p class="card-description">
+              Course Status : {{course.courseStatus}}
+            </p>
+            <p class="card-description">
+              Adding Date : {{course.dateAdded}}
+            </p>
+            <p class="card-description">
+              Publishing Date : {{course.datePublished}}
+            </p>
+            <p class="card-description">
+              Removing Date : {{course.dateRemoved}}
+            </p>
+            <p class="card-description">
+              Rate : {{course.rate}}
+            </p>
+            <p class="card-description">
+              Phases Number : {{course.nbrPhases}}
+            </p>
+            <p class="card-description">
+              Number of Enrolls : {{course.nbrOfEnrolls}}
+            </p>
+            <p class="card-description">
+              Price : {{course.price}}
+            </p>
+            <a [routerLink]="[course.id,'upc']" matTooltip="Edit Course" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon"><i class="material-icons">update</i></a>
+            <button mat-raised-button (click) = "deleteCourse(course.id)" matTooltip="Delete Course" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon"> <i class="material-icons">delete</i></button>                       
+            <button (click)="list()" matTooltip="Course Details" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon" ><i class="material-icons">arrow_back</i></button><br>
+          </div>
+  </div>
+</div>  
+

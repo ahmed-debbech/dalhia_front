@@ -29,7 +29,7 @@ const routes: Routes =[
        useHash: true
     })
   ],
-  exports: [
+  exports: [ RouterModule
   ],
 })
 export class AppRoutingModule { }
