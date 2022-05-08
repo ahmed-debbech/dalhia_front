@@ -12,6 +12,10 @@ import { UserComponent } from 'app/user/user.component';
 import { AuthComponent } from 'app/auth/auth.component';
 
 import { AuthAdminGuard } from 'app/auth/auth-admin.guard';
+import { PlansComponent } from 'app/plans/plans.component';
+import { ProductsComponent } from 'app/products/products.component';
+import { CommandsComponent } from 'app/commands/commands.component';
+import { SubscriptionsComponent } from 'app/subscriptions/subscriptions.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -61,6 +65,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     {path : 'auth' , component: AuthComponent},
     { path: 'user',      component: UserComponent  ,canActivate : [AuthAdminGuard]  },
+    { path: 'plans',      component: PlansComponent  ,canActivate : [AuthAdminGuard]  },
+    { path: 'subscriptions',      component: SubscriptionsComponent  ,canActivate : [AuthAdminGuard]  },
+    { path: 'products',      component: ProductsComponent  ,canActivate : [AuthAdminGuard]  },
+    { path: 'commands',      component: CommandsComponent  ,canActivate : [AuthAdminGuard]  },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },

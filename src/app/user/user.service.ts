@@ -1,10 +1,9 @@
 import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from 'app/auth/auth.service';
 import { User } from 'app/models/user';
 import { exhaustMap, Observable, take } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -42,7 +41,9 @@ export class UserService {
     return this.http.put<User>(this.url+id,user);
   }
 
-  getUsersPdf() {
-    return this.http.get(this.url+"get-users-pdf")
+  getUsersPdf() : any{
+    var mediaType = 'application/pdf';
+    return this.http.get(this.url+"get-users-pdf", {responseType: 'blob'})
+    
   }
 }

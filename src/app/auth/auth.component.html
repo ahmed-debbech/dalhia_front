@@ -3,6 +3,10 @@
 		<div class="alert alert-danger" *ngIf="error">
 			<p>{{error}} </p>
 		</div>
+		<div class="alert alert-success" *ngIf="isSignUp">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<p><strong>Congratulations!</strong> Welcome! You’re almost there,  <strong>please verify your email before logging in.</strong></p>
+		  </div>
 		<div *ngIf="isLoading" style="text-align :center;">
 			<app-loading-spinner></app-loading-spinner>
 		</div>
@@ -16,10 +20,12 @@
 				<div class="group">
 					<label for="user" class="label">Email</label>
 					<input id="user" type="email" class="input" ngModel name="email" email required>
+					
 				</div>
 				<div class="group">
 					<label for="password" class="label">Password</label>
 					<input id="password" type="password" class="input" ngModel name="password" required minlength="8" data-type="password">
+					
 				</div>
 				<div class="group">
 					<button type="submit" class="button" [disabled]="!loginForm.valid" >Sign In</button>

@@ -2,6 +2,7 @@ import { HttpResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { User } from 'app/models/user';
+import { saveAs } from 'file-saver';
 import * as moment from 'moment';
 import { Subscription } from 'rxjs';
 import { UserService } from './user.service';
@@ -27,10 +28,7 @@ editMode = false;
 birthDate : any
 subscription : Subscription;
 
-authRequest: any = {
-  "email" : "boughattasaziz@gmail.csom",
-  "password" : "123"
-}
+
 
   constructor(private service :UserService  ) { }
 
@@ -72,7 +70,6 @@ authRequest: any = {
   onSubmit() {
     this.check=true
     if (this.editMode){
-      console.log('hello')
       console.log(this.signupForm.value)
       this.service.updateUser(this.user.userId,this.signupForm.value).subscribe(() => {
         this.check= false;
@@ -91,7 +88,12 @@ authRequest: any = {
   }
 
   onDelete(id:string) {
-    this.service.deleteUser(id).subscribe();
+    this.check=true
+    this.service.deleteUser(id).subscribe(()=> {
+      this.check=false;
+    }, error => {
+      this.error = error.message
+    });
   }
 
   onUpdate(id : string) {
@@ -113,18 +115,6 @@ authRequest: any = {
      
   }
 
-  // getAccessToken(authRequest) {
-  //   let resp = this.service.generateToken(authRequest);
-  //   resp.subscribe(
-  //     (data : HttpResponse<any>) => {
-  //       console.log(data.headers.get('Authorization'))
-  //     }
-  //   )
-  // }
-
-  onEditItem(){
-
-  }
 
   dateValidator(control: FormControl): { [s: string]: boolean } {
     if (control.value) {
@@ -143,8 +133,17 @@ authRequest: any = {
   }
 
   getUsersPDF() {
-    this.service.getUsersPdf().subscribe();
-  }
+    
+    
+    this.service.getUsersPdf().subscribe((response : any) => {
+      let blob:any = new Blob([response], { type: 'application/pdf; charset=utf-8' });
+			const url = window.URL.createObjectURL(blob);
+			window.open(url);
+			saveAs(blob, 'user.pdf');
+			}), (error: any) => console.log('Error downloading the file'),
+			() => console.info('File downloaded successfully');
+	}
+  
 
 }
 

@@ -17,6 +17,7 @@ export class AuthComponent implements OnInit {
   user : User = new User()
   isLoading = false;
   error : string = null
+  isSignUp=false;
   constructor(private authService : AuthService , private router : Router) { }
 
   ngOnInit(): void {
@@ -32,8 +33,10 @@ export class AuthComponent implements OnInit {
       console.log(responseData.headers.get('authorization'))
       console.log(responseData.headers.get('userid'))
       console.log(responseData.headers.get('role'))
+      
       this.isLoading=false
       this.router.navigate(['/dashboard']);
+     
   }, errorMessage => {
     this.error = errorMessage
       this.isLoading=false
@@ -44,6 +47,7 @@ export class AuthComponent implements OnInit {
   onSubmitR(form : NgForm) {
 
     if (!form.valid) { 
+      console.log('het')
       return;
     }
 
@@ -63,6 +67,8 @@ export class AuthComponent implements OnInit {
     this.authService.signup(this.user).subscribe(data => {
      console.log(data)
      this.isLoading=false
+     this.isSignUp=true
+     console.log(this.isSignUp)
     } , errorMessage => {
       console.log(errorMessage)
       this.error = errorMessage

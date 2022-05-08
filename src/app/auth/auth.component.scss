@@ -149,3 +149,8 @@ a{color:inherit;text-decoration:none}
 	text-align:center;
 	color: #fff;
 }
+
+input.ng-invalid.ng-touched  {
+    border : 1px solid red
+}
+

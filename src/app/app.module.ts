@@ -11,6 +11,10 @@ import { UserComponent } from './user/user.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { PlansComponent } from './plans/plans.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import { ProductsComponent } from './products/products.component';
+import { CommandsComponent } from './commands/commands.component';
 
 
 
@@ -30,7 +34,11 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     AdminLayoutComponent,
     UserComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    PlansComponent,
+    SubscriptionsComponent,
+    ProductsComponent,
+    CommandsComponent
   ],
   providers: [{provide : HTTP_INTERCEPTORS , useClass : AuthInterceptorService, multi : true}],
   bootstrap: [AppComponent]
