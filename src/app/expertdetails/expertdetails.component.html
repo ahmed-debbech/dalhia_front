@@ -1,0 +1,49 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" *ngIf="exp">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Profile</h4>
+
+                    </div>
+                    <div class="card-body">
+
+                        <div class="row">
+                            {{exp.first_name}} {{exp.last_name}} {{exp.city}} {{exp.address}} {{exp.phone}} {{exp.email}} {{exp.start_hour}} {{exp.end_hour}}
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+
+                        <img class="img" src="./assets/img/faces/marc.jpg" />
+
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-category text-gray">{{exp.job}}</h6>
+                        <h4 class="card-title">{{exp.first_name}} {{exp.last_name}}</h4>
+                        <p class="card-description">
+                            Address : {{exp.address}}
+                        </p>
+                        <p class="card-description">
+                            Phone : {{exp.phone}}
+                        </p>
+                        <p class="card-description">
+                            Email : {{exp.email}}
+                        </p>
+                        <a class="btn btn-primary btn-round">Review</a>
+                        <a class="btn btn-info btn-round">Take appointment</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

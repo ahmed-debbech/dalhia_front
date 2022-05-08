@@ -1,0 +1,42 @@
+<div class="main-content">
+
+    <div class="container-fluid">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div>
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title ">Associations</h4>
+                                <p class="card-category"> current available associations</p>
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-profile" *ngFor="let a of associations">
+                                    <div *ngIf="a.role == 'ASSOCIATION'">
+                                        <div class="card-body">
+                                            <h6 class="card-category text-gray">{{a.activity}}</h6>
+                                            <h4 class="card-title">{{a.first_name}}</h4>
+                                            <p class="card-description">
+                                                Address: {{a.address}}
+                                            </p>
+                                            <p class="card-description">Phone: {{a.phone}}</p>
+
+
+                                            <button class="btn btn-info btn-round">Send Request</button>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

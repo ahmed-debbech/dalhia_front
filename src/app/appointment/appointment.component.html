@@ -1,0 +1,66 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div>
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title ">Appointments</h4>
+                                <p class="card-category"> current available appointments</p>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                        <th>
+                                            Date
+                                        </th>
+                                        <th>
+                                            Hour
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>
+                                            Actions
+                                        </th>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div *ngFor="let a of apps">
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                {{a.appDate| date: 'dd/MM/yyyy'}} </td>
+
+                                            <td>
+                                                {{a.appHour}}
+                                            </td>
+                                            <td>
+                                                {{a.appStatus}}
+                                            </td>
+
+                                            <td>
+
+                                                <button mat-raised-button type="submit" class="btn btn-info">Edit</button>
+                                                <button mat-raised-button type="submit" (click)="deleteAppointment(a)" class="btn btn-danger">Delete</button>
+
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
