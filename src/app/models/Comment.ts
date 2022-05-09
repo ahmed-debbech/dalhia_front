@@ -1,3 +1,4 @@
+import { CommentReaction } from "./CommentReaction";
 import { User } from "./user";
 
 export class Comment{
@@ -8,4 +9,5 @@ export class Comment{
     banned : boolean;
     replies : Comment[];
     user : User;
+    commentReactionList : CommentReaction[];
 }

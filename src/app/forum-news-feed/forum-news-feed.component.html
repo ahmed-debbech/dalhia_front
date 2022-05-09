@@ -76,10 +76,13 @@
                              <!-- Contenedor del Comentario -->
                              <div class="comment-box">
                                  <div class="comment-head">
-                                 <h6 class="comment-name"><a href="http://creaticode.com/blog">{{comment.user.first_name}} {{comment.user.last_name}}</a></h6>
+                                 <h6 class="comment-name"><a href="#">{{comment.user.first_name}} {{comment.user.last_name}}</a></h6>
                                  <span>{{comment.datePublished}}</span>
-                                 <button mat-button (click)="openDialog()"><img width="12px" height="12px" src="/assets/reactions_icons/like.png"></button>
-                                 </div>
+                                 <button mat-button (click)="openDialog(comment.id)">
+                                    <img width="12px" height="12px" src="/assets/reactions_icons/like.png">
+                                    ({{comment.commentReactionList.length}}) 
+                                 </button>
+                                </div>
                                  <div class="comment-content">
                                      {{comment.text}}
                                  </div>
@@ -95,7 +98,7 @@
                                  <div class="comment-head">
                                      <h6 class="comment-name"><a href="#">{{reply.user.first_name}} {{reply.user.last_name}}</a></h6>
                                      <span>{{reply.datePublished}}</span>
-                                     <button mat-button (click)="openDialog()"><img width="12px" height="12px" src="/assets/reactions_icons/like.png"></button>
+                                     <button mat-button (click)="openDialog(reply.id)"><img width="12px" height="12px" src="/assets/reactions_icons/like.png">({{reply.commentReactionList.length}})</button>
                                  </div>
                                  <div class="comment-content">
                                      {{reply.text}}

@@ -4,6 +4,8 @@ import { Comment } from 'app/models/Comment';
 import { TopicService } from 'app/services/topic.service';
 import { CommentService } from 'app/services/comment.service';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { CommentReaction } from 'app/models/CommentReaction';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'forum-news-feed',
@@ -26,10 +28,10 @@ export class ForumNewsFeedComponent implements OnInit {
     this.ts.getAllTopics().subscribe(res => {this.listPosts = res; console.log(this.listPosts)})
   }
 
-  openDialog() {
+  openDialog(cmt : number) {
     this.dialog.open(DialogDataExampleDialog, {
       data: {
-        animal: 'panda',
+        cmt_id: cmt
       },
     });
   }
@@ -64,7 +66,8 @@ export class ForumNewsFeedComponent implements OnInit {
 }
 
 export interface DialogData {
-  reacts: 'Wow' | 'Crying' | 'Angry' | 'Love' | 'Care' | 'Haha' | 'Like';
+  reacts: 'Wow' | 'Crying' | 'Angry' | 'Love' | 'Care' | 'Haha' | 'Like',
+  cmt_id : 2
 }
 
 @Component({
@@ -72,5 +75,18 @@ export interface DialogData {
   templateUrl: './dialog.html',
 })
 export class DialogDataExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+  constructor(private router : Router, private cs : CommentService, @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    this.done = false;
+  }
+
+  done : boolean = false;
+
+  react(r : string){
+    var cmt_rct = new CommentReaction();
+    cmt_rct.reactionType = r;
+    this.cs.sendReaction(cmt_rct, this.data.cmt_id).subscribe(res => {console.log("reaction sent");})
+    this.done = true;
+    console.log(this.done);
+    
+  }
 }
