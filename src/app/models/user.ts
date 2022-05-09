@@ -26,7 +26,7 @@ export class User {
         ban?: boolean
         courses?: any
         courseProgresses?: any
-        subscriptions?: any
+        subscriptionId?: number
         commands?: any
         topics?: any
         appointmentLists?: any

@@ -115,6 +115,9 @@
                                         Address
                                     </th>
                                     <th>
+                                        SubscriptionId
+                                    </th>
+                                    <th>
                                         Delete
                                     </th>
                                     <th>
@@ -152,6 +155,9 @@
                                         </td>
                                         <td>
                                             {{user.address}}
+                                        </td>
+                                        <td>
+                                            {{user.subscriptionId ===null? 'Not Subscribed' : user.subscriptionId}}
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-danger" (click)="onDelete(user.userId)" onClick="window.location.reload();" [disabled]="check">Delete</button>
