@@ -27,14 +27,9 @@
                                             Actions
                                         </th>
                                     </thead>
-                                </table>
-                            </div>
-                        </div>
-                        <div *ngFor="let a of apps">
-                            <div class="table-responsive">
-                                <table class="table">
 
-                                    <tbody>
+
+                                    <tbody *ngFor="let a of apps">
                                         <tr>
                                             <td>
                                                 {{a.appDate| date: 'dd/MM/yyyy'}} </td>
@@ -56,11 +51,16 @@
                                         </tr>
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
+
+
+
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

@@ -52,6 +52,15 @@ export class ReviewService {
     return this.http.get<Review>(this.BaseURI+ '/review/retrieve-all-reviews');
   }
 
+  getReviewsByExp(id:number){
+    return this.http.get<Review>(this.BaseURI+'/review/retrieve-expert-reviews/'+ id);
+  }
+   
+  getExpertScore(id:number){
+    return this.http.get(this.BaseURI+ '/review/retrieve-expert-score/'+ id);
+
+  }
+
   deleteReview(id:number){
     return this.http.delete(this.BaseURI+ '/review/remove-review/'+ id);
 

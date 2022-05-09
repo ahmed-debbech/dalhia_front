@@ -14,7 +14,7 @@ import { User } from 'app/model/user';
 export class AppointmentComponent implements OnInit {
 
   constructor(public service:AppointmentService, public dialog: MatDialog) { }
-  experts:any;
+  
   apps:any;
   app : Appointment;
   ngOnInit(): void {

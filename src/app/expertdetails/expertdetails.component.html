@@ -1,16 +1,46 @@
 <div class="main-content">
     <div class="container-fluid">
-        <div class="row" *ngIf="exp">
+        <div class="row">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header card-header-danger">
+                <div class="card" *ngIf="exp">
+                    <div class="card-header card-header-info">
                         <h4 class="card-title">Profile</h4>
-
+                        <p class="card-category">All available expert details.</p>
                     </div>
                     <div class="card-body">
 
                         <div class="row">
-                            {{exp.first_name}} {{exp.last_name}} {{exp.city}} {{exp.address}} {{exp.phone}} {{exp.email}} {{exp.start_hour}} {{exp.end_hour}}
+                            <p> {{exp.first_name}}</p> {{exp.last_name}} {{exp.city}} {{exp.address}} {{exp.phone}} {{exp.email}} {{exp.start_hour}} {{exp.end_hour}}
+
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Reviews</h4>
+                        <p class="card-category">Current reviews by users.</p>
+                    </div>
+                    <div class="card-body" *ngFor="let rv of revs">
+
+                        <div class="row">
+                            <mat-card class="example-card">
+                                <mat-card-title>{{rv.reviewHeader}}</mat-card-title>
+                                <mat-card-subtitle>{{rv.reviewDate | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
+                                <mat-card-content>
+
+                                    <p>{{rv.reviewBody}}</p>
+
+                                </mat-card-content>
+                                <button (click)="editReview(rv.reviewId)" class="btn btn-info btn-round">Edit</button>
+                                <button (click)="deleteReview(rv.reviewId)" class="btn btn-danger btn-round">Remove</button>
+                            </mat-card>
+
+
                         </div>
 
                         <div class="clearfix"></div>
@@ -38,8 +68,21 @@
                         <p class="card-description">
                             Email : {{exp.email}}
                         </p>
-                        <a class="btn btn-primary btn-round">Review</a>
-                        <a class="btn btn-info btn-round">Take appointment</a>
+
+
+                        <div>
+
+
+                            <h4>Score : {{score}}/5 </h4>
+
+
+
+                        </div>
+
+
+                        <button [routerLink]="['/add-review', exp.id]" class="btn btn-primary btn-round">Review</button>
+
+                        <button [routerLink]="['/add-appointment', exp.id]" class="btn btn-info btn-round">take appointment</button>
 
                     </div>
                 </div>

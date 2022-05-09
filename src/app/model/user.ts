@@ -11,6 +11,6 @@ export class User {
  public phone:string,
  public speciality:string,
  public state: string,
- public userId: string,
+ public id: number,
  public zipCode: number,){}
 }
