@@ -1,1 +1,70 @@
-<p>commands works!</p>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Simple Table</h4>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        UserID
+                                    </th>
+                                    <th>
+                                        IdProducts
+                                    </th>
+                                    <th>
+                                        Quantity
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let command of commands">
+                                        <td>
+                                            {{command.commandId}}
+                                        </td>
+                                        <td>
+                                            {{command.name}}
+                                        </td>
+                                        <td>
+                                            {{command.email}}
+                                        </td>
+                                        <td>
+                                            {{command.userId}}
+                                        </td>
+                                        <td >
+                                            {{command.idProducts}}
+                                        </td>
+                                        <td >
+                                            {{command.quantity}}
+                                        </td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                            <h3 *ngIf="isFetching && !error" style=" margin: 0 auto;
+                            width: 100px;">Loading..</h3>
+                            <div class="alert alert-danger" *ngIf="error">
+                                <h1>An Error Occured! </h1>
+                                <p>{{error}} </p>
+                                <button class="btn btn-danger" (click)="onHandleError()">Okey</button>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+  </div>
+  

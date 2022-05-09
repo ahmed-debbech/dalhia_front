@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommandsAdmin } from 'app/models/commands-admin';
+import { CommandsService } from './commands.service';
 
 @Component({
   selector: 'commands',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommandsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private commandsService : CommandsService) { }
 
+  error=null
+  isFetching = true;
+  commands : CommandsAdmin[]
   ngOnInit(): void {
+    this.commandsService.getCommands().subscribe((data)=> {
+      console.log(data)
+      this.commands = data
+      this.isFetching=false
+    } , error => {
+      this.isFetching=false
+        console.log(error)
+      this.error = error.message;
+    })
   }
 
 }
