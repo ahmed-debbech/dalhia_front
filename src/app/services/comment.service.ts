@@ -16,7 +16,9 @@ export class CommentService {
   writeComment(cmt : Comment, topicid : number) : Observable<Comment>{
     return this.http.post<Comment>(this.baseUrl + "/topics/" + topicid + "/comments", cmt)
   }
-
+  writeReply(reply : Comment, cmt : number) : any{
+    return this.http.post<any>(this.baseUrl + "/comments/" + cmt + "/replies", reply)
+  }
   sendReaction(rct : CommentReaction, topicid : number) : any{
     return this.http.post<any>(this.baseUrl + "/comments/" + topicid + "/reactions", rct)
   }

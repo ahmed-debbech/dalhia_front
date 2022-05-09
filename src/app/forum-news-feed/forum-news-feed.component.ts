@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 export class ForumNewsFeedComponent implements OnInit {
 
   onhover : number = undefined;
+  onReplyCmt : number = undefined;
 
   constructor(public dialog: MatDialog, private ts : TopicService, private cs : CommentService) { }
 
@@ -55,6 +56,22 @@ export class ForumNewsFeedComponent implements OnInit {
       this.onhover = undefined;
     }
     console.log(this.onhover);
+  }
+
+  onReply(tex : string, cmt : number){
+    this.onReplyCmt = undefined;
+    var comment = new Comment();
+    comment.text = tex
+  console.log(cmt);
+      
+    this.cs.writeReply(comment, cmt).subscribe(res => {console.log(res); this.showAll()})
+  }
+  openReply(cmt_id : number){
+    if(this.onReplyCmt == undefined){
+      this.onReplyCmt = cmt_id;
+    }else{
+      this.onReplyCmt = undefined;
+    }
   }
 
   onComment(tex : string, id : number){

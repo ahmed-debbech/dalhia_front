@@ -74,7 +74,7 @@
                              <!-- Avatar -->
                              <div class="comment-avatar"><img src="/assets/img/download.jpeg" alt=""></div>
                              <!-- Contenedor del Comentario -->
-                             <div class="comment-box">
+                             <div  class="comment-box">
                                  <div class="comment-head">
                                  <h6 class="comment-name"><a href="#">{{comment.user.first_name}} {{comment.user.last_name}}</a></h6>
                                  <span>{{comment.datePublished}}</span>
@@ -82,9 +82,13 @@
                                     <img width="12px" height="12px" src="/assets/reactions_icons/like.png">
                                     ({{comment.commentReactionList.length}}) 
                                  </button>
+                                 <a (click)="openReply(comment.id)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">reply</i></a>
                                 </div>
                                  <div class="comment-content">
                                      {{comment.text}}
+                                     <mat-form-field *ngIf="comment.id == onReplyCmt" style="margin: 2%;" class="example-full-width">
+                                        <input #replycmt (keyup.enter)="onReply(replycmt.value, comment.id)" matInput placeholder="Write a reply" type="text">
+                                      </mat-form-field>
                                  </div>
                              </div>
                          </div>
@@ -99,9 +103,13 @@
                                      <h6 class="comment-name"><a href="#">{{reply.user.first_name}} {{reply.user.last_name}}</a></h6>
                                      <span>{{reply.datePublished}}</span>
                                      <button mat-button (click)="openDialog(reply.id)"><img width="12px" height="12px" src="/assets/reactions_icons/like.png">({{reply.commentReactionList.length}})</button>
+                                     <a (click)="openReply(reply.id)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">reply</i></a>
                                  </div>
                                  <div class="comment-content">
                                      {{reply.text}}
+                                     <mat-form-field *ngIf="reply.id == onReplyCmt" style="margin: 2%;" class="example-full-width">
+                                        <input #replycmt (keyup.enter)="onReply(replycmt.value, reply.id)" matInput placeholder="Write a reply" type="text">
+                                      </mat-form-field>
                                  </div>
                                  </div>
                              </li>
