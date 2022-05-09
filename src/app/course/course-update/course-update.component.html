@@ -27,13 +27,17 @@
                 </div>
                 <br>
                 <div class="row">
-                  <mat-radio-group aria-label="Course Status">
-                    <mat-radio-button #courseStatus value="1"  style ="margin-left: 16px;" >Accept</mat-radio-button>
-                    <mat-radio-button #courseStatus value="2"  style ="margin-left: 16px;">Reject</mat-radio-button>
+                  <mat-radio-group aria-label="Course Status" #courseStatus>
+                    <mat-radio-button value="1"  style ="margin-left: 16px;" >Accept</mat-radio-button>
+                    <mat-radio-button value="2"  style ="margin-left: 16px;">Reject</mat-radio-button>
                   </mat-radio-group>
                 </div>
-
-                <button (click)="save(name.value , mod.value , price.value , courseStatus.value)" mat-raised-button type="submit" class="btn btn-danger pull-right">UPDATE</button>
+                <div class="row">
+                  <div class="col-md-4">
+                    <a routerLink="addphases"> + Add new phase </a> 
+                  </div>
+                </div>
+                <button (click)="save(name.value , mod.value , price.value , courseStatus.selected)" mat-raised-button type="submit" class="btn btn-danger pull-right">UPDATE</button>
                 <div class="clearfix"></div>
             </form>
         </div>
