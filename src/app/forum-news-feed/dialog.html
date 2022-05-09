@@ -1,0 +1,18 @@
+<div mat-dialog-content>
+    Pick a reaction
+<ul>
+    
+    <li>
+    <span *ngIf="data.animal === 'Like'"></span> <img width="64px" height="64px" src="/assets/reactions_icons/like.png">
+    </li>
+    <li>
+        <span *ngIf="data.animal === 'Love'"></span> <img width="64px" height="64px" src="/assets/reactions_icons/love.png">
+        </li>
+    <li>
+    <span *ngIf="data.animal === 'Haha'"></span> <img width="64px" height="64px" src="/assets/reactions_icons/haha.png">
+    </li>
+    <li>
+    <span *ngIf="data.animal === 'Crying'"></span> <img width="64px" height="64px" src="/assets/reactions_icons/sad.png">
+    </li>
+</ul>
+</div>

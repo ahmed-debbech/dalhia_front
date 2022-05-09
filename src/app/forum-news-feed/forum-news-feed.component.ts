@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Topic } from 'app/models/Topic';
 import { Comment } from 'app/models/Comment';
 import { TopicService } from 'app/services/topic.service';
+import { CommentService } from 'app/services/comment.service';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'forum-news-feed',
@@ -12,7 +14,7 @@ export class ForumNewsFeedComponent implements OnInit {
 
   onhover : number = undefined;
 
-  constructor(private ts : TopicService) { }
+  constructor(public dialog: MatDialog, private ts : TopicService, private cs : CommentService) { }
 
   listPosts : Topic[] = [];
   ngOnInit(): void {
@@ -22,6 +24,14 @@ export class ForumNewsFeedComponent implements OnInit {
 
   showAll(){
     this.ts.getAllTopics().subscribe(res => {this.listPosts = res; console.log(this.listPosts)})
+  }
+
+  openDialog() {
+    this.dialog.open(DialogDataExampleDialog, {
+      data: {
+        animal: 'panda',
+      },
+    });
   }
 
   upvote(id : number){
@@ -45,10 +55,22 @@ export class ForumNewsFeedComponent implements OnInit {
     console.log(this.onhover);
   }
 
-  onComment(tex : string){
+  onComment(tex : string, id : number){
     console.log(tex);
     var comment = new Comment();
     comment.text = tex
-    this.ts.addNewComment(top).subscribe(res => {console.log(res)})
+    this.cs.writeComment(comment, id).subscribe(res => {console.log(res); this.showAll()})
   }
+}
+
+export interface DialogData {
+  reacts: 'Wow' | 'Crying' | 'Angry' | 'Love' | 'Care' | 'Haha' | 'Like';
+}
+
+@Component({
+  selector: 'dialog-data-example-dialog',
+  templateUrl: './dialog.html',
+})
+export class DialogDataExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }

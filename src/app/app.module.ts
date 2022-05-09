@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ForumNewsFeedComponent } from './forum-news-feed/forum-news-feed.component';
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ForumNewsFeedComponent } from './forum-news-feed/forum-news-feed.compon
     MatSelectModule,
     MatTooltipModule,
     MatNativeDateModule,
+    MatDialogModule
   ],
   declarations: [
     AppComponent,
