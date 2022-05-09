@@ -50,6 +50,7 @@ sub : Subscription
     if (this.editMode){
       this.subscriptionService.updateSubscription(this.idToModify,this.subForm.value).subscribe(() => {
         this.check= false;
+        window.location.reload();
       } , error => {
         this.error = error.error.message;
       });
@@ -58,6 +59,7 @@ sub : Subscription
       this.subscriptionService.addSubscription(this.subForm.value).subscribe(() => {
         this.check =false;
         console.log(this.subForm.value)
+        window.location.reload();
       }, error => {
        this.error= error.error.message
      });
@@ -125,4 +127,5 @@ onDelete(id : string){
 onHandleError(){
   this.error = null
 }
+
 }
