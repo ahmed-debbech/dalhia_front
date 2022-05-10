@@ -1,0 +1,32 @@
+<div class="main-content">
+
+  <div class="col-md-8">
+    <div class="card">
+        <div class="card-header card-header-danger">
+            <h4 class="card-title">Add new phase</h4>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width">
+                        <input #title matInput placeholder="Title" type="text">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width">
+                        <input #duration matInput placeholder="Duration" type="text">
+                      </mat-form-field>
+                    </div>
+                </div>
+                
+                <button (click)="save(title.value, duration.value)" mat-raised-button type="submit" class="btn btn-danger pull-right">ADD</button>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+  </div>
+  
+  </div>
+    
+  
