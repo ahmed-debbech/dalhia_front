@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Review } from 'app/model/review';
 import { ReviewService } from 'app/shared/review.service';
@@ -20,7 +20,7 @@ export class AddReviewComponent implements OnInit {
   model: NgbDateStruct;
 
   
-  constructor(public service:ReviewService,private ac:ActivatedRoute) { }
+  constructor(public service:ReviewService,private ac:ActivatedRoute, private router: Router) { }
   reps:any;
   myParam;
   r:Review=null;
@@ -40,6 +40,7 @@ export class AddReviewComponent implements OnInit {
       
       console.log("review added.");
     })
+    
         }
 
   /*onSubmit(id:any){
