@@ -74,6 +74,9 @@ export class ForumNewsFeedComponent implements OnInit {
     }
   }
 
+  postTheDay(){
+    this.ts.getPostOfDay().subscribe(res => {console.log(res); this.listPosts = []; this.listPosts.push(res)})
+  }
   onComment(tex : string, id : number){
     console.log(tex);
     var comment = new Comment();

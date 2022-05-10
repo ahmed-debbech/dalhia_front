@@ -36,4 +36,7 @@ export class TopicService {
   downvote(id : number) : any{
     return this.http.put<any>(this.baseUrl + "/" + id + "/rate/" + "DOWNVOTE", {})
   }
+  getPostOfDay() : Observable<Topic>{
+    return this.http.get<Topic>(this.baseUrl + "/topicOfTheDay")
+  }
 }
