@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Phase } from 'app/models/Phase';
+import { PhaseService } from 'app/services/phase.service';
 
 @Component({
   selector: 'phase-update',
@@ -8,11 +10,40 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PhaseUpdateComponent implements OnInit {
 
-  constructor(private route : ActivatedRoute ) { }
+  id: number;
+  phase: Phase;
+  constructor(private route: ActivatedRoute,private router: Router,
+    private ps: PhaseService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.phase = new Phase();
+    
+    this.id = this.route.snapshot.params.get('id');
+    
+    this.ps.getPhase(this.id)
+      .subscribe(data => {
+        console.log(data)
+        this.phase = data;
+      }, error => console.log(error));
   }
 
+  save(title : string, duration : number , number : number) {
+    var phase  = new Phase();
+    phase.id = Number(this.route.snapshot.paramMap.get('id'))
+    phase.title = title
+    phase.duration = duration
+    phase.number = number
+    this.ps.updatePhase(phase)
+      .subscribe(data => {
+        console.log(data);
+        this.phase = new Phase();
+        this.gotoList();
+      }, error => console.log(error));
+  }
   
+
+  gotoList() {
+    this.router.navigate(['/allphases']);
+  }
 
 }

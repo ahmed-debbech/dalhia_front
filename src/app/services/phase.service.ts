@@ -16,16 +16,18 @@ export class PhaseService {
     return this.http.get<any>(this.baseUrl + "/listPhasesByCourse/" + id);
   }
 
+  getPhase(id: number): Observable<Phase> {
+    return this.http.get<Phase>(`${this.baseUrl}/${id}`);}
 
   addPhase(phase: Object): Observable<Object> {
     return this.http.post<Phase>(this.baseUrl+ "/addphases" , phase);
   }
 
-  updatePhase(id: number, value: any): Observable<Object> {
-    return this.http.put<any>(this.baseUrl + "/" + id , value);
+  updatePhase(phase : Phase): Observable<Phase> {
+    return this.http.put<Phase>(this.baseUrl + "/" + phase.id , phase);
   }
 
-  deletePhase(id: number) : Observable<any> {
-    return this.http.delete<any>(this.baseUrl + "/" + id)
+  deletePhase(id: number , idd : number) : Observable<any> {
+    return this.http.delete<any>(this.baseUrl + "/" + id + "/"+ idd)
   }
 }

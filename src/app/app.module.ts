@@ -24,6 +24,14 @@ import { PhaseUpdateComponent } from './phase/phase-update/phase-update.componen
 import { PhaseDetailsComponent } from './phase/phase-details/phase-details.component';
 import { PhaseAddComponent } from './phase/phase-add/phase-add.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { AllquestionsComponent } from './question/allquestions/allquestions.component';
+import { QuestionAddComponent } from './question/question-add/question-add.component';
+import { QuestionUpdateComponent } from './question/question-update/question-update.component';
+import { QuestionDetailsComponent } from './question/question-details/question-details.component';
+import { AllresourcesComponent } from './resource/allresources/allresources.component';
+import { ResourceAddComponent } from './resource/resource-add/resource-add.component';
+import { ResourceUpdateComponent } from './resource/resource-update/resource-update.component';
+import { ResourceDetailsComponent } from './resource/resource-details/resource-details.component';
 
 @NgModule({
   imports: [
@@ -56,6 +64,14 @@ import {MatRadioModule} from '@angular/material/radio';
     PhaseUpdateComponent,
     PhaseDetailsComponent,
     PhaseAddComponent,
+    AllquestionsComponent,
+    QuestionAddComponent,
+    QuestionUpdateComponent,
+    QuestionDetailsComponent,
+    AllresourcesComponent,
+    ResourceAddComponent,
+    ResourceUpdateComponent,
+    ResourceDetailsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

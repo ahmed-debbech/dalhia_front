@@ -34,15 +34,15 @@
                         <div class="tab-pane active" id="profile">
                             <table class="table">
                                 <tbody>
-                                    <tr *ngFor="let p of phases"> 
-                                        <td> {{p.title}} || {{p.duration}} || {{p.number}} </td>
+                                    <tr *ngFor="let q of questions"> 
+                                        <td> {{q.text}} || {{q.points}} || {{q.number}} </td>
                                         <td class="td-actions text-right">
-                                            <a [routerLink]="[p.id,'updatephase']" matTooltip="Edit Phase" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon"><i class="material-icons">edit</i></a>
-                                            <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon" (click) = "deletePhase(p.id)" >
+                                            <a [routerLink]="[q.id,'updatequestion']" matTooltip="Edit question" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon"><i class="material-icons">edit</i></a>
+                                            <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon" (click) = "deleteQuestion(q.id)" >
                                                 <i class="material-icons">close</i>
                                             </button>
-                                            <a [routerLink]="[p.id,'detailsphase']" matTooltip="Phase Details" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon"><i class="material-icons">details</i></a>
-                                            <button (click)="redirectContent(p.id)" matTooltip="questions list" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon" ><i class="material-icons">details</i></button><br>                                        </td>
+                                            <a [routerLink]="[q.id,'detailsquestion']" matTooltip="Question Details" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon"><i class="material-icons">details</i></a>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
