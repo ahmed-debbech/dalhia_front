@@ -1,0 +1,94 @@
+<div class="main-content">
+<div class="container">
+<div class="row">
+    <h5>
+    <span class="tim-note">The title of the Ad</span></h5>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input #title type="text" value="" placeholder="Title" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    <h5> <span class="tim-note">Choose the periority of the Ad</span></h5>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Periority</mat-label>
+                    <mat-select #periority>
+                        <mat-option value="0">
+                        HIGH
+                        </mat-option>
+                        <mat-option value="1">
+                        MEDIUM
+                        </mat-option>
+                        <mat-option value="2">
+                        LOW
+                        </mat-option>
+                    </mat-select>
+                    </mat-form-field>                      
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    <h5> <span class="tim-note">When the Ad should stop being seen</span></h5>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input #enddate type="text" value="" placeholder="End Date" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h5> <span class="tim-note">How many views do you wish this ad should reach?</span></h5>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input #expectedviews type="text" value="" placeholder="Expected..." class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h5> <span class="tim-note">How much is this Ad?</span></h5>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <input #amount type="text" value="" placeholder="Price" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <h5> <span class="tim-note">Image or video URL</span></h5>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <input #links type="text" value="" placeholder="Link" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h5> <span class="tim-note">The redirection URL</span></h5>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input #redirect type="text" value="" placeholder="Redirection URL" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+    <div class="row">
+        <div class="col-sm-4">
+        <button (click) ="publish(title.value, periority.value, enddate.value, expectedviews.value, amount.value, links.value, redirect.value)"
+         mat-raised-button class="btn btn-danger btn-block" >Publish Now</button>
+        </div>
+    </div>
+    </div>
+</div>

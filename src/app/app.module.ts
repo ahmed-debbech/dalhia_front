@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ForumNewsFeedComponent } from './forum-news-feed/forum-news-feed.component';
+import { AdsAdditionComponent } from './ads-addition/ads-addition.component';
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { ForumNewsFeedComponent } from './forum-news-feed/forum-news-feed.compon
     TopicDetailsComponent,
     AddTopicComponent,
     ForumNewsFeedComponent,
+    AdsAdditionComponent,
 
   ],
   providers: [],

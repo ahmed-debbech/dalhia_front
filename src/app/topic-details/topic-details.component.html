@@ -59,6 +59,52 @@
                           
                         </div>
                   </div>
+                  <div class="tim-typo">
+                          <span class="tim-note">Comments & Replies</span>
+                  <div class="card">
+
+                    <!-- Contenedor Principal -->
+                     <div class="comments-container">
+                         <ul id="comments-list" class="comments-list">
+                         <li *ngFor="let comment of topic.forumComments" >
+                             <div class="comment-main-level">
+                                 <!-- Avatar -->
+                                 <div class="comment-avatar"><img src="/assets/img/download.jpeg" alt=""></div>
+                                 <!-- Contenedor del Comentario -->
+                                 <div  class="comment-box">
+                                     <div class="comment-head">
+                                     <h6 class="comment-name"><a href="#">{{comment.user.first_name}} {{comment.user.last_name}}</a></h6>
+                                     <span>{{comment.datePublished}}</span>
+                                     <a (click)="bancmt(comment.id)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">block</i></a>
+                                    </div>
+                                     <div class="comment-content">
+                                         {{comment.text}}
+                                     </div>
+                                 </div>
+                             </div>
+                             <!-- responses -->
+                             <ul class="comments-list reply-list">
+                                 <li *ngFor="let reply of comment.replies">
+                                     <!-- Avatar -->
+                                     <div class="comment-avatar"><img src="/assets/img/download.jpeg" alt=""></div>
+                                     <!-- Contenedor del Comentario -->
+                                     <div class="comment-box">
+                                     <div class="comment-head">
+                                         <h6 class="comment-name"><a href="#">{{reply.user.first_name}} {{reply.user.last_name}}</a></h6>
+                                         <span>{{reply.datePublished}}</span>
+                                         <a (click)="bancmt(reply.id)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">block</i></a>
+                                     </div>
+                                     <div class="comment-content">
+                                         {{reply.text}}
+                                     </div>
+                                     </div>
+                                 </li>
+                             </ul>
+                         </li>
+                         </ul>
+                     </div>
+                 </div>
+                 </div>
               </div>
           </div>
       </div>

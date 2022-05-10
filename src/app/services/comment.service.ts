@@ -22,4 +22,7 @@ export class CommentService {
   sendReaction(rct : CommentReaction, topicid : number) : any{
     return this.http.post<any>(this.baseUrl + "/comments/" + topicid + "/reactions", rct)
   }
+  banComment(id : number){
+    return this.http.put<any>(this.baseUrl + "/comments/" + id + "/bans", {})
+  }
 }
