@@ -36,8 +36,8 @@
                                     <p>{{rv.reviewBody}}</p>
 
                                 </mat-card-content>
-                                <button (click)="editReview(rv.reviewId)" class="btn btn-info btn-round">Edit</button>
-                                <button (click)="deleteReview(rv.reviewId)" class="btn btn-danger btn-round">Remove</button>
+                                <button *ngIf="rv.senderId" (click)="editReview(rv.reviewId)" class="btn btn-info btn-round">Edit</button>
+                                <button *ngIf="rv.sendId" (click)="deleteReview(rv.reviewId)" class="btn btn-danger btn-round">Remove</button>
                             </mat-card>
 
 

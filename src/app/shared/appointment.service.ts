@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Appointment } from 'app/model/appointment';
+import { AppointmentRate } from 'app/model/appointment-rate';
+import { AppointmentReport } from 'app/model/appointment-report';
 import { User } from 'app/model/user';
 
 @Injectable({
@@ -9,6 +11,7 @@ import { User } from 'app/model/user';
 })
 
 export class AppointmentService {
+  paramMap: any;
 
   constructor(private http: HttpClient,private fb: FormBuilder) { }
 
@@ -50,6 +53,12 @@ export class AppointmentService {
   getExpertDetails(id:number){
     return this.http.get<User>(this.BaseURI+'/appointment/retrieve-expert-details/'+ id);
   }
+  
+
+  
+
+  
+  
   
 
 }

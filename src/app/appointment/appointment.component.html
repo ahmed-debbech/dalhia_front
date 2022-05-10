@@ -24,6 +24,9 @@
                                             Status
                                         </th>
                                         <th>
+                                            Details
+                                        </th>
+                                        <th>
                                             Actions
                                         </th>
                                     </thead>
@@ -39,6 +42,12 @@
                                             </td>
                                             <td>
                                                 {{a.appStatus}}
+                                            </td>
+                                            <td>
+
+                                                <button mat-raised-button *ngIf="a.appointmentRate" [routerLink]="['/appointment-rate-details', a.appointmentRate.id]" class="btn btn-outline-info">Rated</button>
+                                                <button mat-raised-button *ngIf="a.appointmentReport" [routerLink]="['/appointment-report-details', a.appointmentReport.id]" class="btn btn-outline-danger">Reported</button>
+
                                             </td>
 
                                             <td>

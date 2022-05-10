@@ -18,6 +18,8 @@ import { ReportComponent } from 'app/report/report.component';
 import { AddReportComponent } from 'app/add-report/add-report.component';
 import { AssociationComponent } from 'app/association/association.component';
 import { ExpertdetailsComponent } from 'app/expertdetails/expertdetails.component';
+import { AppointmentRateComponent } from 'app/appointment-rate/appointment-rate.component';
+import { AppointmentReportComponent } from 'app/appointment-report/appointment-report.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -82,7 +84,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'add-appointment/:id',        component: AddAppointmentComponent },
     { path: 'associations',        component:AssociationComponent },
     { path: 'expert-details/:id',        component:ExpertdetailsComponent },
-
+    { path: 'appointment-rate-details/:id',        component:AppointmentRateComponent },
+    { path: 'appointment-report-details/:id',        component:AppointmentReportComponent },
 
 
 ];

@@ -35,6 +35,7 @@ import { ExpertdetailsComponent } from './expertdetails/expertdetails.component'
 
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -80,6 +81,7 @@ import { ExpertdetailsComponent } from './expertdetails/expertdetails.component'
     AddReportComponent,
     AssociationComponent,
     ExpertdetailsComponent,
+    
 
   ],
   providers: [AppointmentService],
