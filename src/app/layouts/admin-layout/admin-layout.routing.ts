@@ -16,6 +16,8 @@ import { PlansComponent } from 'app/plans/plans.component';
 import { ProductsComponent } from 'app/products/products.component';
 import { CommandsComponent } from 'app/commands/commands.component';
 import { SubscriptionsComponent } from 'app/subscriptions/subscriptions.component';
+import { HomeComponent } from 'app/home/home.component';
+import { SubscribeComponent } from 'app/subscribe/subscribe.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -64,6 +66,8 @@ export const AdminLayoutRoutes: Routes = [
    
     { path: 'dashboard',      component: DashboardComponent },
     {path : 'auth' , component: AuthComponent},
+    {path : 'home' , component: HomeComponent},
+    {path : 'subscribe' , component: SubscribeComponent},
     { path: 'user',      component: UserComponent  ,canActivate : [AuthAdminGuard]  },
     { path: 'plans',      component: PlansComponent  ,canActivate : [AuthAdminGuard]  },
     { path: 'subscriptions',      component: SubscriptionsComponent  ,canActivate : [AuthAdminGuard]  },

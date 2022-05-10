@@ -4,6 +4,8 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 import { Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { AuthService } from 'app/auth/auth.service';
+import { SubscriptionsService } from 'app/subscriptions/subscriptions.service';
+import { UserService } from 'app/user/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,8 +22,9 @@ export class NavbarComponent implements OnInit ,OnDestroy {
     private userSub : Subscription
     isAuthenticated = false;
     isAdmin=false;
+    isSubscribed = false;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router , private authService : AuthService) {
+    constructor(location: Location,  private element: ElementRef, private router: Router , private authService : AuthService , private userService : UserService) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -38,13 +41,30 @@ export class NavbarComponent implements OnInit ,OnDestroy {
            this.mobile_menu_visible = 0;
          }
      });
-
+    
     this.userSub= this.authService.user.subscribe(user => {
         this.isAuthenticated = !user ? false : true;
         if(this.isAuthenticated){
         this.isAdmin = user.role==="ADMIN"? true : false;
         }
     })
+
+    const userData : {
+        email : string,
+        id:string,
+        role:string,
+        _token:string,
+        _tokenExpirationDate:string;
+    }=  JSON.parse(localStorage.getItem('userData'))
+    if(userData) {
+        console.log(userData.id)
+        this.userService.getById(userData.id).subscribe((data) => {
+            console.log(data)
+            if(data.subscriptionId){
+                this.isSubscribed=true;
+            }
+        })
+    }
     }
 
     sidebarOpen() {

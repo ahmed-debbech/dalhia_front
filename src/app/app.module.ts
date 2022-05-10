@@ -15,6 +15,8 @@ import { PlansComponent } from './plans/plans.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 import { ProductsComponent } from './products/products.component';
 import { CommandsComponent } from './commands/commands.component';
+import { HomeComponent } from './home/home.component';
+import { SubscribeComponent } from './subscribe/subscribe.component';
 
 
 
@@ -38,7 +40,9 @@ import { CommandsComponent } from './commands/commands.component';
     PlansComponent,
     SubscriptionsComponent,
     ProductsComponent,
-    CommandsComponent
+    CommandsComponent,
+    HomeComponent,
+    SubscribeComponent
   ],
   providers: [{provide : HTTP_INTERCEPTORS , useClass : AuthInterceptorService, multi : true}],
   bootstrap: [AppComponent]
