@@ -12,4 +12,8 @@ export class CategoryService {
   getCategory() {
     return this.http.get<Category>(this.server+"retrieve-all-JobCategory",{responseType: 'json'});
   }
+
+  getCategoryById(id:string){
+    return this.http.get<Category>(this.server+"retrieve-JobCategory/"+id,{responseType: 'json'});
+  }
 }

@@ -3,6 +3,7 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import { Offer } from 'app/model/offer';
 import { CategoryService } from 'app/services/category/category.service';
 import { OfferService } from 'app/services/offer/offer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-offer',
@@ -22,16 +23,18 @@ export class AddOfferComponent implements OnInit {
   EndDate :any ;
   model: NgbDateStruct;
   offer:Offer= null;
+
   addOffer(title,description,Country,email,StartDate,EndDate,selectedValue,Category,level){
     this.offer= new Offer(title,description,Country,email,level,StartDate,EndDate,selectedValue,Category);
     this.offerService.addOffer(this.offer).subscribe(res=>{
       
       console.log("okey");
     })
+    this.router.navigate(['/offer']);
         }
   
     categorys:any= [];
-     constructor(private categoryService : CategoryService,private offerService:OfferService) {
+     constructor(private categoryService : CategoryService,private offerService:OfferService,private router: Router) {
     this.getCategory();
     
    }

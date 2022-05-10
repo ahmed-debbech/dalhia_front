@@ -18,7 +18,18 @@ export class OfferService {
   }
 
   addOffer(offer:Offer){
-    return this.http.post<Offer>(this.server+"add-offer/"+offer.categoryId,offer);
+    return this.http.post<Offer>(this.server+"add-offer/"+offer.jobCategory,offer);
 
   }
+  OfferDelete(id:number){
+    return this.http.delete<Offer>(this.server+"remove-offer/"+id);
+  }
+
+  getOfferById(id:string){
+    return this.http.get<Offer>(this.server+"retrieve-offer/"+id,{responseType: 'json'});
+  }
+  updateOffer(offer){
+    return this.http.put<any>(this.server+"modify-offer",offer);
+  }
+
 }

@@ -10,6 +10,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { OfferComponent } from './pages/offer/offer.component';
 import { AddOfferComponent } from './pages/add-offer/add-offer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UpdateOfferComponent } from './pages/update-offer/update-offer.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AdminLayoutComponent,
     OfferComponent,
     ArrayOfComponents,
+    UpdateOfferComponent,
 
   ],
   providers: [],

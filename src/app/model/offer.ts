@@ -1,14 +1,14 @@
 export class Offer {
     constructor(
     
-    private title: string,
-    private description: string,
-    private  address: string,
-    private  email: string,
-    private  Level:number,
-    private  startDate: Date,
-    private endDate: Date,
-    private jobType:string,
-    public categoryId:number,
+    public title: string,
+    public description: string,
+    public  address: string,
+    public  email: string,
+    public  level:number,
+    public  startDate: Date,
+    public endDate: Date,
+    public jobType:string,
+    public jobCategory:any,
     ) { }
   }

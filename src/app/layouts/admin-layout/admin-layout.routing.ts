@@ -10,6 +10,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { OfferComponent } from 'app/pages/offer/offer.component';
 import { AddOfferComponent } from 'app/pages/add-offer/add-offer.component';
+import { UpdateOfferComponent } from 'app/pages/update-offer/update-offer.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -64,5 +65,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'offer',   component: OfferComponent },
     { path: 'offer/offerAdd', component: AddOfferComponent },
+    { path: 'offer/offerUpdate', component: UpdateOfferComponent },
     
 ];

@@ -4,14 +4,14 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        
+
                         <h4 class="card-title ">Offer Table</h4>
-                        <!-- <div class="save-button">
-                            
-                        </div> -->
-                        <a [routerLink]="['/offer/offerAdd']">
-                            link to user component
-                          </a>
+                        <div class="save-button">
+                            <button [routerLink]="['/offer/offerAdd']">
+                                Add Offer
+                            </button>
+                        </div>
+
                         <p class="card-category"> Here is a subtitle for this table</p>
                     </div>
                     <div class="card-body">
@@ -35,15 +35,15 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    
-                                   
-                                    
+
+
+
                                     <tr *ngFor="let item of offers">
                                         <td>
-                                           {{item.title}}
+                                            {{item.title}}
                                         </td>
                                         <td>
-                                            {{item.address}}                                        </td>
+                                            {{item.address}} </td>
                                         <td>
                                             {{item.email}}
                                         </td>
@@ -51,7 +51,12 @@
                                             {{item.jobType}}
                                         </td>
                                         <td class="text-primary">
-                                            {{item.startDate| date: 'dd/MM/yyyy'}}                                        </td>
+                                            {{item.startDate| date: 'dd/MM/yyyy'}}
+                                        </td>
+                                        
+                                        <td><button type="button" (click)='OfferUpdate(item.id)'>Edit</button></td>
+
+                                        <td><button type="button" (click)='OfferDelete(item.id)'>Delete</button></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -59,8 +64,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
-  </div>
-  
+</div>
