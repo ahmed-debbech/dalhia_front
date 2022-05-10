@@ -32,6 +32,7 @@ import { AddReportComponent } from './add-report/add-report.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssociationComponent } from './association/association.component';
 import { ExpertdetailsComponent } from './expertdetails/expertdetails.component';
+import { BannedExpertsComponent } from './banned-experts/banned-experts.component';
 
 
 
@@ -81,6 +82,7 @@ import { ExpertdetailsComponent } from './expertdetails/expertdetails.component'
     AddReportComponent,
     AssociationComponent,
     ExpertdetailsComponent,
+    BannedExpertsComponent,
     
 
   ],
