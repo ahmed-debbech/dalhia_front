@@ -9,10 +9,13 @@
         <li class="nav-item ">
           <a class="nav-link" routerLink="/home">Home </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item " *ngIf="isAuthenticated">
+          <a class="nav-link" routerLink="/shopping">Shopping </a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated">
           <a class="nav-link" routerLink="/subscribe">Subscribe</a>
         </li>
-        <li class="nav-item" *ngIf="isSubscribed">
+        <li class="nav-item" *ngIf="isSubscribed && isAuthenticated">
           <a class="nav-link" routerLink="/home">Form</a>
         </li>
        

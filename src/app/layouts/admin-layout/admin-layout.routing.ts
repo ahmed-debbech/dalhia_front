@@ -18,6 +18,8 @@ import { CommandsComponent } from 'app/commands/commands.component';
 import { SubscriptionsComponent } from 'app/subscriptions/subscriptions.component';
 import { HomeComponent } from 'app/home/home.component';
 import { SubscribeComponent } from 'app/subscribe/subscribe.component';
+import { AuthGuard } from 'app/auth/auth.guard';
+import { ShoppingComponent } from 'app/shopping/shopping.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -67,7 +69,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     {path : 'auth' , component: AuthComponent},
     {path : 'home' , component: HomeComponent},
-    {path : 'subscribe' , component: SubscribeComponent},
+    {path : 'shopping' , component: ShoppingComponent , canActivate : [AuthGuard]},
+    {path : 'subscribe' , component: SubscribeComponent , canActivate : [AuthGuard]},
     { path: 'user',      component: UserComponent  ,canActivate : [AuthAdminGuard]  },
     { path: 'plans',      component: PlansComponent  ,canActivate : [AuthAdminGuard]  },
     { path: 'subscriptions',      component: SubscriptionsComponent  ,canActivate : [AuthAdminGuard]  },

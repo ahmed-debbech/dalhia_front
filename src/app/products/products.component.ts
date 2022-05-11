@@ -37,7 +37,7 @@ subscription : Subscription
       'photo' : new FormControl(null , Validators.required),
       'title' : new FormControl(null , Validators.required),
       'description' : new FormControl(null , Validators.required),
-      'quantity' : new FormControl(null , [Validators.required ,Validators.pattern(/^[1-9]+[0-9]*$/)]),
+      'quantity' : new FormControl(null , [Validators.required ,Validators.pattern(/^[0-9]+[0-9]*$/)]),
       'price' : new FormControl(null , [Validators.required ,Validators.pattern(/^[1-9]+[0-9]*$/)])
     })
   }
@@ -80,7 +80,7 @@ subscription : Subscription
         'photo' : new FormControl(this.product.photo , Validators.required),
         'title' : new FormControl(this.product.title , Validators.required),
         'description' : new FormControl(this.product.description , Validators.required),
-        'quantity' : new FormControl(this.product.quantity , [Validators.required ,Validators.pattern(/^[1-9]+[0-9]*$/)]),
+        'quantity' : new FormControl(this.product.quantity , [Validators.required ,Validators.pattern(/^[0-9]+[0-9]*$/)]),
         'price' : new FormControl(this.product.price , [Validators.required ,Validators.pattern(/^[1-9]+[0-9]*$/)])
       })
     })

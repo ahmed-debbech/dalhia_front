@@ -17,6 +17,8 @@ import { ProductsComponent } from './products/products.component';
 import { CommandsComponent } from './commands/commands.component';
 import { HomeComponent } from './home/home.component';
 import { SubscribeComponent } from './subscribe/subscribe.component';
+import { ShoppingComponent } from './shopping/shopping.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 
 
@@ -42,7 +44,9 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
     ProductsComponent,
     CommandsComponent,
     HomeComponent,
-    SubscribeComponent
+    SubscribeComponent,
+    ShoppingComponent,
+    ForgetPasswordComponent
   ],
   providers: [{provide : HTTP_INTERCEPTORS , useClass : AuthInterceptorService, multi : true}],
   bootstrap: [AppComponent]
