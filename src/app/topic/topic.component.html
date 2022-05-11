@@ -1,0 +1,53 @@
+<div class="main-content">
+    <div class="card">
+        <div class="card-header card-header-danger">
+            <h4 class="card-title ">Topics</h4>
+            <p class="card-category"> These are all the topic/posts found</p>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Text
+                        </th>
+                        <th>
+                            Score
+                        </th>
+                        <th>
+                            Date Published
+                        </th>
+                        <th>
+                            Tag
+                        </th>
+                        <th>
+                            Banned
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let t of listTopics">
+                            <td>{{t.title}}</td>
+                            <td>{{t.text}}</td>
+                            <td>{{t.score}}</td>
+                            <td>{{t.datePublished}}</td>
+                            <td>{{t.tag}}</td>
+                            <td>{{t.banned}}</td>
+                            <td><a [routerLink]="[t.id]">Details</a></td>
+                            <ng-template [ngIf]="!t.banned" [ngIfElse]="unban">
+                                <td><button mat-raised-button (click) = "ban(t.id)">Ban</button></td>
+                            </ng-template>
+                            <ng-template #unban>
+                                <td><button mat-raised-button (click) = "unban(t.id)">Unban</button></td>
+                            </ng-template>
+                                <td><button mat-raised-button [disabled] = "t.dateRemoved != null" (click) = "remove(t.id)">Remove</button></td>
+    
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

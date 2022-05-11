@@ -1,0 +1,140 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="container">
+    
+<div class="main-content">
+    <div class="row">
+        <img width="70%" height="100px" [src]="ads[1].imageUrl" >
+    </div> <br> <br>
+<div class="tim-typo" style="align-items:center;">
+  
+    <h1> Your feed </h1>
+
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <a routerLink="add" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i> Post</a>
+        <div class="card">
+            <div class="card-header card-header-tabs card-header-primary">
+                <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                        <span class="nav-tabs-title">Sort By:</span>
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="nav-item">
+                                <a mat-button class="nav-link active" (click)="showAll()" data-toggle="tab">
+                                    New
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                                     Top
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a mat-button class="nav-link" (click)="postTheDay()" data-toggle="tab">
+                                    Post of the day
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div *ngFor="let post of listPosts; let i = index" class="card">
+            <div class="card-header card-header-icon card-header-rose">
+              <div class="card-icon">
+              </div>
+              <h5 style="color: black; margin-top: 20px">
+                <span style="color: rgb(153, 153, 153); margin-top: 20px" class="tim-note">By {{post.user.first_name}} {{post.user.last_name}}</span>
+                <span style="font-size: 10px; color: rgb(153, 153, 153); margin-top: 20px" class="tim-note">  • on {{post.datePublished}}</span>
+                    <i (click)="translate(post)" style="font-size: small; color: gray; margin-left: 1%;" class="material-icons">translate</i>
+            </h5>
+              <h4 style="font-style: bold;" class="card-title">{{post.title}}</h4>
+            </div>
+            <div class="card-body">
+                {{post.text}}
+            </div>
+            <div class="action-bar">
+                <div class="container">
+                <i (click)="upvote(post.id)" id="arrow" class="fa fa-arrow-up" aria-hidden="true"></i>
+                <p id="score"> {{post.score}}</p>
+                <i (click)="downvote(post.id)" id="arrow" class="fa fa-arrow-down" aria-hidden="true"></i>
+                <i id="comments" class="fa fa-comments" aria-hidden="true"></i> 
+                <p id="comments" (click)="showComments(post.id)" > &nbsp; Comments ({{post.forumComments.length}})</p>
+                </div>
+            </div>
+
+            
+            <div *ngIf="(onhover == post.id)" class="card">
+
+                <!-- Contenedor Principal -->
+                 <div class="comments-container">
+                     <ul id="comments-list" class="comments-list">
+                     <li *ngFor="let comment of post.forumComments" >
+                         <div class="comment-main-level">
+                             <!-- Avatar -->
+                             <div class="comment-avatar"><img src="/assets/img/download.jpeg" alt=""></div>
+                             <!-- Contenedor del Comentario -->
+                             <div  class="comment-box">
+                                 <div class="comment-head">
+                                 <h6 class="comment-name"><a href="#">{{comment.user.first_name}} {{comment.user.last_name}}</a></h6>
+                                 <span>{{comment.datePublished}}</span>
+                                 <button mat-button (click)="openDialog(comment.id)">
+                                    <img width="12px" height="12px" src="/assets/reactions_icons/like.png">
+                                    ({{comment.commentReactionList.length}}) 
+                                 </button>
+                                 <a (click)="openReply(comment.id)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">reply</i></a>
+                                </div>
+                                 <div class="comment-content">
+                                     {{comment.text}}
+                                     <mat-form-field *ngIf="comment.id == onReplyCmt" style="margin: 2%;" class="example-full-width">
+                                        <input #replycmt (keyup.enter)="onReply(replycmt.value, comment.id)" matInput placeholder="Write a reply" type="text">
+                                      </mat-form-field>
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- responses -->
+                         <ul class="comments-list reply-list">
+                             <li *ngFor="let reply of comment.replies">
+                                 <!-- Avatar -->
+                                 <div class="comment-avatar"><img src="/assets/img/download.jpeg" alt=""></div>
+                                 <!-- Contenedor del Comentario -->
+                                 <div class="comment-box">
+                                 <div class="comment-head">
+                                     <h6 class="comment-name"><a href="#">{{reply.user.first_name}} {{reply.user.last_name}}</a></h6>
+                                     <span>{{reply.datePublished}}</span>
+                                     <button mat-button (click)="openDialog(reply.id)"><img width="12px" height="12px" src="/assets/reactions_icons/like.png">({{reply.commentReactionList.length}})</button>
+                                     <a (click)="openReply(reply.id)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">reply</i></a>
+                                 </div>
+                                 <div class="comment-content">
+                                     {{reply.text}}
+                                     <mat-form-field *ngIf="reply.id == onReplyCmt" style="margin: 2%;" class="example-full-width">
+                                        <input #replycmt (keyup.enter)="onReply(replycmt.value, reply.id)" matInput placeholder="Write a reply" type="text">
+                                      </mat-form-field>
+                                 </div>
+                                 </div>
+                             </li>
+                         </ul>
+                     </li>
+                     </ul>
+                 </div>
+                 <mat-form-field style="margin: 2%;" class="example-full-width">
+                    <input #inputcmt (keyup.enter)="onComment(inputcmt.value, post.id)" matInput placeholder="Write a comment" type="text">
+                  </mat-form-field>
+             </div>
+             <div *ngIf="(i !=0) && (i%2 == 0)">
+                <img width="100%" height="80px" [src]="ads[0].imageUrl" >
+             </div>
+        </div>
+    </div>  
+    <div class="col-md-3">
+        <img width="110%" height="50%" [src]="ads[2].imageUrl" >
+    </div>
+    </div>
+</div>
+
+</div>
