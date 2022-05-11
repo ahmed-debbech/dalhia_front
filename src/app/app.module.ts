@@ -36,6 +36,11 @@ import { AllanswersComponent } from './coursesAdmin/answer/allanswers/allanswers
 import { AnswerAddComponent } from './coursesAdmin/answer/answer-add/answer-add.component';
 import { AnswerUpdateComponent } from './coursesAdmin/answer/answer-update/answer-update.component';
 import { AnswerDetailsComponent } from './coursesAdmin/answer/answer-details/answer-details.component';
+import { CoursesuComponent } from './coursesUser/course/coursesu/coursesu.component';
+import { CourseuDetailsComponent } from './coursesUser/course/courseu-details/courseu-details.component';
+import { AllphasesuComponent } from './coursesUser/phase/allphasesu/allphasesu.component';
+import { PhaseuDetailsComponent } from './coursesUser/phase/phaseu-details/phaseu-details.component';
+
 
 @NgModule({
   imports: [
@@ -80,6 +85,12 @@ import { AnswerDetailsComponent } from './coursesAdmin/answer/answer-details/ans
     AnswerAddComponent,
     AnswerUpdateComponent,
     AnswerDetailsComponent,
+    CoursesComponent,
+    CourseDetailsComponent,
+    CoursesuComponent,
+    CourseuDetailsComponent,
+    AllphasesuComponent,
+    PhaseuDetailsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

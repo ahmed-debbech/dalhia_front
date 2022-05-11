@@ -1,0 +1,28 @@
+<div class="main-content">
+        <div class="row" >
+            <div *ngFor="let c of courses" class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success" [ngClass]="{'courseCategory' : kitchen}">
+                        <img mat-card-sm-image src="../assets/img/courses/kitchen.jpg"/>  
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{c.name}}</h4>
+                        <p class="card-category">
+                            <span class="text-success"> {{c.price}} DT </span> || {{c.modality}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <p>
+                            <i class="material-icons">stars</i> {{c.rate}}
+                            <i class="material-icons">date_range</i>{{c.datePublished}}
+                            <i class="material-icons">supervisor_account</i> {{c.nbrOfEnrolls}} 
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <a [routerLink]="[c.id,'detailscourseu']" matTooltip="Course Details" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon" ><i class="material-icons">info</i></a>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
