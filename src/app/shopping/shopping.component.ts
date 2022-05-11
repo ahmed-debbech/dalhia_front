@@ -72,7 +72,7 @@ export class ShoppingComponent implements OnInit {
       this.error = error.error.message
     })
     
-    
+    this.shoppingForm.reset();
     
     } else {
       this.error="you must choose a product"

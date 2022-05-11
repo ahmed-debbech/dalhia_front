@@ -11,6 +11,7 @@ import { ForgetPasswordService } from './forget-password.service';
 export class ForgetPasswordComponent implements OnInit {
 
 isChecked = false
+isLoading=false
   
   constructor(private forgetPassword : ForgetPasswordService , private router : Router) { }
 
@@ -23,9 +24,13 @@ isChecked = false
     console.log(email)
  
     if(forgetForm.valid){
+      this.isLoading = true
     this.forgetPassword.reqForgetPassword(email).subscribe(() =>{
       console.log(email)
       this.isChecked = true
+      this.isLoading = false
+    }, error => {
+      this.isLoading= false;
     })
   }
   }
