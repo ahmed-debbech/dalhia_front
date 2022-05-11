@@ -8,6 +8,7 @@ import { CommentReaction } from 'app/models/CommentReaction';
 import { Router } from '@angular/router';
 import { ForumAdService } from 'app/services/forum-ad.service';
 import { ForumAd } from 'app/models/ForumAd';
+import axios from 'axios';
 
 @Component({
   selector: 'forum-news-feed',
@@ -40,6 +41,28 @@ export class ForumNewsFeedComponent implements OnInit {
     this.ts.getAllTopics().subscribe(res => {this.listPosts = res; console.log(this.listPosts)})
   }
 
+  translate(post : Topic){
+    const encodedParams = new URLSearchParams();
+    encodedParams.append("q", post.text);
+    encodedParams.append("target", "fr");
+
+    const options = {
+      method: 'POST',
+      url: 'https://google-translate1.p.rapidapi.com/language/translate/v2',
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com',
+        'X-RapidAPI-Key': '8d13c5bc25msh65292d77cb3cb28p11da29jsn64cea848e62a'
+      },
+      data: encodedParams
+    };
+    axios.request(options).then(function (response) {
+      console.log(response.data);
+      post.text = response.data.translations[0].translatedText;
+    }).catch(function (error) {
+      console.error(error);
+    });
+  }
   openDialog(cmt : number) {
     this.dialog.open(DialogDataExampleDialog, {
       data: {

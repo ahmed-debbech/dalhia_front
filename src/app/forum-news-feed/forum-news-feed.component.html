@@ -51,6 +51,7 @@
               <h5 style="color: black; margin-top: 20px">
                 <span style="color: rgb(153, 153, 153); margin-top: 20px" class="tim-note">By {{post.user.first_name}} {{post.user.last_name}}</span>
                 <span style="font-size: 10px; color: rgb(153, 153, 153); margin-top: 20px" class="tim-note">  • on {{post.datePublished}}</span>
+                    <i (click)="translate(post)" style="font-size: small; color: gray; margin-left: 1%;" class="material-icons">translate</i>
             </h5>
               <h4 style="font-style: bold;" class="card-title">{{post.title}}</h4>
             </div>
