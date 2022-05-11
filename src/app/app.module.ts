@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CoursesComponent } from './coursesAdmin/course/courses/courses.component';
 import { CertificateComponent } from './coursesAdmin/certificatee/certificate/certificate.component';
+import { TopicComponent } from './topic/topic.component';
+import { TopicDetailsComponent } from './topic-details/topic-details.component';
+import { AddTopicComponent } from './add-topic/add-topic.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule, MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -41,6 +44,9 @@ import { CourseuDetailsComponent } from './coursesUser/course/courseu-details/co
 import { AllphasesuComponent } from './coursesUser/phase/allphasesu/allphasesu.component';
 import { PhaseuDetailsComponent } from './coursesUser/phase/phaseu-details/phaseu-details.component';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { ForumNewsFeedComponent } from './forum-news-feed/forum-news-feed.component';
+import { AdsAdditionComponent } from './ads-addition/ads-addition.component';
 
 @NgModule({
   imports: [
@@ -51,6 +57,7 @@ import { PhaseuDetailsComponent } from './coursesUser/phase/phaseu-details/phase
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+
     MatButtonModule,
     MatRippleModule,
     MatFormFieldModule,
@@ -59,7 +66,8 @@ import { PhaseuDetailsComponent } from './coursesUser/phase/phaseu-details/phase
     MatTooltipModule,
     MatNativeDateModule,
     MatGridListModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDialogModule
   ],
   declarations: [
     AppComponent,
@@ -90,7 +98,13 @@ import { PhaseuDetailsComponent } from './coursesUser/phase/phaseu-details/phase
     CoursesuComponent,
     CourseuDetailsComponent,
     AllphasesuComponent,
-    PhaseuDetailsComponent
+    PhaseuDetailsComponent,
+    TopicComponent,
+    TopicDetailsComponent,
+    AddTopicComponent,
+    ForumNewsFeedComponent,
+    AdsAdditionComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

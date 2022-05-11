@@ -35,6 +35,7 @@ import { CoursesuComponent } from 'app/coursesUser/course/coursesu/coursesu.comp
 import { AllphasesuComponent } from 'app/coursesUser/phase/allphasesu/allphasesu.component';
 import { PhaseuDetailsComponent } from 'app/coursesUser/phase/phaseu-details/phaseu-details.component';
 
+import { ClientForumRoutes, AdminForumRoutes } from '../../forum.routing';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -87,43 +88,52 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
+    {
+        path : 'admin/forum',
+        //component: 
+        children : AdminForumRoutes
+    },
+    {
+        path : 'forum',
+        //component: 
+        children : ClientForumRoutes
+    },
+        { path: 'admin/courses',        component : CoursesComponent},
+        { path: 'admin/courses/:id/certificates',        component : CertificateComponent},
+        { path: 'admin/courses/addcourses',        component : AddCoursesComponent},
+        { path: 'admin/courses/:id/updatecourse' , component: CourseUpdateComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/upc' , component: CourseUpdateComponent},
+        { path: 'admin/courses/:id/detailscourse', component: CourseDetailsComponent},
 
-    { path: 'admin/courses',        component : CoursesComponent},
-    { path: 'admin/courses/:id/certificates',        component : CertificateComponent},
-    { path: 'admin/courses/addcourses',        component : AddCoursesComponent},
-    { path: 'admin/courses/:id/updatecourse' , component: CourseUpdateComponent},
-    { path: 'admin/courses/:id/detailscourse/:idd/upc' , component: CourseUpdateComponent},
-    { path: 'admin/courses/:id/detailscourse', component: CourseDetailsComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases', component: AllphasesComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/add', component: PhaseAddComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/updatephase', component: PhaseUpdateComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/detailsphase', component: PhaseDetailsComponent},
 
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases', component: AllphasesComponent},
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/add', component: PhaseAddComponent},
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/updatephase', component: PhaseUpdateComponent},
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/detailsphase', component: PhaseDetailsComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/allquestions', component: AllquestionsComponent},
+        { path: 'admin/courses/addcourses/addphases/addquestion', component: QuestionAddComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/updatephase', component: QuestionUpdateComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/detailsphase/:idddd/upc' , component: CourseUpdateComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/detailsphase', component: QuestionDetailsComponent},
 
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/allquestions', component: AllquestionsComponent},
-    { path: 'admin/courses/addcourses/addphases/addquestion', component: QuestionAddComponent},
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/updatephase', component: QuestionUpdateComponent},
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/detailsphase/:idddd/upc' , component: CourseUpdateComponent},
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/detailsphase', component: QuestionDetailsComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/allresources', component: AllresourcesComponent},
+        { path: 'admin/courses/addcourses/addphases/addresource', component: ResourceAddComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/updatephase', component: ResourceUpdateComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/detailsphase', component: ResourceDetailsComponent},
 
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/allresources', component: AllresourcesComponent},
-    { path: 'admin/courses/addcourses/addphases/addresource', component: ResourceAddComponent},
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/updatephase', component: ResourceUpdateComponent},
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/detailsphase', component: ResourceDetailsComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/allquestions/:idddd/allanswers', component: AllanswersComponent},
+        { path: 'admin/courses/addcourses/addphases/addanswer', component: AnswerAddComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/allquestions/:idddd/allanswers/:iddddd/updateanswer', component: AnswerUpdateComponent},
+        { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/allquestions/:idddd/allanswers/:iddddd/detailsanswer', component: AnswerDetailsComponent},
 
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/allquestions/:idddd/allanswers', component: AllanswersComponent},
-    { path: 'admin/courses/addcourses/addphases/addanswer', component: AnswerAddComponent},
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/allquestions/:idddd/allanswers/:iddddd/updateanswer', component: AnswerUpdateComponent},
-    { path: 'admin/courses/:id/detailscourse/:idd/allphases/:iddd/allquestions/:idddd/allanswers/:iddddd/detailsanswer', component: AnswerDetailsComponent},
+        //User
+        { path: 'user/coursesu',        component : CoursesuComponent},
+        { path: 'user/coursesu/:id/detailscourseu', component: CourseuDetailsComponent},
 
-    //User
-    { path: 'user/coursesu',        component : CoursesuComponent},
-    { path: 'user/coursesu/:id/detailscourseu', component: CourseuDetailsComponent},
-
-    { path: 'user/coursesu/:id/detailscourseu/:idd/allphasesu',        component : AllphasesuComponent},
-    { path: 'user/coursesu/:id/detailscourseu/:idd/allphasesu/:iddd/detailsphaseu', component: PhaseuDetailsComponent},
+        { path: 'user/coursesu/:id/detailscourseu/:idd/allphasesu',        component : AllphasesuComponent},
+        { path: 'user/coursesu/:id/detailscourseu/:idd/allphasesu/:iddd/detailsphaseu', component: PhaseuDetailsComponent},
 
 
+        
     
-
 ];
