@@ -3,11 +3,15 @@
 <div class="container">
     
 <div class="main-content">
+    <div class="row">
+        <img width="70%" height="100px" [src]="ads[1].imageUrl" >
+    </div> <br> <br>
 <div class="tim-typo" style="align-items:center;">
   
     <h1> Your feed </h1>
 
 </div>
+<div class="row">
     <div class="col-md-8">
         <a routerLink="add" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i> Post</a>
         <div class="card">
@@ -40,7 +44,7 @@
             </div>
             
         </div>
-        <div *ngFor="let post of listPosts" class="card">
+        <div *ngFor="let post of listPosts; let i = index" class="card">
             <div class="card-header card-header-icon card-header-rose">
               <div class="card-icon">
               </div>
@@ -64,7 +68,7 @@
             </div>
 
             
-            <div *ngIf="(post.forumComments.length != 0) && (onhover == post.id)" class="card">
+            <div *ngIf="(onhover == post.id)" class="card">
 
                 <!-- Contenedor Principal -->
                  <div class="comments-container">
@@ -121,10 +125,15 @@
                     <input #inputcmt (keyup.enter)="onComment(inputcmt.value, post.id)" matInput placeholder="Write a comment" type="text">
                   </mat-form-field>
              </div>
-
+             <div *ngIf="(i !=0) && (i%2 == 0)">
+                <img width="100%" height="80px" [src]="ads[0].imageUrl" >
+             </div>
         </div>
     </div>  
-
+    <div class="col-md-3">
+        <img width="110%" height="50%" [src]="ads[2].imageUrl" >
+    </div>
+    </div>
 </div>
 
 </div>

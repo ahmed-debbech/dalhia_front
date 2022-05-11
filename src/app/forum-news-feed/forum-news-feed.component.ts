@@ -6,6 +6,8 @@ import { CommentService } from 'app/services/comment.service';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { CommentReaction } from 'app/models/CommentReaction';
 import { Router } from '@angular/router';
+import { ForumAdService } from 'app/services/forum-ad.service';
+import { ForumAd } from 'app/models/ForumAd';
 
 @Component({
   selector: 'forum-news-feed',
@@ -17,14 +19,23 @@ export class ForumNewsFeedComponent implements OnInit {
   onhover : number = undefined;
   onReplyCmt : number = undefined;
 
-  constructor(public dialog: MatDialog, private ts : TopicService, private cs : CommentService) { }
+  constructor(public dialog: MatDialog, private adservice : ForumAdService, private ts : TopicService, private cs : CommentService) { }
 
   listPosts : Topic[] = [];
+  ads : ForumAd[] = [];
+
   ngOnInit(): void {
     this.onhover = undefined
     this.showAll()
+    this.getAds();
   }
 
+  getAds(){
+    this.adservice.getAds().subscribe(res=>{this.ads = res;
+       console.log(this.ads)
+      
+      });
+  }
   showAll(){
     this.ts.getAllTopics().subscribe(res => {this.listPosts = res; console.log(this.listPosts)})
   }
@@ -44,7 +55,7 @@ export class ForumNewsFeedComponent implements OnInit {
   }
 
   downvote(id : number){
-    this.ts.downvote(id).subscribe(res => {    this.showAll();
+    this.ts.downvote(id).subscribe(res => { this.showAll();
       console.log(res);
     })
   }

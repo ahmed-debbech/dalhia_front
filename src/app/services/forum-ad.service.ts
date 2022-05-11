@@ -14,6 +14,10 @@ export class ForumAdService {
   constructor(private http : HttpClient) { }
 
   addNewAd(ad : ForumAd) : Observable<ForumAd>{
+
     return this.http.post<ForumAd>(this.baseUrl, ad);
+  }
+  getAds() : Observable<ForumAd[]>{
+    return this.http.get<ForumAd[]>(this.baseUrl);
   }
 }
