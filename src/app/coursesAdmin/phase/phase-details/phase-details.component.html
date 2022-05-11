@@ -1,0 +1,23 @@
+<div class="main-content">
+    <div class="col-md-4" layout-align="center">
+      <div  class="card card-profile">
+          <div class="card-body">
+              <h6 class="card-category text-gray">{{phase.id}}</h6>
+              <h4 class="card-title">{{phase.title}}</h4>
+              <p class="card-description">
+                Duration : {{phase.duration}}
+              </p>
+              <p class="card-description">
+                Number : {{phase.number}}
+              </p>
+              <p class="card-description">
+                Adding Date : {{phase.dateAdded}}
+              </p>
+              <a [routerLink]="[phase.id,'upc']" matTooltip="Edit phase" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon"><i class="material-icons">update</i></a>
+              <button mat-raised-button (click) = "deletePhase(phase.id)" matTooltip="Delete Phase" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon"> <i class="material-icons">delete</i></button>                       
+              <button (click)="list()" matTooltip="Phases list" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon" ><i class="material-icons">arrow_back</i></button><br>
+            </div>
+    </div>
+  </div>  
+  
+  

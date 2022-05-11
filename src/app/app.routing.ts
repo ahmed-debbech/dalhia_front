@@ -4,7 +4,8 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-3
+import { CoursesComponent } from './coursesAdmin/course/courses/courses.component';
+
 const routes: Routes =[
   {
     path: '',
@@ -28,7 +29,7 @@ const routes: Routes =[
        useHash: true
     })
   ],
-  exports: [
+  exports: [ RouterModule
   ],
 })
 export class AppRoutingModule { }

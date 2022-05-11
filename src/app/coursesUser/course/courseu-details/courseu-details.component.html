@@ -1,0 +1,34 @@
+<div class="main-content">
+    <div class="col-md-4" layout-align="center">
+      <div  class="card card-profile">
+          <div class="card-avatar">
+              <a>
+                  <img class="img" src="./assets/img/courses/kitchen.jpg"/>
+              </a>
+          </div>
+          <div class="card-body">
+              <h3 class="card-title">{{course.name}}</h3>
+              <p class="card-description">
+                Modality : {{course.modality}}
+              </p>
+              <p class="card-description">
+                Publishing Date : {{course.datePublished}}
+              </p>
+              <p class="card-description">
+                Rate : {{course.rate}}
+              </p>
+              <p class="card-description">
+                Phases Number : {{course.nbrPhases}} <a [routerLink]="[course.id,'allphasesu']" matTooltip="Course phases" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon"><i class="material-icons">remove_red_eye</i></a>
+              </p>
+              <p class="card-description">
+                Number of Enrolls : {{course.nbrOfEnrolls}}
+              </p>
+              <h3 class="card-description">
+                Price : {{course.price}}
+              </h3>
+              <button (click)="list()" matTooltip="Course Details" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon" ><i class="material-icons">arrow_back</i></button><br>
+            </div>
+    </div>
+  </div>  
+  
+  
