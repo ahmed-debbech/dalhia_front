@@ -19,6 +19,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { AppointmentComponent } from '../../appointment/appointment.component';
 import { AddAppointmentComponent } from '../../add-appointment/add-appointment.component';
+import { AuthComponent } from 'app/auth/auth.component';
+import { AdminForumRoutes } from 'app/forum.routing';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -41,7 +44,7 @@ import { AddAppointmentComponent } from '../../add-appointment/add-appointment.c
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    
+
   ]
 })
 

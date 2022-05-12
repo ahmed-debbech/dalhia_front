@@ -1,0 +1,40 @@
+<div class="main-content">
+<div class="container">
+<div class="row">
+  <h5>
+    <span class="tim-note">Write an interesting title</span></h5>
+  </div>
+  <div class="row">
+      <div class="col-sm-4">
+          <div class="form-group">
+              <input #title type="text" value="" placeholder="Title" class="form-control" />
+              <mat-error *ngIf="checkTitle(title.value)">
+                Title is <strong>required</strong> 
+              </mat-error>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <h5>
+        <span class="tim-note">Be very open and write what's on your mind</span></h5>
+      </div>
+      <div class="row">
+          <div class="col-sm-4">
+              <div class="form-group">
+                  <textarea #text type="text" value="" style="height: 60px;" placeholder="Text" class="form-control"></textarea>
+                  <mat-error *ngIf="checkText(text.value)">
+                    
+                  </mat-error>
+                  <mat-error *ngIf="checkText(text.value)">
+                    Text should be <strong>more</strong> then 10 caracters
+                  </mat-error>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <button mat-raised-button class="btn btn-danger btn-block" (click)="add(title.value, text.value)">Post Now</button>
+          </div>
+        </div>
+  </div>
+</div>

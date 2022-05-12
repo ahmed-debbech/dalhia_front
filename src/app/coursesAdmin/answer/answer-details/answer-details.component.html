@@ -1,0 +1,17 @@
+<div class="main-content">
+    <div class="col-md-4" layout-align="center">
+      <div  class="card card-profile">
+          <div class="card-body">
+              <h6 class="card-category text-gray">{{answer.id}}</h6>
+              <h4 class="card-title">Proposition : {{answer.proposition}}</h4>
+              <p class="card-description">
+                Correct : {{answer.correct}}
+              </p>
+              <a [routerLink]="[answer.id,'upc']" matTooltip="Edit answer" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon"><i class="material-icons">update</i></a>
+              <button mat-raised-button (click) = "deleteAnswer(answer.id)" matTooltip="Delete Answer" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon"> <i class="material-icons">delete</i></button>                       
+              <button (click)="list()" matTooltip="Answers list" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon" ><i class="material-icons">arrow_back</i></button><br>
+            </div>
+    </div>
+  </div>  
+  
+  

@@ -1,0 +1,112 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="card">
+          <div class="card-header card-header-danger">
+              <h4 class="card-title">Post Details, ID: {{topic.id}}</h4>
+          </div>
+          <div class="card-body">
+              <div id="typography">
+                  <div class="card-title">
+                      <h2>{{topic.title}}</h2>
+                  </div>
+                  <div class="row">
+                      <div class="tim-typo">
+                          <p>
+                              <span class="tim-note">Text</span>
+                            {{topic.text}}  
+                            </p>
+                      </div>
+                
+                      <div class="tim-typo">
+                        <p>
+                            <span class="tim-note">Date Published</span>
+                          {{topic.datePublished}}  
+                          </p>
+                    </div>
+                    <div class="tim-typo">
+                        <p>
+                            <span class="tim-note">Date Removed</span>
+                          </p>
+                          <div *ngIf="topic.dateRemoved == null; else bb"> - </div>
+                          <ng-template #bb>{{topic.dateRemoved}}</ng-template>
+                    </div>
+                    <div class="tim-typo">
+                        <p>
+                            <span class="tim-note">Tag</span>
+                          {{topic.tag}}  
+                          </p>
+                    </div>
+                    <div class="tim-typo">
+                        <p>
+                            <span class="tim-note">Banned</span>
+                          
+                          </p>
+                          <div *ngIf="topic.banned == true; else blocelse"> Yes</div>
+                          <ng-template #blocelse>No</ng-template>
+                    </div>
+                    <div class="tim-typo">
+                        <p>
+                            <span class="tim-note">Score</span>
+                            {{topic.score}}
+                          </p>
+                    </div>
+                    <div class="tim-typo">
+                        <p>
+                            <span class="tim-note">Has ever been a 'Post of the day'</span>
+                            <ng-template [ngIf] = "topic.lastBeTopicOfTheDay != null" [ngIfElse]="vv">{{topic.lastBeTopicOfTheDay}}</ng-template>
+                          <ng-template #vv>Never</ng-template>
+                          </p>
+                          
+                        </div>
+                  </div>
+                  <div class="tim-typo">
+                          <span class="tim-note">Comments & Replies</span>
+                  <div class="card">
+
+                    <!-- Contenedor Principal -->
+                     <div class="comments-container">
+                         <ul id="comments-list" class="comments-list">
+                         <li *ngFor="let comment of topic.forumComments" >
+                             <div class="comment-main-level">
+                                 <!-- Avatar -->
+                                 <div class="comment-avatar"><img src="/assets/img/download.jpeg" alt=""></div>
+                                 <!-- Contenedor del Comentario -->
+                                 <div  class="comment-box">
+                                     <div class="comment-head">
+                                     <h6 class="comment-name"><a href="#">{{comment.user.first_name}} {{comment.user.last_name}}</a></h6>
+                                     <span>{{comment.datePublished}}</span>
+                                     <a (click)="bancmt(comment.id)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">block</i></a>
+                                    </div>
+                                     <div class="comment-content">
+                                         {{comment.text}}
+                                     </div>
+                                 </div>
+                             </div>
+                             <!-- responses -->
+                             <ul class="comments-list reply-list">
+                                 <li *ngFor="let reply of comment.replies">
+                                     <!-- Avatar -->
+                                     <div class="comment-avatar"><img src="/assets/img/download.jpeg" alt=""></div>
+                                     <!-- Contenedor del Comentario -->
+                                     <div class="comment-box">
+                                     <div class="comment-head">
+                                         <h6 class="comment-name"><a href="#">{{reply.user.first_name}} {{reply.user.last_name}}</a></h6>
+                                         <span>{{reply.datePublished}}</span>
+                                         <a (click)="bancmt(reply.id)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">block</i></a>
+                                     </div>
+                                     <div class="comment-content">
+                                         {{reply.text}}
+                                     </div>
+                                     </div>
+                                 </li>
+                             </ul>
+                         </li>
+                         </ul>
+                     </div>
+                 </div>
+                 </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
