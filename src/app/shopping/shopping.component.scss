@@ -1,0 +1,58 @@
+.tm-gallery {
+    margin-bottom: 80px;
+  }
+  
+  .tm-gallery-page {
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  
+  .tm-gallery-description {
+    font-size: 0.95rem;
+  }
+  .tm-gallery-item {
+    max-width: 280px;
+  }
+  
+  .tm-gallery-img {
+    margin-bottom: 20px;
+  }
+  
+  .tm-gallery-title {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #1A6692;
+    margin-bottom: 15px;
+  }
+
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .tm-gallery-description {
+    margin-bottom: 20px;
+  }
+  
+  .tm-gallery-price {
+    font-size: 1.25rem;
+    color: #2F956D;
+    margin-bottom: 60px;
+  }
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  input.ng-invalid.ng-touched ,
+textarea.ng-invalid.ng-touched {
+    border : 1px solid red
+}

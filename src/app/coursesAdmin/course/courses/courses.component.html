@@ -1,0 +1,105 @@
+<div class="main-content">
+    <a routerLink="addcourses" class="btn btn-success btn-round right" style="background-color: #cf6666">ADD </a>
+
+    <div class="card">
+        <!--<div class="card-body table-responsive">
+            <table class="table table-hover">
+                <thead class="text-warning">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Modality</th>
+                    <th>Date Added</th>
+                    <th>Date Published</th>
+                    <th>Date Removed</th>
+                    <th>Nbr Phases</th>
+                    <th>Rate</th>
+                    <th>Nbr of enrolls</th>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let c of courses">
+                       <td>{{c.id}}</td>
+                       <td>{{c.name}}</td>
+                       <td>{{c.price}}</td>
+                       <td>{{c.modality}}</td>
+                       <td>{{c.dateAdded}}</td>
+                       <td>{{c.datePublished}}</td>
+                       <td>{{c.dateRemoved}}</td>
+                       <td>{{c.nbrPhases}}</td>
+                       <td>{{c.rate}}</td>
+                       <td>{{c.nbrOfEnrolls}}</td>
+                       <td>
+                       <div class="col-md-4">
+                        <div class="card card-chart">
+                            <div class="card-header card-header-success">
+                                <div class="ct-chart" id="dailySalesChart"></div>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{c.name}}</h4>
+                                <p class="card-category">
+                                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> {{c.price}} </span> || {{c.modality}}</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">stars</i> {{c.rate}}
+                                </div>
+                            </div>
+                        </div>
+                       </div></td>
+                       <td>
+                        <a [routerLink]="[c.id,'certificates']" class="btn btn-success btn-round">Show Certificates</a>
+                        <button mat-raised-button (click) = "deleteCourse(c.id)">Remove</button>                        
+                        <a [routerLink]="[c.id,'updatecourse']" class="btn btn-info" style="margin-left: 10px">Update</a>
+                        <a [routerLink]="[c.id,'detailscourse']" class="btn btn-info" style="margin-left: 10px">Details</a>
+                       </td>
+                   </tr>
+                </tbody>
+            </table>
+            
+        </div>-->
+
+
+        
+            <mat-grid-list cols="3" rowHeight="450px" gutterSize="10px">
+                <mat-grid-tile *ngFor="let c of courses"  >
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success" [ngClass]="{'courseCategory' : kitchen}">
+                            <img mat-card-sm-image src="../assets/img/courses/kitchen.jpg"/>  
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">{{c.name}}</h4>
+                            <p class="card-category">
+                                <span class="text-success"> {{c.price}} DT </span> || {{c.modality}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <p>
+                                <i class="material-icons">stars</i> {{c.rate}}
+                                <i class="material-icons">date_range</i>{{c.datePublished}}
+                                <i class="material-icons">supervisor_account</i> {{c.nbrOfEnrolls}} 
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <table width="100%">
+                                <th>
+                                    <a [routerLink]="[c.id,'certificates']" matTooltip="Course certificates" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon"><i class="material-icons">school</i></a>
+                                </th>
+                                <th>
+                                    <button mat-raised-button (click) = "deleteCourse(c.id)" matTooltip="Delete Course" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon"> <i class="material-icons">delete</i></button>                       
+                                </th>
+                                <th>
+                                    <a [routerLink]="[c.id,'updatecourse']" matTooltip="Edit Course" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon"><i class="material-icons">update</i></a>
+                                </th>
+                                <th>
+                                    <a [routerLink]="[c.id,'detailscourse']" matTooltip="Course Details" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon" ><i class="material-icons">info</i></a>    
+                                </th>
+                            </table>
+                        </div>
+                        </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        
+
+    </div>
+</div>

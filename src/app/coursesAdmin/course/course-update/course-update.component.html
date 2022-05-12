@@ -1,0 +1,45 @@
+<div class="main-content"> 
+  <div class="col-md-8">
+    <div class="card">
+        <div class="card-header card-header-danger">
+            <h4 class="card-title">Update course </h4>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width">
+                        <input #name matInput placeholder="Name" type="text">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width">
+                        <input #mod matInput placeholder="Modality" type="text">
+                      </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <mat-form-field class="example-full-width">
+                      <input #price matInput placeholder="Price" type="text">
+                    </mat-form-field>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <mat-radio-group aria-label="Course Status" #courseStatus>
+                    <mat-radio-button value="1"  style ="margin-left: 16px;" >Accept</mat-radio-button>
+                    <mat-radio-button value="2"  style ="margin-left: 16px;">Reject</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <a routerLink="addphases"> + Add new phase </a> 
+                  </div>
+                </div>
+                <button (click)="save(name.value , mod.value , price.value , courseStatus.selected)" mat-raised-button type="submit" class="btn btn-danger pull-right">UPDATE</button>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>

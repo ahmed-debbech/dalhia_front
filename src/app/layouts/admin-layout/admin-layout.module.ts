@@ -61,6 +61,9 @@ import { NotifierModule ,NotifierOptions} from 'angular-notifier';
     overlap: 150
   }
 };
+import { AuthComponent } from 'app/auth/auth.component';
+import { AdminForumRoutes } from 'app/forum.routing';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -83,7 +86,7 @@ import { NotifierModule ,NotifierOptions} from 'angular-notifier';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    UpgradeComponent,
+    UpgradeComponent
   ]
 })
 

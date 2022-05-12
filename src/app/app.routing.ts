@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AddOfferComponent } from './pages/add-offer/add-offer.component';
 import { FrontComponent } from './pages/front/front/front.component';
+import { CoursesComponent } from './coursesAdmin/course/courses/courses.component';
 
 
  const routes: Routes =[
@@ -32,10 +33,12 @@ import { FrontComponent } from './pages/front/front/front.component';
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes)
-    
+    RouterModule.forRoot(routes,{
+       useHash: true
+    })
   ],
-  exports: [RouterModule]
+  exports: [ RouterModule
+  ],
 })
 export class AppRoutingModule { }
 export const ArrayOfComponents = [AddOfferComponent]

@@ -1,5 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CommandsService } from 'app/commands/commands.service';
+import { CommandsAdmin } from 'app/models/commands-admin';
 import * as Chartist from 'chartist';
+import { ChartComponent } from "ng-apexcharts";
+
+import {
+  ApexNonAxisChartSeries,
+  ApexResponsive,
+  ApexChart
+} from "ng-apexcharts";
+
+export type ChartOptions = {
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  responsive: ApexResponsive[];
+  labels: any;
+};
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +23,36 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  @ViewChild("chart") chart: ChartComponent;
+  public chartOptions: Partial<ChartOptions>;
+  commands : CommandsAdmin[]
+  arr : number[] =[]
+   counttt:{} = {};
+   ID : string[] = []
+   Occ : number[] = []
 
-  constructor() { }
+  constructor(private commandsService : CommandsService ) {
+    this.chartOptions = {
+      series: [100, 55, 13, 43, 22],
+      chart: {
+        type: "donut"
+      },
+      labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -67,6 +111,29 @@ export class DashboardComponent implements OnInit {
   };
   ngOnInit() {
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
+    this.commandsService.getCommands().subscribe((data)=> {
+      this.commands = data
+      this.commands.forEach((data)=> {
+        data.idProducts.forEach((data) => {
+          this.arr.push(data)
+          const counts = {};
+
+    this.arr.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+          this.counttt = counts
+        })
+        
+     });
+    console.log(this.counttt)
+    Object.keys(this.counttt).map((key)=> {
+      this.ID.push(key)
+      this.Occ.push(this.counttt[key])
+    })
+    })
+
+    console.log(this.ID)
+    console.log(this.Occ)
+    
+    
 
       const dataDailySalesChart: any = {
           labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
