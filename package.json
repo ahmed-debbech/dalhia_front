@@ -52,6 +52,8 @@
     "jquery": "3.6.0",
     "material-design-icons": "^3.0.1",
     "moment": "2.29.1",
+    "ngx-material-rating": "^2.0.0",
+    "ngx-toastr": "^14.3.0",
     "ng-apexcharts": "^1.7.1",
     "ng-snotify": "^9.0.1",
     "perfect-scrollbar": "1.5.5",

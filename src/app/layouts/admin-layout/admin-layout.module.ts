@@ -17,6 +17,8 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import { AppointmentComponent } from '../../appointment/appointment.component';
+import { AddAppointmentComponent } from '../../add-appointment/add-appointment.component';
 import { NotifierModule ,NotifierOptions} from 'angular-notifier';
 /**
  * Custom angular notifier options
@@ -86,6 +88,8 @@ import { AdminForumRoutes } from 'app/forum.routing';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    UpgradeComponent,
+    
     UpgradeComponent
   ]
 })

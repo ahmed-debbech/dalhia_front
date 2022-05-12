@@ -19,7 +19,34 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule, ArrayOfComponents } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
+import { MatListModule } from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { AddAppointmentComponent } from './add-appointment/add-appointment.component';
+import { AppointmentService } from './shared/appointment.service';
+import { BestworstexpertComponent } from './bestworstexpert/bestworstexpert.component';
+import { ExpertComponent } from './expert/expert.component';
+import { ReportComponent } from './report/report.component';
+import { AppointmentReportComponent } from './appointment-report/appointment-report.component';
+import { AppointmentRateComponent } from './appointment-rate/appointment-rate.component';
+import { ReviewComponent } from './review/review.component';
+import { AddReviewComponent } from './add-review/add-review.component';
+import { AddReportComponent } from './add-report/add-report.component';
+import { AssociationComponent } from './association/association.component';
+import { ExpertdetailsComponent } from './expertdetails/expertdetails.component';
+import { BannedExpertsComponent } from './banned-experts/banned-experts.component';
+import { MyappointmentsComponent } from './myappointments/myappointments.component';
+import { MyreviewsComponent } from './myreviews/myreviews.component';
+import { MyappratesComponent } from './myapprates/myapprates.component';
+import { MyappreportsComponent } from './myappreports/myappreports.component';
+
+
+
 import { UserComponent } from './user/user.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
@@ -127,13 +154,26 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 };
 @NgModule({
   imports: [
-    BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
     ComponentsModule,
+
+    HttpClientModule, 
+    BrowserAnimationsModule, // service : HttpClient
+    ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatIconModule,
+    MatListModule,
+    MatSelectModule,
+  
     NgbModule,
     NotifierModule.withConfig(customNotifierOptions),
     SnotifyModule,
@@ -155,6 +195,26 @@ import { NgApexchartsModule } from 'ng-apexcharts';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    AppointmentComponent,
+    AddAppointmentComponent,
+    BestworstexpertComponent,
+    ExpertComponent,
+    ReportComponent,
+    AppointmentReportComponent,
+    AppointmentRateComponent,
+    ReviewComponent,
+    AddReviewComponent,
+    AddReportComponent,
+    AssociationComponent,
+    ExpertdetailsComponent,
+    BannedExpertsComponent,
+    MyappointmentsComponent,
+    MyreviewsComponent,
+    MyappratesComponent,
+    MyappreportsComponent,
+    
+
+  
     OfferComponent,
     ArrayOfComponents,
     UpdateOfferComponent,
@@ -210,7 +270,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     ForumNewsFeedComponent,
     AdsAdditionComponent,
   ],
-  providers: [SnotifyService,{ provide: 'SnotifyToastConfig', useValue: ToastDefaults},
+  providers: [
+    SnotifyService,{ provide: 'SnotifyToastConfig', useValue: ToastDefaults},
     {provide : HTTP_INTERCEPTORS , useClass : AuthInterceptorService, multi : true}
   ],
  

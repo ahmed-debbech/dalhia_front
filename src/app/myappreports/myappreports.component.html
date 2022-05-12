@@ -1,0 +1,30 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="container">
+            <div class=" row ">
+                <div class="col-md-12 ">
+
+                    <form [formGroup]="service.formModel ">
+
+                        <div class="form-group ">
+                            <option *ngFor="let apr of appreps" value="{{apr.id}}"></option>
+
+
+                            <label>Appointment Report</label>
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control " id="report" #report>
+                                </div>
+                            </div>
+                            <div>
+
+                                <button mat-raised-button type="submit " class="btn btn-primary " (click)="reportApp(myParam,report.value)">Report Appointment</button>
+
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

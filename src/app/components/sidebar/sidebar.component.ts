@@ -10,6 +10,27 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
+    /*{ path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
+    { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
+    { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
+    { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
+    { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
+    { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
+    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },*/
+    { path: '/my-appointments', title: 'My Appointments',  icon:'plus', class: '' },
+    { path: '/my-reviews', title: 'My Reviews',  icon:'plus', class: '' },
+    { path: '/admin/appointment', title: 'Appointmants',  icon:'plus', class: '' },
+    { path: '/add-appointment', title: 'Add Appointment',  icon:'plus', class: '' },
+    { path: '/experts', title: 'Experts',  icon:'plus', class: '' },
+    { path: '/bestandworstexpert', title: 'Ratings on experts',  icon:'plus', class: '' },
+    { path: '/add-review', title: 'Add Review',  icon:'plus', class: '' },
+    { path: '/admin/reviews', title: 'Reviews',  icon:'plus', class: '' },
+    /*{ path: '/add-report', title: 'Add Report',  icon:'plus', class: '' },*/
+    /*{ path: '/reports', title: 'Reports',  icon:'plus', class: '' },*/
+    /*{ path: '/associations', title: 'Associations',  icon:'plus', class: '' },*/
+    
+    
+    
     { path: '/admin/courses', title: 'Courses Admin',  icon: 'dashboard', class: '' },
     { path: '/user/coursesu', title: 'Courses User',  icon: 'dashboard', class: '' },
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },

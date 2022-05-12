@@ -1,0 +1,75 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div>
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title ">Appointments</h4>
+                                <p class="card-category"> current available appointments</p>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                        <th>
+                                            Date
+                                        </th>
+                                        <th>
+                                            Hour
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>
+                                            Details
+                                        </th>
+                                        <th>
+                                            Actions
+                                        </th>
+                                    </thead>
+
+
+                                    <tbody *ngFor="let a of apps">
+                                        <tr>
+                                            <td>
+                                                {{a.appDate| date: 'dd/MM/yyyy'}} </td>
+
+                                            <td>
+                                                {{a.appHour}}
+                                            </td>
+                                            <td>
+                                                {{a.appStatus}}
+                                            </td>
+                                            <td>
+
+                                                <button mat-raised-button *ngIf="a.appointmentRate" [routerLink]="['/appointment-rate-details', a.appointmentRate.id]" class="btn btn-outline-info">Rated</button>
+                                                <button mat-raised-button *ngIf="a.appointmentReport" [routerLink]="['/appointment-report-details', a.appointmentReport.id]" class="btn btn-outline-danger">Reported</button>
+
+                                            </td>
+
+                                            <td>
+
+                                                <button mat-raised-button type="submit" class="btn btn-info">Edit</button>
+                                                <button mat-raised-button type="submit" (click)="deleteAppointment(a)" class="btn btn-danger">Delete</button>
+
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
