@@ -17,7 +17,8 @@ export class TopicComponent implements OnInit {
     this.showAll()
   }
   showAll(){
-    this.ts.getAllTopics().subscribe(res => {this.listTopics = res; console.log(this.listTopics)})
+    this.ts.getAllTopics().subscribe(res => {console.log("rrrrr"); this.listTopics = res;       
+       console.log(this.listTopics)})
   }
   unban(id: string){
     this.ts.unbanTopic(id).subscribe(res => {

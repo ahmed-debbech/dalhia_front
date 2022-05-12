@@ -32,7 +32,7 @@ export class ForumNewsFeedComponent implements OnInit {
   }
 
   getAds(){
-    this.adservice.getAds().subscribe(res=>{this.ads = res;
+    this.adservice.getAds().subscribe(res=>{console.log(res); this.ads = res;
        console.log(this.ads)
       
       });
