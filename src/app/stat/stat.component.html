@@ -1,0 +1,20 @@
+<div class="container padding-bottom-3x mb-2 mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="forgot">
+        <h2>Stati</h2>
+        <p>Change your password in three easy steps. This will help you to secure your password!</p>
+            <button class="btn btn-danger" (click)="change()" >Show statistic</button>
+        </div>
+        <div id="chart" *ngIf="show">
+                
+            <apx-chart
+      [series]="Occ"
+      [chart]="chartOptions.chart"
+      [labels]="ID"
+      [responsive]="chartOptions.responsive"
+    ></apx-chart>
+  </div>
+  </div>
+  </div>
+  </div>

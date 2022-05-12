@@ -1,21 +1,30 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { Subject, Subscription } from 'rxjs';
+import { AuthService } from 'app/auth/auth.service';
+import { SubscriptionsService } from 'app/subscriptions/subscriptions.service';
+import { UserService } from 'app/user/user.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit ,OnDestroy {
     private listTitles: any[];
     location: Location;
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    hide : Subject<boolean>
+    private userSub : Subscription
+    isAuthenticated = false;
+    isAdmin=false;
+    isSubscribed = false;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(location: Location,  private element: ElementRef, private router: Router , private authService : AuthService , private userService : UserService) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -32,6 +41,30 @@ export class NavbarComponent implements OnInit {
            this.mobile_menu_visible = 0;
          }
      });
+    
+    this.userSub= this.authService.user.subscribe(user => {
+        this.isAuthenticated = !user ? false : true;
+        if(this.isAuthenticated){
+        this.isAdmin = user.role==="ADMIN"? true : false;
+        }
+    })
+
+    const userData : {
+        email : string,
+        id:string,
+        role:string,
+        _token:string,
+        _tokenExpirationDate:string;
+    }=  JSON.parse(localStorage.getItem('userData'))
+    if(userData) {
+        console.log(userData.id)
+        this.userService.getById(userData.id).subscribe((data) => {
+            console.log(data)
+            if(data.subscriptionId){
+                this.isSubscribed=true;
+            }
+        })
+    }
     }
 
     sidebarOpen() {
@@ -122,4 +155,11 @@ export class NavbarComponent implements OnInit {
       }
       return 'Dashboard';
     }
+    onLogout() {
+        this.authService.logout()
+    }
+
+ngOnDestroy(): void {
+    this.userSub.unsubscribe()
+}
 }

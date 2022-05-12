@@ -19,6 +19,53 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { AppointmentComponent } from '../../appointment/appointment.component';
 import { AddAppointmentComponent } from '../../add-appointment/add-appointment.component';
+import { NotifierModule ,NotifierOptions} from 'angular-notifier';
+/**
+ * Custom angular notifier options
+ */
+ const customNotifierOptions: NotifierOptions = {
+  position: {
+		horizontal: {
+			position: 'left',
+			distance: 12
+		},
+		vertical: {
+			position: 'bottom',
+			distance: 12,
+			gap: 10
+		}
+	},
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
+import { AuthComponent } from 'app/auth/auth.component';
+import { AdminForumRoutes } from 'app/forum.routing';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -31,7 +78,8 @@ import { AddAppointmentComponent } from '../../add-appointment/add-appointment.c
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-  ],
+    NotifierModule.withConfig(customNotifierOptions),
+      ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
@@ -42,6 +90,7 @@ import { AddAppointmentComponent } from '../../add-appointment/add-appointment.c
     NotificationsComponent,
     UpgradeComponent,
     
+    UpgradeComponent
   ]
 })
 

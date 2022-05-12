@@ -1,4 +1,5 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 
 @Component({
@@ -6,7 +7,8 @@ import { Component} from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+constructor(private authService : AuthService){}
 
   ngOnInit(): void {
 
@@ -18,7 +20,12 @@ export class AppComponent {
       var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
       window.kommunicate = m; m._globals = kommunicateSettings;
   })(document, window.kommunicate || {});
-}
+    this.authService.autoLogin()
+  }
+
+  
+ 
+
 
 
  }
