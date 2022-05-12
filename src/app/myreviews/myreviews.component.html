@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body" *ngFor="let rv of revs">
 
-                    <div class="row" *ngIf="rv.sender.id=='4'">
+                    <div class="row">
                         <mat-card class="example-card">
                             <mat-card-title>{{rv.reviewHeader}}</mat-card-title>
                             <mat-card-subtitle>{{rv.reviewDate | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
