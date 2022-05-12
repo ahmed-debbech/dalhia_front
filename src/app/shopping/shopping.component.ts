@@ -70,6 +70,8 @@ export class ShoppingComponent implements OnInit {
       
     } , error => {
       this.error = error.error.message
+      console.log(this.command);
+      
     })
     
     this.shoppingForm.reset();

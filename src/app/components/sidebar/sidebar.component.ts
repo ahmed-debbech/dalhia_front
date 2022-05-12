@@ -10,6 +10,8 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
+    { path: '/admin/courses', title: 'Courses Admin',  icon: 'dashboard', class: '' },
+    { path: '/user/coursesu', title: 'Courses User',  icon: 'dashboard', class: '' },
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
     { path: '/user', title: 'Users',  icon:'person', class: '' },
     { path: '/plans', title: 'Plans',  icon:'work', class: '' },
@@ -49,7 +51,7 @@ export class SidebarComponent implements OnInit {
   })
   }
   isMobileMenu() {
-      if ($(window).width() > 991) {
+      if ($(window).width() > 991) { 
           return false;
       }
       return true;

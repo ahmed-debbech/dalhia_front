@@ -1,0 +1,45 @@
+<div class="main-content">    
+    <div class="container">    
+        <div class="row">
+                <div *ngIf="phase.title != 'QUIZ'; else other" class="col-sm-12" >
+                    <div>
+                      <p>
+                        <a  *ngFor="let res of phase.resources" (click)="load(res)" class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                          {{res.name}}
+                        </a>
+
+                      </p>
+                      <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                          <div *ngIf="resContent != null">
+                            <iframe *ngIf="resContent.type == 'VIDEO'" width="560" height="315" [src]="safeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p *ngIf="resContent.type == 'TEXT'">{{resContent.link}}</p>
+                            <a *ngIf="resContent.type == 'AUDIO'" [href]="resContent.link">{{resContent.link}}</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <ng-template #other>
+
+                <div  class="col-sm-12" >
+                  <h1>QUIZ</h1>
+                  <div>
+                    <div *ngFor="let quest of phase.quiz[0].questions" class="row">
+                    <div class="card">
+                      <div class = "container">
+                        <h3>{{quest.text}}</h3>
+                        <input type="hidden" #actualAnswer value="">
+                        <mat-radio-group aria-label="Select an Answer">
+                          <mat-radio-button *ngFor="let an of quest.answers; let i in index" (click)="actualAnswer.value = an.proposition" [value]="i" >{{an.proposition}}</mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+                    </div> 
+                  </div>
+                  <button (click)="submit()" mat-button color="warn">Submit</button>
+                  </div>
+              </div>
+            </ng-template>
+    </div>
+                    
+</div>    

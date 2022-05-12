@@ -46,4 +46,7 @@ testem.log
 Thumbs.db
 
 package.json
+<<<<<<< HEAD
 package-lock.json
+=======
+>>>>>>> dev
