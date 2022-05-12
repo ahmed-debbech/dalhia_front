@@ -31,5 +31,10 @@ export class OfferService {
   updateOffer(offer){
     return this.http.put<any>(this.server+"modify-offer",offer);
   }
-
+searchOffer(text,id){
+    return this.http.post<Offer>(this.server+"searchOffer/"+id+"/"+text,{responseType: 'json'});
+  }
+ translateOffer(id){
+  return this.http.get(this.server+"OfferTranslate/"+id, {responseType: 'text'});
+ } 
 }

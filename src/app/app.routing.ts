@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AddOfferComponent } from './pages/add-offer/add-offer.component';
+import { OfferFrontComponent } from './pages/front/offer-front/offer-front.component';
 
 
  const routes: Routes =[
@@ -19,6 +20,11 @@ import { AddOfferComponent } from './pages/add-offer/add-offer.component';
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
     }]
+  },
+  {
+    path: 'offersFront',
+    component: OfferFrontComponent,
+    
   }
 ];
 

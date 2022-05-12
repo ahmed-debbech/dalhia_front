@@ -2,8 +2,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="input-group rounded">
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                <span class="input-group-text border-0" id="search-addon">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" #searchText/>
+                <span class="input-group-text border-0" id="search-addon" (click)='searchOffer(searchText.value)'>
                   <i class="fa fa-search"></i>
                 </span>
               </div>
@@ -42,8 +42,7 @@
                                 </thead>
                                 <tbody>
 
-
-
+                                <div *ngIf="offers.length==0">pas de offres</div>
                                     <tr *ngFor="let item of offers">
                                         <td>
                                             {{item.title}}

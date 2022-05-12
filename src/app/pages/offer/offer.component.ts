@@ -33,5 +33,17 @@ export class OfferComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  searchOffer(text){
+    
+    if(text.length!=0){
+      this.offers=[];
+      this.offerService.searchOffer(text,2).subscribe(res=>{
+        this.offers=res;
+      });
+    }
+    if(text.length==0){
+      this.getOffers();
+    }
+    
+    }
 }

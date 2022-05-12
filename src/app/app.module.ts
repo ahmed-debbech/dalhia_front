@@ -11,7 +11,55 @@ import { OfferComponent } from './pages/offer/offer.component';
 import { AddOfferComponent } from './pages/add-offer/add-offer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateOfferComponent } from './pages/update-offer/update-offer.component';
+import { NotifierModule,NotifierOptions } from 'angular-notifier';
+import { OfferFrontComponent } from './pages/front/offer-front/offer-front.component';
+import { ApplicationFrontComponent } from './pages/front/application-front/application-front.component';
+import {NgbdModalContent} from './pages/front/offer-front/modal.component';
+import { SnotifyService, ToastDefaults, SnotifyModule } from 'ng-snotify';
 
+/**
+ * Custom angular notifier options
+ */
+ const customNotifierOptions: NotifierOptions = {
+  position: {
+		horizontal: {
+			position: 'left',
+			distance: 12
+		},
+		vertical: {
+			position: 'bottom',
+			distance: 12,
+			gap: 10
+		}
+	},
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -22,6 +70,8 @@ import { UpdateOfferComponent } from './pages/update-offer/update-offer.componen
     RouterModule,
     AppRoutingModule,
     NgbModule,
+    NotifierModule.withConfig(customNotifierOptions),
+    SnotifyModule,
     
   ],
   declarations: [
@@ -30,9 +80,12 @@ import { UpdateOfferComponent } from './pages/update-offer/update-offer.componen
     OfferComponent,
     ArrayOfComponents,
     UpdateOfferComponent,
+    OfferFrontComponent,
+    ApplicationFrontComponent,
+    NgbdModalContent,
 
   ],
-  providers: [],
+  providers: [SnotifyService,{ provide: 'SnotifyToastConfig', useValue: ToastDefaults},],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

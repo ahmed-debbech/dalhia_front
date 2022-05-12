@@ -5,6 +5,7 @@ import { CategoryService } from 'app/services/category/category.service';
 import { OfferService } from 'app/services/offer/offer.service';
 import { Router } from '@angular/router';
 import { Category } from 'app/model/Category';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-add-offer',
@@ -12,6 +13,7 @@ import { Category } from 'app/model/Category';
   styleUrls: ['./add-offer.component.scss']
 })
 export class AddOfferComponent implements OnInit {
+  private readonly notifier: NotifierService;
   jobType =["FullTime","Temporary","Internship","FreeLance","PartTime","Others"];
   selectedValue : string =this.jobType[0];
   ChangingValue(event){console.log(event.target.value);}
@@ -44,15 +46,20 @@ export class AddOfferComponent implements OnInit {
     console.log("okey",this.offer);
     this.offerService.addOffer(newOffer,Category).subscribe(res=>{
       
-      
+      this.notifier.show({
+        type: 'success',
+        message: 'You are awesome! I mean it!',
+        id: 'THAT_NOTIFICATION_ID', // Again, this is optional
+      });
       this.router.navigate(['/offer']);
     })
     
         }
   
     categorys:any= [];
-     constructor(private categoryService : CategoryService,private offerService:OfferService,private router: Router) {
-    this.getCategory();
+     constructor(notifierService: NotifierService,private categoryService : CategoryService,private offerService:OfferService,private router: Router) {
+      this.notifier = notifierService;
+      this.getCategory();
     
    }
    getCategory() {
@@ -88,4 +95,15 @@ export class AddOfferComponent implements OnInit {
       this.getCategory();
     })
   }
+
+
+  /**
+	 * Show a notification
+	 *
+	 * @param {string} type    Notification type
+	 * @param {string} message Notification message
+	 */
+	public showNotification( type: string, message: string ): void {
+		this.notifier.notify( type, message );
+	}
 }
