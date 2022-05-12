@@ -20,6 +20,10 @@ import { AssociationComponent } from 'app/association/association.component';
 import { ExpertdetailsComponent } from 'app/expertdetails/expertdetails.component';
 import { AppointmentRateComponent } from 'app/appointment-rate/appointment-rate.component';
 import { AppointmentReportComponent } from 'app/appointment-report/appointment-report.component';
+import { MyappointmentsComponent } from 'app/myappointments/myappointments.component';
+import { MyreviewsComponent } from 'app/myreviews/myreviews.component';
+import { MyappratesComponent } from 'app/myapprates/myapprates.component';
+import { MyappreportsComponent } from 'app/myappreports/myappreports.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -72,20 +76,24 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
-    { path: 'appointment',        component: AppointmentComponent },
+    { path: 'admin/appointment',        component: AppointmentComponent },
     { path: 'add-appointment',        component: AddAppointmentComponent },
     { path: 'bestandworstexpert',        component: BestworstexpertComponent },
     { path: 'experts',        component: ExpertComponent },
-    { path: 'reviews',        component: ReviewComponent },
+    { path: 'admin/reviews',        component: ReviewComponent },
     { path: 'reports',        component: ReportComponent },
     { path: 'add-report',        component: AddReportComponent },
     { path: 'add-review',        component: AddReviewComponent },
     { path: 'add-review/:id',        component: AddReviewComponent },
     { path: 'add-appointment/:id',        component: AddAppointmentComponent },
+    { path: 'rate-appointment/:id',        component: MyappratesComponent },
+    { path: 'report-appointment/:id',        component: MyappreportsComponent },
     { path: 'associations',        component:AssociationComponent },
     { path: 'expert-details/:id',        component:ExpertdetailsComponent },
     { path: 'appointment-rate-details/:id',        component:AppointmentRateComponent },
     { path: 'appointment-report-details/:id',        component:AppointmentReportComponent },
+    { path: 'my-appointments',        component:MyappointmentsComponent },
+    { path: 'my-reviews',        component:MyreviewsComponent },
 
 
 ];

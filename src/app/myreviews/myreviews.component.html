@@ -1,0 +1,36 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="container">
+
+
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title">My Reviews</h4>
+                    <p class="card-category"> your current published reviews</p>
+                </div>
+                <div class="card-body" *ngFor="let rv of revs">
+
+                    <div class="row" *ngIf="rv.sender.id=='4'">
+                        <mat-card class="example-card">
+                            <mat-card-title>{{rv.reviewHeader}}</mat-card-title>
+                            <mat-card-subtitle>{{rv.reviewDate | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
+                            <mat-card-content>
+
+                                <p>{{rv.reviewBody}}</p>
+
+                            </mat-card-content>
+
+                            <button (click)="editReview(rv.reviewId)" class="btn btn-info btn-round">Edit</button>
+                            <button (click)="deleteReview(rv.reviewId)" class="btn btn-danger btn-round">Remove</button>
+                        </mat-card>
+
+
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

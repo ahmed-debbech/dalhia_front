@@ -1,0 +1,43 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="container">
+
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title">My Appointments</h4>
+                    <p class="card-category"> your taken appointments</p>
+                </div>
+                <div class="card-body" *ngFor="let ap of apps">
+
+                    <div class="row" *ngIf="ap.sender.id=='4'">
+                        <mat-card class="example-card">
+                            <mat-card-title>Appointment</mat-card-title>
+                            <mat-card-subtitle>On: {{ap.appDate | date: 'dd/MM/yyyy'}}, {{ap.appHour}}h</mat-card-subtitle>
+                            <mat-card-content>
+
+
+                                <p>Taken with: {{ap.user.first_name}} {{ap.user.last_name}}</p>
+                                <p>Located in: {{ap.user.address}}</p>
+
+
+                            </mat-card-content>
+
+                            <button [routerLink]="[ '/rate-appointment', ap.appId] " class="btn btn-outline-primary btn-round ">Rate</button>
+                            <button [routerLink]="[ '/report-appointment', ap.appId] " class="btn btn-outline-danger btn-round ">Report</button>
+                            <button (click)="editAppointment(ap.appId) " class="btn btn-info btn-round ">Edit</button>
+                            <button (click)="deleteAppointment(ap.appId) " class="btn btn-danger btn-round ">Remove</button>
+
+                            <button *ngIf="ap.appointmentRate" [routerLink]="[ '/appointment-rate-details', ap.appointmentRate.id] " class="btn btn-outline btn-round ">my rate</button>
+                            <button *ngIf="ap.appointmentReport" [routerLink]="[ '/appointment-report-details', ap.appointmentReport.id] " class="btn btn-outline btn-round ">my report</button>
+                        </mat-card>
+
+
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -82,7 +82,7 @@
 
                         <button [routerLink]="['/add-review', exp.id]" class="btn btn-primary btn-round">Review</button>
 
-                        <button [routerLink]="['/add-appointment', exp.id]" class="btn btn-info btn-round">take appointment</button>
+                        <button [disabled]="exp.ban" [routerLink]="['/add-appointment', exp.id]" class="btn btn-info btn-round">take appointment</button>
 
                     </div>
                 </div>

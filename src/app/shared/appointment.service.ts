@@ -41,6 +41,8 @@ export class AppointmentService {
     return this.http.get<Appointment>(this.BaseURI+ '/appointment/retrieve-all-appointments');
   }
 
+  
+
   deleteAppointment(id:number){
     return this.http.delete(this.BaseURI+ '/appointment/remove-appointment/'+ id);
 
@@ -55,10 +57,40 @@ export class AppointmentService {
   }
   
 
-  
+  deleteApp(id:number){
+    return this.http.delete(this.BaseURI+ '/appointment/remove-appointment/'+ id);
+
+  }
+
+  deleteAppRate(id:number){
+    return this.http.delete(this.BaseURI+ '/appointmentRate/remove-appointmentRate/'+ id);
+
+  }
+
+  deleteAppReport(id:number){
+    return this.http.delete(this.BaseURI+ '/appointmentReport/remove-appointmentReport/'+ id);
+
+  }
 
   
+  rateAppointment(id:any, ar:AppointmentRate) {
+    /* var body = {
+       appDate: this.formModel.value.appDate,
+       appHour: this.formModel.value.appHour,
+       
+       
+     };*/
+     return this.http.post(this.BaseURI + '/appointmentRate/add-appointmentRate/'+ id, ar);
+   }
   
-  
+   reportAppointment(id:any, arp:AppointmentReport) {
+    /* var body = {
+       appDate: this.formModel.value.appDate,
+       appHour: this.formModel.value.appHour,
+       
+       
+     };*/
+     return this.http.post(this.BaseURI + '/appointmentReport/add-appointmentReport/'+ id, arp);
+   }
 
 }

@@ -13,9 +13,11 @@
                                 <p class="card-category"> current available experts</p>
                                 <button (click)="getBanExpert()" class="btn btn-danger btn-round">Ban reported experts</button>
 
+
                             </div>
-                            <div class="col-md-4">
-                                <div class="card card-profile" *ngFor="let e of exps">
+                            <div class="col-md-4" *ngFor="let e of exps">
+
+                                <div class="card card-profile">
                                     <div *ngIf="e.role == 'EXPERT'">
                                         <div class="card-body">
                                             <div class="card-avatar">
@@ -35,7 +37,7 @@
 
                                             <button [routerLink]="['/add-review', e.id]" class="btn btn-primary btn-round">Review</button>
 
-                                            <button [routerLink]="['/add-appointment', e.id]" class="btn btn-info btn-round">take appointment</button>
+                                            <button [disabled]="e.ban" [routerLink]="['/add-appointment', e.id]" class="btn btn-info btn-round">take appointment</button>
 
                                         </div>
                                     </div>

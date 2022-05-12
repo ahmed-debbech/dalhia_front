@@ -12,7 +12,7 @@ import { ReviewService } from 'app/shared/review.service';
 })
 export class AppointmentReportComponent implements OnInit {
 
-  constructor(public service:AppointmentReportService, public exs :BestexpertService, public rs: ReviewService ,private router:Router,private ac:ActivatedRoute) {}
+  constructor(public service:AppointmentReportService, public ss :AppointmentService, public rs: ReviewService ,private router:Router,private ac:ActivatedRoute) {}
   appreports:any;
 myParam;
 
@@ -23,6 +23,22 @@ ngOnInit(): void {
       this.service.getAppReport(this.myParam).subscribe(result=>this.appreports=result)
       });
 
+    }
+
+    deleteAppReport(id:any){
+      this.ss.deleteAppReport(id).subscribe(
+        (res: any) => {
+          this.ngOnInit();
+            
+          
+        },
+            err => {
+              console.log(err);
+            }
+          
+        
+        
+      );
     }
 
   

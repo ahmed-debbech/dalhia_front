@@ -20,12 +20,12 @@
 
                                             <mat-card-content>
 
-                                                <p>{{art.stars}}</p>
+                                                <p>{{art.stars}} {{art.id}}</p>
 
                                             </mat-card-content>
+                                            <button (click)="deleteAppRate(art.id) " class="btn btn-danger btn-round ">Remove</button>
 
                                         </mat-card>
-
 
                                     </div>
 

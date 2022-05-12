@@ -20,9 +20,10 @@
 
                                             <mat-card-content>
 
-                                                <p>{{a.report}}</p>
+                                                <p>{{a.report}} {{a.appReportId}}</p>
 
                                             </mat-card-content>
+                                            <button (click)="deleteAppReport(a.appReportId) " class="btn btn-danger btn-round ">Remove</button>
 
                                         </mat-card>
 

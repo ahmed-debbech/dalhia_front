@@ -7,9 +7,9 @@ import { Review } from 'app/model/review';
   providedIn: 'root'
 })
 export class ReviewService {
-
+  paramMap: any;
   constructor(private http: HttpClient,private fb: FormBuilder) { }
-
+  
 
   readonly BaseURI = 'http://localhost:8089/api/v1';
 
@@ -65,4 +65,6 @@ export class ReviewService {
     return this.http.delete(this.BaseURI+ '/review/remove-review/'+ id);
 
   }
+
+  
 }

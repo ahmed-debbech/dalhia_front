@@ -13,7 +13,7 @@ import { ReviewService } from 'app/shared/review.service';
 export class AppointmentRateComponent implements OnInit {
 
 
-  constructor(public service:AppointmentRateService, public exs :BestexpertService, public rs: ReviewService ,private router:Router,private ac:ActivatedRoute) {}
+  constructor(public service:AppointmentRateService, public ss :AppointmentService, public rs: ReviewService ,private router:Router,private ac:ActivatedRoute) {}
   apprates:any;
   score:any;
   experts: any;
@@ -26,6 +26,23 @@ ngOnInit(): void {
       this.service.getAppRate(this.myParam).subscribe(result=>this.apprates=result)
       });
 
+    }
+
+
+    deleteAppRate(id:any){
+      this.ss.deleteAppRate(id).subscribe(
+        (res: any) => {
+          this.ngOnInit();
+            
+          
+        },
+            err => {
+              console.log(err);
+            }
+          
+        
+        
+      );
     }
 
 }

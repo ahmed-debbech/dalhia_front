@@ -33,6 +33,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssociationComponent } from './association/association.component';
 import { ExpertdetailsComponent } from './expertdetails/expertdetails.component';
 import { BannedExpertsComponent } from './banned-experts/banned-experts.component';
+import { MyappointmentsComponent } from './myappointments/myappointments.component';
+import { MyreviewsComponent } from './myreviews/myreviews.component';
+import { MyappratesComponent } from './myapprates/myapprates.component';
+import { MyappreportsComponent } from './myappreports/myappreports.component';
 
 
 
@@ -83,6 +87,10 @@ import { BannedExpertsComponent } from './banned-experts/banned-experts.componen
     AssociationComponent,
     ExpertdetailsComponent,
     BannedExpertsComponent,
+    MyappointmentsComponent,
+    MyreviewsComponent,
+    MyappratesComponent,
+    MyappreportsComponent,
     
 
   ],
