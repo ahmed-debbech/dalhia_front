@@ -12,6 +12,7 @@ import { OfferComponent } from 'app/pages/offer/offer.component';
 import { AddOfferComponent } from 'app/pages/add-offer/add-offer.component';
 import { UpdateOfferComponent } from 'app/pages/update-offer/update-offer.component';
 import { ApplicationFrontComponent } from 'app/pages/front/application-front/application-front.component';
+import { AllApplicationComponent } from 'app/pages/all-application/all-application.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -59,7 +60,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
-    { path: 'application',     component: ApplicationFrontComponent },
+    { path: 'ALLapplication',     component: AllApplicationComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },

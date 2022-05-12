@@ -19,6 +19,7 @@ import {NgbdModalContent} from './pages/front/offer-front/modal.component';
 import { SnotifyService, ToastDefaults, SnotifyModule } from 'ng-snotify';
 import { FrontComponent } from './pages/front/front/front.component';
 import { RecomandationComponent } from './pages/front/recomandation/recomandation.component';
+import { AllApplicationComponent } from './pages/all-application/all-application.component';
 
 /**
  * Custom angular notifier options
@@ -89,6 +90,7 @@ import { RecomandationComponent } from './pages/front/recomandation/recomandatio
     NgbdModalContent,
     FrontComponent,
     RecomandationComponent,
+    AllApplicationComponent,
 
   ],
   providers: [SnotifyService,{ provide: 'SnotifyToastConfig', useValue: ToastDefaults},],

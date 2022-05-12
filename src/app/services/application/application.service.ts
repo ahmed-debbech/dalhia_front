@@ -22,5 +22,8 @@ export class ApplicationService {
   getApplicationByUserId(id){
     return this.http.get<any>(this.server+"applications/"+id,{responseType: 'json'});
   }
-  
+   
+  validateApplication(id){
+    return this.http.post<any>(this.server+"ValidCondidat/"+id,{responseType: 'json'});
+  }
 }
