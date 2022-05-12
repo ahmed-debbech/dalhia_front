@@ -1,11 +1,12 @@
 import { HttpResponse } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { User } from 'app/models/user';
 import { saveAs } from 'file-saver';
 import * as moment from 'moment';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { UserService } from './user.service';
+
 
 
 @Component({
@@ -13,13 +14,15 @@ import { UserService } from './user.service';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit  {
+export class UserComponent implements OnInit    {
 
 users :User[];
 user : User ;
 isFetching = true;
 error = null 
 check = false;
+
+
 
 
 signupForm : FormGroup
@@ -32,8 +35,9 @@ subscription : Subscription;
 
   constructor(private service :UserService  ) { }
 
+
   ngOnInit(): void {
-    //this.getAccessToken(this.authRequest)
+    
     this.service.getUsers().subscribe(user => {
       this.users=user
       this.isFetching=false

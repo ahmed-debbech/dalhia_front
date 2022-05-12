@@ -22,6 +22,8 @@ import { AuthGuard } from 'app/auth/auth.guard';
 import { ShoppingComponent } from 'app/shopping/shopping.component';
 import { ForgetPasswordComponent } from 'app/forget-password/forget-password.component';
 import { ChangePasswordComponent } from 'app/change-password/change-password.component';
+import { StatComponent } from 'app/stat/stat.component';
+import { DisconnectGuard } from 'app/auth/disconnect.guard';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -69,10 +71,11 @@ export const AdminLayoutRoutes: Routes = [
     // }
    
     { path: 'dashboard',      component: DashboardComponent },
-    {path : 'auth' , component: AuthComponent},
+    {path : 'auth' , component: AuthComponent,canActivate : [DisconnectGuard]},
     {path : 'home' , component: HomeComponent},
-    {path : 'forget-password' , component: ForgetPasswordComponent},
-    {path : 'change-password' , component: ChangePasswordComponent},
+    {path : 'statistique' , component: StatComponent,canActivate : [AuthAdminGuard]},
+    {path : 'forget-password' , component: ForgetPasswordComponent,canActivate : [DisconnectGuard]},
+    {path : 'change-password' , component: ChangePasswordComponent,canActivate : [DisconnectGuard]},
     {path : 'shopping' , component: ShoppingComponent , canActivate : [AuthGuard]},
     {path : 'subscribe' , component: SubscribeComponent , canActivate : [AuthGuard]},
     { path: 'user',      component: UserComponent  ,canActivate : [AuthAdminGuard]  },

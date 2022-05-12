@@ -20,6 +20,12 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import {DataTablesModule} from 'angular-datatables';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { StatComponent } from './stat/stat.component';
+
+
+
 
 
 
@@ -33,6 +39,9 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    DataTablesModule,
+    NgApexchartsModule
+    
   ],
   declarations: [
     AppComponent,
@@ -48,7 +57,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     SubscribeComponent,
     ShoppingComponent,
     ForgetPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    StatComponent
   ],
   providers: [{provide : HTTP_INTERCEPTORS , useClass : AuthInterceptorService, multi : true}],
   bootstrap: [AppComponent]
