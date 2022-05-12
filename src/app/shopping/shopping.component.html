@@ -1,0 +1,118 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="card">
+          <div class="card-header card-header-danger">
+              <h4 class="card-title">Shopping List</h4>
+              <p class="card-category">Here you can find all our products</p>
+          </div>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Shopping List</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="shoppingForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Name :</label>
+                        <input type="text" class="form-control" id="name" name="name" formControlName="name">
+                        <span class="text-danger" *ngIf="!shoppingForm.get('name').valid && shoppingForm.get('name').touched">invalid input</span>
+                      </div>
+                    <div class="form-group">
+                        <label for="email" class="col-form-label">Email :</label>
+                        <input type="email" class="form-control" id="email" name="email" formControlName="email">
+                        <span class="text-danger" *ngIf="!shoppingForm.get('email').valid && shoppingForm.get('email').touched">invalid input</span>
+                      </div>
+                    <div class="form-group">
+                        <label for="card" class="col-form-label">Card :</label>
+                        <input type="number" class="form-control" id="card" name="card" formControlName="card">
+                        <span class="text-danger" *ngIf="!shoppingForm.get('card').valid && shoppingForm.get('card').touched">invalid input</span>
+                      </div>
+                    <div class="form-group">
+                        <label for="code" class="col-form-label">Code :</label>
+                        <input type="number" class="form-control" id="code" name="code" formControlName="code">
+                        <span class="text-danger" *ngIf="!shoppingForm.get('code').valid && shoppingForm.get('code').touched">invalid input</span>
+                      </div>
+
+                      <div class="form-group">
+                     
+                        <div class="col-lg-12" formArrayName="products">
+                           <div class="row" 
+                           *ngFor="let ingredientCtrl of controls; let i = index" 
+                           [formGroupName]="i"
+                           >
+                               <div class="col-xs-8 dropdown">
+                                   <label for="title">Choose the Product :</label>
+                              
+                                <select id="title" name="title"
+                                class="form-control" formControlName="title" aria-labelledby="dropdownMenuButton" >
+                                    <option *ngFor="let product of products" [value]="product.title" >
+                                        {{product.title}}
+                                    </option>
+                                </select>
+                               </div>
+                               <div class="col-xs-2">
+                                <label for="quantity">Quantity :</label>
+                                <input 
+                                type="number" 
+                                id="quantity" name="quantity"
+                                class="form-control" formControlName="quantity">
+                               </div>
+                               <br>
+                               <div class="col-xs-2">
+                                <div type="button"  (click)="onDeleteIngredient(i)">X</div>
+                               </div>
+                           </div>
+                           <hr>
+                           <div class="row">
+                               <div class="col-xs-12">
+                                   <button type="button" class="btn btn-danger" (click)="onAddIngredients()">Another Product</button>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+                    
+
+
+
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"  [disabled]="!shoppingForm.valid">Buy</button>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <br>
+          <div class="card-body">
+            <div class="row tm-gallery">
+              <div id="tm-gallery-page-pizza" class="row tm-gallery">
+                  <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item" *ngFor="let product of products">
+                      <figure>
+                    <img [src]="product.photo"  class="img-fluid tm-gallery-img" />
+                    <figcaption>
+                        <h4 class="tm-gallery-title">{{product.title}}</h4>
+                        <p class="tm-gallery-description">{{product.description}}</p>
+                        <p class="tm-gallery-price">{{product.price}} milim</p>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" (click)="onReset()">Shop now</button>
+                    </figcaption>
+                    </figure>
+                  </article>
+          </div>
+      </div>
+<div class="alert alert-danger" *ngIf="error">
+    <h1>An Error Occured! </h1>
+        <p>{{error}} </p>
+        <button class="btn btn-danger" (click)="onHandleError()">Okey</button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
