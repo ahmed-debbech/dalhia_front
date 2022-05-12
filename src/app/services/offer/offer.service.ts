@@ -37,4 +37,7 @@ searchOffer(text,id){
  translateOffer(id){
   return this.http.get(this.server+"OfferTranslate/"+id, {responseType: 'text'});
  } 
+ getRecomandationByIdUser(id){
+  return this.http.get<Offer>(this.server+"recommandationHistory/"+id,{responseType: 'json'});
+}
 }

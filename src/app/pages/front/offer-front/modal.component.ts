@@ -3,7 +3,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
 import { ApplicationService } from 'app/services/application/application.service';
-import { SnotifyService,SnotifyPosition } from 'ng-snotify';
+import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 
 @Component({
   selector: 'ngbd-modal-content',
@@ -34,7 +34,7 @@ import { SnotifyService,SnotifyPosition } from 'ng-snotify';
       
     <div class="modal-footer">
     <button   type="button" class="btn btn-outline-primary" (click)='postulerOffer(email.value,data)'>Postuler</button>
-    <button type="button" class="btn btn-outline-dark" >Close</button>
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Cross click')">Close</button>
 
       </div>
   `
@@ -44,28 +44,49 @@ export class NgbdModalContent implements OnInit {
   @Input() data;
   fromDate: any;
   datePipe: DatePipe = new DatePipe('');
-  constructor(public activeModal: NgbActiveModal,private applicationService : ApplicationService,public service: SnotifyService) { }
+  myApplication: any = [];
+
+  constructor(public activeModal: NgbActiveModal, private applicationService: ApplicationService, public service: SnotifyService) { }
   ngOnInit() { }
 
-  postulerOffer(email,offer){
+  postulerOffer(email, offer) {
+    const userId = 2;
     const application = {
-      email:email,
+      email: email,
       title: offer.title
     }
-    this.applicationService.addApplication(application,offer.id,2).subscribe(res=>{
-      console.log("application",res);
-      this.activeModal.close('Cross click');
-      this.openToast(offer.title,email);
+    this.applicationService.getApplicationByUserId(userId).subscribe(res => {
+      this.myApplication = res;
+      if (!(this.myApplication.some(e => e.email === email))) {
+        this.applicationService.addApplication(application, offer.id, 2).subscribe(res => {
+          console.log("application", res);
+          this.activeModal.close('Cross click');
+          this.openToast(offer.title, email);
+        })
+      }else{
+        this.openToastFailed();
+      }
+
     })
+
   }
-  openToast(title,email) {
+  openToast(title, email) {
     this.service.success(title, 'application sent',
-     {
-      timeout: 2000,
-      showProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true
-    });
+      {
+        timeout: 2000,
+        showProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true
+      });
+  }
+  openToastFailed() {
+    this.service.error('Error', 'mail alreay exist',
+      {
+        timeout: 2000,
+        showProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true
+      });
   }
   openHTML() {
     this.service.html(
@@ -77,10 +98,10 @@ export class NgbdModalContent implements OnInit {
           <li>See</li>
         </ul>
       </div>`, {
-        position: SnotifyPosition.centerBottom,
-        backdrop: 0.7,
-        showProgressBar: false
-      }
+      position: SnotifyPosition.centerBottom,
+      backdrop: 0.7,
+      showProgressBar: false
+    }
     )
   }
 
@@ -91,32 +112,33 @@ export class NgbdModalContent implements OnInit {
       closeOnClick: false,
       pauseOnHover: true,
       buttons: [
-        { 
-          text: 'Yes', 
+        {
+          text: 'Yes',
           action: () => {
             console.log('Clicked: Yes');
             //this.openToast();
-          }, 
-          bold: false 
+          },
+          bold: false
         },
-        { 
-          text: 'No', 
+        {
+          text: 'No',
           action: () => {
-          console.log('Clicked: No')
-          } 
+            console.log('Clicked: No')
+          }
         },
-        { 
-          text: 'Later', 
-          action: (toast) => { 
-            console.log('Clicked: Later'); this.service.remove(toast.id); 
-          } 
+        {
+          text: 'Later',
+          action: (toast) => {
+            console.log('Clicked: Later'); this.service.remove(toast.id);
+          }
         },
-        { 
-          text: 'Close', 
-          action: (toast) => { 
-            console.log('Clicked: No'); this.service.remove(toast.id); 
-          }, 
-          bold: true },
+        {
+          text: 'Close',
+          action: (toast) => {
+            console.log('Clicked: No'); this.service.remove(toast.id);
+          },
+          bold: true
+        },
       ]
     });
   }

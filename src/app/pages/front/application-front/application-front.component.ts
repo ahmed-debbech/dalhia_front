@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplicationService } from 'app/services/application/application.service';
 
 @Component({
   selector: 'app-application-front',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicationFrontComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private applicationService : ApplicationService) { }
+  myApplication:any=[];
+  userId=2;
   ngOnInit(): void {
+    this.getAllApplicationsbyUser();
+  }
+  getAllApplicationsbyUser(){
+    this.applicationService.getApplicationByUserId(this.userId).subscribe(res=>{
+      this.myApplication=res;
+    })
   }
 
 }

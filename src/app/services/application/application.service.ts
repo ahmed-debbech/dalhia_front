@@ -9,18 +9,18 @@ export class ApplicationService {
   constructor(private http: HttpClient) { }
 
 
-  getOffers() {
+  getAllApplications() {
     return this.http.get<any>(this.server+"retrieve-all-applications",{responseType: 'json'});
   }
-
   addApplication(application,idOffer,idUser){
     return this.http.post<any>(this.server+"add-application/"+idOffer+"/"+idUser,application);
 
   }
-  
-
   getApplicationById(id:string){
     return this.http.get<any>(this.server+"retrieve-application/"+id,{responseType: 'json'});
+  }
+  getApplicationByUserId(id){
+    return this.http.get<any>(this.server+"applications/"+id,{responseType: 'json'});
   }
   
 }

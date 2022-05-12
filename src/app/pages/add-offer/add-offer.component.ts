@@ -43,7 +43,6 @@ export class AddOfferComponent implements OnInit {
 
 }
     this.offer= new Offer(title,description,Country,email,level,StartDate,EndDate,selectedValue,Category);
-    console.log("okey",this.offer);
     this.offerService.addOffer(newOffer,Category).subscribe(res=>{
       
       this.notifier.show({
@@ -65,7 +64,6 @@ export class AddOfferComponent implements OnInit {
    getCategory() {
     this.categoryService.getCategory().subscribe(res=>{
       this.categorys=res;
-      console.log(this.categorys);
     })
   }
   ngOnInit(): void {

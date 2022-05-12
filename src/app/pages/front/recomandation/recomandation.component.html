@@ -1,15 +1,9 @@
-<div class="container input-group rounded">
-    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-        aria-describedby="search-addon" #searchText />
-    <span class="input-group-text border-0" id="search-addon" (click)='searchOffer(searchText.value)'>
-        <i class="fa fa-search"></i>
-    </span>
-</div>
+
 <div class="courses-container">
 
 
     <div class="row justify-content-center">
-        <div class="course" *ngFor="let item of offers">
+        <div class="course" *ngFor="let item of recomandation">
             
             <div class="course-preview">
                 <h6>{{item.jobCategory.nom}}</h6>

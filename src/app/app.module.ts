@@ -10,12 +10,15 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { OfferComponent } from './pages/offer/offer.component';
 import { AddOfferComponent } from './pages/add-offer/add-offer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserModule } from '@angular/platform-browser';
 import { UpdateOfferComponent } from './pages/update-offer/update-offer.component';
 import { NotifierModule,NotifierOptions } from 'angular-notifier';
 import { OfferFrontComponent } from './pages/front/offer-front/offer-front.component';
 import { ApplicationFrontComponent } from './pages/front/application-front/application-front.component';
 import {NgbdModalContent} from './pages/front/offer-front/modal.component';
 import { SnotifyService, ToastDefaults, SnotifyModule } from 'ng-snotify';
+import { FrontComponent } from './pages/front/front/front.component';
+import { RecomandationComponent } from './pages/front/recomandation/recomandation.component';
 
 /**
  * Custom angular notifier options
@@ -72,6 +75,7 @@ import { SnotifyService, ToastDefaults, SnotifyModule } from 'ng-snotify';
     NgbModule,
     NotifierModule.withConfig(customNotifierOptions),
     SnotifyModule,
+    BrowserModule,
     
   ],
   declarations: [
@@ -83,6 +87,8 @@ import { SnotifyService, ToastDefaults, SnotifyModule } from 'ng-snotify';
     OfferFrontComponent,
     ApplicationFrontComponent,
     NgbdModalContent,
+    FrontComponent,
+    RecomandationComponent,
 
   ],
   providers: [SnotifyService,{ provide: 'SnotifyToastConfig', useValue: ToastDefaults},],
