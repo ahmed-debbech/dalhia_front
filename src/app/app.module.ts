@@ -1,12 +1,32 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { UserComponent } from './user/user.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { PlansComponent } from './plans/plans.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import { ProductsComponent } from './products/products.component';
+import { CommandsComponent } from './commands/commands.component';
+import { HomeComponent } from './home/home.component';
+import { SubscribeComponent } from './subscribe/subscribe.component';
+import { ShoppingComponent } from './shopping/shopping.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { StatComponent } from './stat/stat.component';
+
+
+
+
+
+
 import { CoursesComponent } from './coursesAdmin/course/courses/courses.component';
 import { CertificateComponent } from './coursesAdmin/certificatee/certificate/certificate.component';
 import { TopicComponent } from './topic/topic.component';
@@ -47,6 +67,7 @@ import { PhaseuDetailsComponent } from './coursesUser/phase/phaseu-details/phase
 import { MatDialogModule } from '@angular/material/dialog';
 import { ForumNewsFeedComponent } from './forum-news-feed/forum-news-feed.component';
 import { AdsAdditionComponent } from './ads-addition/ads-addition.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   imports: [
@@ -56,7 +77,8 @@ import { AdsAdditionComponent } from './ads-addition/ads-addition.component';
     HttpClientModule,
     ComponentsModule,
     RouterModule,
-    AppRoutingModule,
+    AppRoutingModule,    
+    NgApexchartsModule,
 
     MatButtonModule,
     MatRippleModule,
@@ -72,6 +94,19 @@ import { AdsAdditionComponent } from './ads-addition/ads-addition.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    UserComponent,
+    AuthComponent,
+    LoadingSpinnerComponent,
+    PlansComponent,
+    SubscriptionsComponent,
+    ProductsComponent,
+    CommandsComponent,
+    HomeComponent,
+    SubscribeComponent,
+    ShoppingComponent,
+    ForgetPasswordComponent,
+    ChangePasswordComponent,
+    StatComponent,
     CoursesComponent,
     CertificateComponent,
     CourseDetailsComponent,
@@ -106,7 +141,7 @@ import { AdsAdditionComponent } from './ads-addition/ads-addition.component';
     AdsAdditionComponent,
 
   ],
-  providers: [],
+  providers: [{provide : HTTP_INTERCEPTORS , useClass : AuthInterceptorService, multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
