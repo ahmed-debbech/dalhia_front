@@ -21,9 +21,12 @@
               "src/favicon.ico"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "src/assets/scss/material-dashboard.scss",
-              "src/assets/css/demo.css"
+              "src/assets/css/demo.css",
+              "src/styles.css",
+              "node_modules/ng-snotify/styles/material.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -125,7 +128,10 @@
             "styles": [
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "src/assets/scss/material-dashboard.scss",
-              "src/assets/css/demo.css"
+              "src/assets/css/demo.css",
+              "src/styles.css",
+              "node_modules/ng-snotify/styles/material.scss"
+
             ],
             "assets": [
               "src/assets",
@@ -172,7 +178,11 @@
   "defaultProject": "material-dashboard-angular",
   "schematics": {
     "@schematics/angular:component": {
+      "prefix": "app",
       "style": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app"
     }
   },
   "cli": {

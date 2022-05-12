@@ -8,6 +8,11 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { OfferComponent } from 'app/pages/offer/offer.component';
+import { AddOfferComponent } from 'app/pages/add-offer/add-offer.component';
+import { UpdateOfferComponent } from 'app/pages/update-offer/update-offer.component';
+import { ApplicationFrontComponent } from 'app/pages/front/application-front/application-front.component';
+import { AllApplicationComponent } from 'app/pages/all-application/all-application.component';
 import { UserComponent } from 'app/user/user.component';
 import { AuthComponent } from 'app/auth/auth.component';
 
@@ -113,11 +118,14 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'commands',      component: CommandsComponent  ,canActivate : [AuthAdminGuard]  },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
-    { path: 'typography',     component: TypographyComponent },
+    { path: 'ALLapplication',     component: AllApplicationComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'offer',   component: OfferComponent },
+    { path: 'offer/offerAdd', component: AddOfferComponent },
+    { path: 'offer/offerUpdate', component: UpdateOfferComponent },
     {
         path : 'admin/forum',
         //component: 

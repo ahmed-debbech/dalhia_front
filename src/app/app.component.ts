@@ -14,4 +14,6 @@ constructor(private authService : AuthService){}
     this.authService.autoLogin()
   }
 
+  
+ 
 }
