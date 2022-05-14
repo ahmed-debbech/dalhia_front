@@ -1,12 +1,52 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OfferComponent } from './pages/offer/offer.component';
+import { AddOfferComponent } from './pages/add-offer/add-offer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserModule } from '@angular/platform-browser';
+import { UpdateOfferComponent } from './pages/update-offer/update-offer.component';
+import { NotifierModule,NotifierOptions } from 'angular-notifier';
+import { OfferFrontComponent } from './pages/front/offer-front/offer-front.component';
+import { ApplicationFrontComponent } from './pages/front/application-front/application-front.component';
+import {NgbdModalContent} from './pages/front/offer-front/modal.component';
+import { SnotifyService, ToastDefaults, SnotifyModule } from 'ng-snotify';
+import { FrontComponent } from './pages/front/front/front.component';
+import { RecomandationComponent } from './pages/front/recomandation/recomandation.component';
+import { AllApplicationComponent } from './pages/all-application/all-application.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app.routing';
+import { AppRoutingModule, ArrayOfComponents } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
+import { MatListModule } from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { AddAppointmentComponent } from './add-appointment/add-appointment.component';
+import { AppointmentService } from './shared/appointment.service';
+import { BestworstexpertComponent } from './bestworstexpert/bestworstexpert.component';
+import { ExpertComponent } from './expert/expert.component';
+import { ReportComponent } from './report/report.component';
+import { AppointmentReportComponent } from './appointment-report/appointment-report.component';
+import { AppointmentRateComponent } from './appointment-rate/appointment-rate.component';
+import { ReviewComponent } from './review/review.component';
+import { AddReviewComponent } from './add-review/add-review.component';
+import { AddReportComponent } from './add-report/add-report.component';
+import { AssociationComponent } from './association/association.component';
+import { ExpertdetailsComponent } from './expertdetails/expertdetails.component';
+import { BannedExpertsComponent } from './banned-experts/banned-experts.component';
+import { MyappointmentsComponent } from './myappointments/myappointments.component';
+import { MyreviewsComponent } from './myreviews/myreviews.component';
+import { MyappratesComponent } from './myapprates/myapprates.component';
+import { MyappreportsComponent } from './myappreports/myappreports.component';
+
+
+
 import { UserComponent } from './user/user.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
@@ -68,17 +108,77 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ForumNewsFeedComponent } from './forum-news-feed/forum-news-feed.component';
 import { AdsAdditionComponent } from './ads-addition/ads-addition.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
-import { AgmCoreModule } from '@agm/core';
 
+/**
+ * Custom angular notifier options
+ */
+ const customNotifierOptions: NotifierOptions = {
+  position: {
+		horizontal: {
+			position: 'left',
+			distance: 12
+		},
+		vertical: {
+			position: 'bottom',
+			distance: 12,
+			gap: 10
+		}
+	},
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 @NgModule({
   imports: [
-    BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
     ComponentsModule,
+
+    HttpClientModule, 
+    BrowserAnimationsModule, // service : HttpClient
+    ReactiveFormsModule,
     RouterModule,
-    AppRoutingModule,    
+    AppRoutingModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatIconModule,
+    MatListModule,
+    MatSelectModule,
+  
+    NgbModule,
+    NotifierModule.withConfig(customNotifierOptions),
+    SnotifyModule,
+    BrowserModule,
+    
     NgApexchartsModule,
     MatButtonModule,
     MatRippleModule,
@@ -89,11 +189,40 @@ import { AgmCoreModule } from '@agm/core';
     MatNativeDateModule,
     MatGridListModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    AppointmentComponent,
+    AddAppointmentComponent,
+    BestworstexpertComponent,
+    ExpertComponent,
+    ReportComponent,
+    AppointmentReportComponent,
+    AppointmentRateComponent,
+    ReviewComponent,
+    AddReviewComponent,
+    AddReportComponent,
+    AssociationComponent,
+    ExpertdetailsComponent,
+    BannedExpertsComponent,
+    MyappointmentsComponent,
+    MyreviewsComponent,
+    MyappratesComponent,
+    MyappreportsComponent,
+    
+
+  
+    OfferComponent,
+    ArrayOfComponents,
+    UpdateOfferComponent,
+    OfferFrontComponent,
+    ApplicationFrontComponent,
+    NgbdModalContent,
+    FrontComponent,
+    RecomandationComponent,
+    AllApplicationComponent,
     UserComponent,
     AuthComponent,
     LoadingSpinnerComponent,
@@ -138,10 +267,13 @@ import { AgmCoreModule } from '@agm/core';
     TopicDetailsComponent,
     AddTopicComponent,
     ForumNewsFeedComponent,
-    AdsAdditionComponent
-
+    AdsAdditionComponent,
   ],
-  providers: [{provide : HTTP_INTERCEPTORS , useClass : AuthInterceptorService, multi : true}],
+  providers: [
+    SnotifyService,{ provide: 'SnotifyToastConfig', useValue: ToastDefaults},
+    {provide : HTTP_INTERCEPTORS , useClass : AuthInterceptorService, multi : true}
+  ],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

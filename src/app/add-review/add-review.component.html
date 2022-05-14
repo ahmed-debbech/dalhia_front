@@ -1,0 +1,60 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="container">
+            <div class=" row ">
+                <div class="col-md-12 ">
+
+                    <form [formGroup]="service.formModel ">
+
+                        <div class="form-group ">
+
+
+                            <option *ngFor="let r of reps" value="{{r.id}}"></option>
+
+                            <label>Review Body</label>
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control " id="reviewBody" #reviewBody>
+                                </div>
+                            </div>
+
+                            <label>Review Date</label>
+                            <div class="col-3">
+                                <div class="input-group">
+
+                                    <input class="form-control" id="reviewDate" placeholder="yyyy-mm-dd" #reviewDate ngbDatepicker #c="ngbDatepicker">
+                                    <button class="btn btn-outline-secondary calendar" (click)="c.toggle()" type="button"></button>
+                                </div>
+                            </div>
+
+
+                            <label>Review Header</label>
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control " id="reviewHeader" #reviewHeader>
+                                </div>
+                            </div>
+
+
+
+                            <div>
+
+                                <label>Stars</label>
+                                <div class="col-3">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control " id="stars" #stars>
+                                    </div>
+                                </div>
+
+
+
+                                <button mat-raised-button type="submit " class="btn btn-primary " (click)="addReview(myParam,reviewBody.value,reviewDate.value,reviewHeader.value,stars.value)">Add Review</button>
+
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

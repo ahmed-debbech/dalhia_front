@@ -1,0 +1,39 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="container">
+            <div class=" row ">
+                <div class="col-md-12 ">
+
+                    <form [formGroup]="service.formModel ">
+
+                        <div class="form-group ">
+                            <option *ngFor="let a of apps" value="{{a.id}}"></option>
+                            <label>Appointment Date</label>
+                            <div class="col-3">
+                                <div class="input-group">
+
+                                    <input class="form-control" id="appDate" placeholder="yyyy-mm-dd" #appDate ngbDatepicker #c="ngbDatepicker">
+                                    <button class="btn btn-outline-secondary calendar" (click)="c.toggle()" type="button"></button>
+                                </div>
+                            </div>
+
+                            <label>Appointment Hour</label>
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <input type="number" class="form-control " id="appHour" #appHour>
+                                </div>
+                            </div>
+                            <div>
+
+
+
+                                <button mat-raised-button type="submit " class="btn btn-primary " (click)="addApp(myParam,appDate.value,appHour.value)">Add Appointment</button>
+
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

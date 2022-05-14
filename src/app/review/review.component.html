@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div>
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title ">Reviews</h4>
+                                <p class="card-category"> current available reviews</p>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                        <th>
+                                            Header
+                                        </th>
+                                        <th>
+                                            Body
+                                        </th>
+                                        <th>
+                                            Publish Date
+                                        </th>
+                                        <th>
+                                            Ratings
+                                        </th>
+                                        <th>
+                                            Actions
+                                        </th>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div *ngFor="let r of revs">
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                {{r.reviewHeader}}
+                                            </td>
+                                            <td>
+                                                {{r.reviewBody}}
+                                            </td>
+                                            <td>
+                                                {{r.reviewDate | date: 'dd/MM/yyyy'}}
+                                            </td>
+                                            <td>
+                                                {{r.stars}}
+                                            </td>
+
+                                            <td>
+
+                                                <button mat-raised-button type="submit" class="btn btn-info">Edit</button>
+                                                <button mat-raised-button type="submit" (click)="deleteReview(r)" class="btn btn-danger">Delete</button>
+
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

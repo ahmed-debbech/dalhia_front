@@ -1,0 +1,75 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="input-group rounded">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" #searchText/>
+                <span class="input-group-text border-0" id="search-addon" (click)='searchOffer(searchText.value)'>
+                  <i class="fa fa-search"></i>
+                </span>
+              </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+
+                        <h4 class="card-title ">Offer Table</h4>
+                        <div class="save-button">
+                            <button [routerLink]="['/offer/offerAdd']">
+                                Add Offer
+                            </button>
+                        </div>
+
+                        <p class="card-category"> Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Title
+                                    </th>
+                                    <th>
+                                        Country
+                                    </th>
+                                    <th>
+                                        E-mail
+                                    </th>
+                                    <th>
+                                        JobType
+                                    </th>
+                                    <th>
+                                        StartDate
+                                    </th>
+                                </thead>
+                                <tbody>
+
+                                <div *ngIf="offers.length==0">pas de offres</div>
+                                    <tr *ngFor="let item of offers">
+                                        <td>
+                                            {{item.title}}
+                                        </td>
+                                        <td>
+                                            {{item.address}} </td>
+                                        <td>
+                                            {{item.email}}
+                                        </td>
+                                        <td>
+                                            {{item.jobType}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{item.startDate| date: 'dd/MM/yyyy'}}
+                                        </td>
+                                        
+                                        <td><button type="button" (click)='OfferUpdate(item.id)'>Edit</button></td>
+
+                                        <td><button type="button" (click)='OfferDelete(item.id)'>Delete</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
