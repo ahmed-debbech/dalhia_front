@@ -1,4 +1,67 @@
-<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+<nav class="navbar navbar-expand-lg navbar-danger bg-danger" >
+    <a class="navbar-brand" href="#">Dahlia App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" routerLink="/home">Home </a>
+        </li>
+        <li class="nav-item " *ngIf="isAuthenticated">
+          <a class="nav-link" routerLink="/shopping">Shopping </a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated">
+          <a class="nav-link" routerLink="/subscribe">Subscribe</a>
+        </li>
+        <li class="nav-item" *ngIf="isSubscribed && isAuthenticated">
+          <a class="nav-link" routerLink="/home">Form</a>
+        </li>
+       
+      </ul>
+      <ul class="navbar-nav justify-content-end">
+        <button class="btn btn-danger" [routerLink]="['/auth']" *ngIf="!isAuthenticated">Authenticate</button>
+        <button type="button" class="btn btn-danger"  (click)="onLogout()"   *ngIf="isAuthenticated" >Logout</button>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
     <div class="container-fluid">
         <div class="navbar-wrapper">
           <a class="navbar-brand" href="javascript:void(0)">{{getTitle()}}</a>
@@ -46,7 +109,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)">
-                        <i class="material-icons">person</i>
+                        <button class="btn btn-default" [routerLink]="['/auth']">Authenticate</button>
+                        <button class="btn btn-default">Logout</button>
                         <p>
                             <span class="d-lg-none d-md-block">Account</span>
                         </p>
@@ -55,7 +119,7 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav> -->
 
 <!--
 

@@ -1,0 +1,120 @@
+<!-- <div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">ADD COURSE</h4>
+                        <p class="card-category">Complete course details</p>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Name" required [(ngModel)]="course.id" #n="ngModel">
+                                    </mat-form-field>
+                                </div>
+                                <div class="alert alert-danger" *ngIf="n.invalid && n.touched" >
+                                    the Name is a required field
+                                </div>
+                            </div>
+                            <div>    
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Modality"  required [(ngModel)]="course.modality" #m="ngModel">
+                                    </mat-form-field>
+                                </div>
+                                <div class="alert alert-danger" *ngIf="m.invalid && m.touched" >
+                                    the Name is a required field
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-md-8">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Number Phases" >
+                                    </mat-form-field>
+                                    <button>add phase</button>
+                                </div>
+                                
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div> -->
+<div class="main-content">
+
+  <!--<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+      <div class="row">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="course.name" name="name">
+      </div>
+  
+      <div class="row">
+        <label for="name">modality</label>
+        <input type="text" class="form-control" id="modality" required [(ngModel)]="course.modality" name="modality">
+      </div>
+  
+      <div class="row" >
+        <div class="col-md-8">
+          <label for="name">nbr phase</label>
+          <input type="text" class="form-control" id="nbrPhases" required [(ngModel)]="course.nbrPhases" name="nbrPhases">
+        </div>
+        <div class="col-md-4">
+          <a routerLink="addphases" class="btn btn-success btn-round right">Add new phase </a>
+        </div>
+      </div>  
+      <button (click) = "save()" class="btn btn-success">Add</button>
+    </form>
+  </div>
+</div>-->
+
+
+<div class="col-md-8">
+  <div class="card">
+      <div class="card-header card-header-danger">
+          <h4 class="card-title">Add new course</h4>
+      </div>
+      <div class="card-body">
+          <form>
+              <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input #name matInput placeholder="Name" type="text">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input #modality matInput placeholder="Modality" type="text">
+                    </mat-form-field>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input #price matInput placeholder="Price" type="text">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-radio-group aria-label="Course Status" #courseStatus>
+                    <mat-radio-button value="1"  style ="margin-left: 16px;" >Accept</mat-radio-button>
+                    <mat-radio-button value="2"  style ="margin-left: 16px;">Reject</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+            </div>
+              
+              <button (click)="save(name.value, modality.value , price.value , courseStatus.selected)" mat-raised-button type="submit" class="btn btn-danger pull-right">ADD</button>
+              <div class="clearfix"></div>
+          </form>
+      </div>
+  </div>
+</div>
+
+</div>
+  

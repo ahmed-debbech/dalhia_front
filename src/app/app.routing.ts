@@ -4,8 +4,12 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AddOfferComponent } from './pages/add-offer/add-offer.component';
+import { FrontComponent } from './pages/front/front/front.component';
+import { CoursesComponent } from './coursesAdmin/course/courses/courses.component';
 
-const routes: Routes =[
+
+ const routes: Routes =[
   {
     path: '',
     redirectTo: 'dashboard',
@@ -17,6 +21,11 @@ const routes: Routes =[
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
     }]
+  },
+  {
+    path: 'front',
+    component: FrontComponent,
+    
   }
 ];
 
@@ -28,7 +37,9 @@ const routes: Routes =[
        useHash: true
     })
   ],
-  exports: [
+  exports: [ RouterModule
   ],
 })
 export class AppRoutingModule { }
+export const ArrayOfComponents = [AddOfferComponent]
+

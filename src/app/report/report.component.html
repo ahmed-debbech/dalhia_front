@@ -1,0 +1,71 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div>
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title ">Reports</h4>
+                                <p class="card-category"> current available reports</p>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                        <th>
+                                            Body
+                                        </th>
+                                        <th>
+                                            Date
+                                        </th>
+                                        <th>
+                                            Category
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>
+                                            Actions
+                                        </th>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div *ngFor="let r of reps">
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                {{r.reportBody}}
+                                            </td>
+                                            <td>
+                                                {{r.reportDate}}
+                                            </td>
+                                            <td>
+                                                {{r.cateogry}}
+                                            </td>
+                                            <td>
+                                                {{r.status}}
+                                            </td>
+                                            <td>
+
+                                                <button mat-raised-button type="submit" class="btn btn-info">Edit</button>
+                                                <button mat-raised-button type="submit" (click)="deleteReport(r)" class="btn btn-danger">Delete</button>
+
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,49 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div>
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title">Appointment Report</h4>
+
+                                </div>
+                                <div class="card-body" *ngFor="let a of appreports">
+
+                                    <div class="row">
+                                        <mat-card class="example-card">
+                                            <mat-card-title>{{a.category}}</mat-card-title>
+
+                                            <mat-card-content>
+
+                                                <p>{{a.report}} {{a.appReportId}}</p>
+
+                                            </mat-card-content>
+                                            <button (click)="deleteAppReport(a.appReportId) " class="btn btn-danger btn-round ">Remove</button>
+
+                                        </mat-card>
+
+
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

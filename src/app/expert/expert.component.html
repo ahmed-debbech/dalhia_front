@@ -1,0 +1,54 @@
+<div class="main-content">
+
+    <div class="container-fluid">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div>
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title ">Experts</h4>
+                                <p class="card-category"> current available experts</p>
+                                <button (click)="getBanExpert()" class="btn btn-danger btn-round">Ban reported experts</button>
+
+
+                            </div>
+                            <div class="col-md-4" *ngFor="let e of exps">
+
+                                <div class="card card-profile">
+                                    <div *ngIf="e.role == 'EXPERT'">
+                                        <div class="card-body">
+                                            <div class="card-avatar">
+
+                                                <img class="img" src="./assets/img/faces/marc.jpg" />
+
+                                            </div>
+                                            <h6 class="card-category text-gray">{{e.job}}</h6>
+
+                                            <h4 class="card-title">{{e.first_name}} {{e.last_name}}</h4>
+                                            <p class="card-description">
+                                                Address: {{e.address}}
+                                            </p>
+                                            <p class="card-description">Phone: {{e.phone}}</p>
+                                            <button [routerLink]="['/expert-details', e.id]" class="btn btn-outline btn-round">Details</button>
+
+
+                                            <button [routerLink]="['/add-review', e.id]" class="btn btn-primary btn-round">Review</button>
+
+                                            <button [disabled]="e.ban" [routerLink]="['/add-appointment', e.id]" class="btn btn-info btn-round">take appointment</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="container">
+            <div class=" row ">
+                <div class="col-md-12 ">
+
+                    <form [formGroup]="service.formModel ">
+
+                        <div class="form-group ">
+                            <option *ngFor="let ar of apprates" value="{{ar.id}}"></option>
+
+
+                            <label>Appointment Rate</label>
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <input type="number" class="form-control " id="stars" #stars>
+                                </div>
+                            </div>
+                            <div>
+
+                                <button mat-raised-button type="submit " class="btn btn-primary " (click)="rateApp(myParam,stars.value)">Rate Appointment</button>
+
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
