@@ -25,12 +25,11 @@ export class AddCoursesComponent implements OnInit {
     this.cs.getAllCourses().subscribe(res=>{this.courses=res; console.log(this.courses);});
   }
 
-  save(name : string, mod : string , price : number , courseStatus : string) {
+  save(name : string, mod : string , price : number) {
     var course  = new Course();
     course.name = name
     course.modality = mod
     course.price = price
-    course.courseStatus = courseStatus
     this.cs.addCourse(course, 1).subscribe(res => {console.log(res); this.gotoList();})
   }
 

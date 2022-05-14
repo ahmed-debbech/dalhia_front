@@ -1,3 +1,4 @@
+import { Place } from "./Place";
 export class Course {
     id : number;
     name : string;
@@ -10,4 +11,5 @@ export class Course {
     nbrPhases : number;
     rate : number;
     nbrOfEnrolls : number;
+    places : Place[];
 }

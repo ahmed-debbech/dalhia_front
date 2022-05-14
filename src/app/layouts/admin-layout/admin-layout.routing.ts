@@ -53,6 +53,8 @@ import { AllphasesuComponent } from 'app/coursesUser/phase/allphasesu/allphasesu
 import { PhaseuDetailsComponent } from 'app/coursesUser/phase/phaseu-details/phaseu-details.component';
 
 import { ClientForumRoutes, AdminForumRoutes } from '../../forum.routing';
+import { Component } from '@angular/core';
+import { AddressmapComponent } from 'app/coursesUser/map/addressmap/addressmap.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -158,6 +160,7 @@ export const AdminLayoutRoutes: Routes = [
 
         //User
         { path: 'user/coursesu',        component : CoursesuComponent},
+        { path: 'user/coursesu/addressmap',  component : AddressmapComponent},
         { path: 'user/coursesu/:id/detailscourseu', component: CourseuDetailsComponent},
 
         { path: 'user/coursesu/:id/detailscourseu/:idd/allphasesu',        component : AllphasesuComponent},

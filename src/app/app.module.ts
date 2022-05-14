@@ -68,6 +68,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ForumNewsFeedComponent } from './forum-news-feed/forum-news-feed.component';
 import { AdsAdditionComponent } from './ads-addition/ads-addition.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   imports: [
@@ -79,7 +80,6 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     RouterModule,
     AppRoutingModule,    
     NgApexchartsModule,
-
     MatButtonModule,
     MatRippleModule,
     MatFormFieldModule,
@@ -138,7 +138,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     TopicDetailsComponent,
     AddTopicComponent,
     ForumNewsFeedComponent,
-    AdsAdditionComponent,
+    AdsAdditionComponent
 
   ],
   providers: [{provide : HTTP_INTERCEPTORS , useClass : AuthInterceptorService, multi : true}],

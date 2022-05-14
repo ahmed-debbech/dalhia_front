@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
             <h6 class="card-category text-gray">{{course.id}}</h6>
-            <h4 class="card-title">{{course.name}}</h4>
+            <h4 class="card-title" style="color: red ;"><b>{{course.name}}</b></h4>
             <p class="card-description">
               Modality : {{course.modality}}
             </p>
@@ -28,7 +28,7 @@
               Rate : {{course.rate}}
             </p>
             <p class="card-description">
-              Phases Number : {{course.nbrPhases}} <a [routerLink]="[course.id,'allphases']" matTooltip="Course phases" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon"><i class="material-icons">remove_red_eye</i></a>
+              Phases Number : {{course.nbrPhases}} <a [routerLink]="[course.id,'allphases']" matTooltip="Course phases" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon"><i class="material-icons">remove_red_eye</i></a>
 
             </p>
             <p class="card-description">
@@ -39,7 +39,7 @@
             </p>
             <a [routerLink]="[course.id,'upc']" matTooltip="Edit Course" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon"><i class="material-icons">update</i></a>
             <button mat-raised-button (click) = "deleteCourse(course.id)" matTooltip="Delete Course" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon"> <i class="material-icons">delete</i></button>                       
-            <button (click)="list()" matTooltip="Course Details" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon" ><i class="material-icons">arrow_back</i></button><br>
+            <button (click)="list()" matTooltip="Course Details" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon" ><i class="material-icons">arrow_back</i></button><br>
           </div>
   </div>
 </div>  
