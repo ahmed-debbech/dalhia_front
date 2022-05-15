@@ -108,6 +108,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ForumNewsFeedComponent } from './forum-news-feed/forum-news-feed.component';
 import { AdsAdditionComponent } from './ads-addition/ads-addition.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { CertComponent } from './certificate/certificate.component';
 
 /**
  * Custom angular notifier options
@@ -267,7 +268,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     TopicDetailsComponent,
     AddTopicComponent,
     ForumNewsFeedComponent,
-    AdsAdditionComponent
+    AdsAdditionComponent,
+    CertComponent
   ],
   providers: [
     SnotifyService,{ provide: 'SnotifyToastConfig', useValue: ToastDefaults},

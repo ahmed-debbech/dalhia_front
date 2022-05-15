@@ -74,10 +74,11 @@ import { AllphasesuComponent } from 'app/coursesUser/phase/allphasesu/allphasesu
 import { PhaseuDetailsComponent } from 'app/coursesUser/phase/phaseu-details/phaseu-details.component';
 
 import { ClientForumRoutes, AdminForumRoutes } from '../../forum.routing';
+import { CertComponent } from 'app/certificate/certificate.component';
 
 export const AdminLayoutRoutes: Routes = [
   
-    { path: 'dashboard',      component: DashboardComponent },
+    { path: 'index',      component: DashboardComponent },
     {path : 'auth' , component: AuthComponent,canActivate : [DisconnectGuard]},
     {path : 'home' , component: HomeComponent},
     {path : 'statistique' , component: StatComponent,canActivate : [AuthAdminGuard]},
@@ -164,6 +165,7 @@ export const AdminLayoutRoutes: Routes = [
 
         { path: 'user/coursesu/:id/detailscourseu/:idd/allphasesu',        component : AllphasesuComponent},
         { path: 'user/coursesu/:id/detailscourseu/:idd/allphasesu/:iddd/detailsphaseu', component: PhaseuDetailsComponent},
+        { path: 'cert' , component: CertComponent},
 
     
 ];

@@ -27,11 +27,13 @@ export class AllphasesuComponent implements OnInit {
   }
 
   redirectQuestions(id:number){
-    this.router.navigateByUrl('courses/'+ Number(this.route.snapshot.paramMap.get('id'))+'/detailscourse/'+ Number(this.route.snapshot.paramMap.get('idd'))+'/allphases/'+ id + '/allquestions')
+    console.log("Gggg");
+    
+    this.router.navigateByUrl("user/coursesu/"+this.route.snapshot.paramMap.get('id')+"/detailscourseu/"+this.route.snapshot.paramMap.get('idd')+"/allphasesu/"+id+"/detailsphaseu");
   }
 
   redirectResources(id:number){
-    this.router.navigateByUrl('courses/'+ Number(this.route.snapshot.paramMap.get('id'))+'/detailscourse/'+ Number(this.route.snapshot.paramMap.get('idd'))+'/allphases/'+ id + '/allresources')
+    this.router.navigateByUrl("user/coursesu/"+this.route.snapshot.paramMap.get('id')+"/detailscourseu/"+this.route.snapshot.paramMap.get('idd')+"/allphasesu/"+id+"/detailsphaseu");
   }
 
   redirectContent(id:number){

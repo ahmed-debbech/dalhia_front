@@ -42,6 +42,9 @@ export class PhaseuDetailsComponent implements OnInit {
   list(){
     this.router.navigateByUrl('coursesu/'+this.route.snapshot.paramMap.get("id")+'/detailscourseu/'+this.route.snapshot.paramMap.get("idd")+'/allphasesu');
   }
+  submit(){
+    this.router.navigateByUrl('cert');
+  }
 
 
 }
