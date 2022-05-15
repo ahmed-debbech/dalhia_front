@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead class=" text-primary">
+                                <thead class=" text-danger">
                                     <th>
                                         Title
                                     </th>
@@ -48,9 +48,9 @@
                                             {{item.etat}}
                                             </td>
                                         <td>
-                                            <button *ngIf="item.etat==false" type="button"
+                                            <button *ngIf="item.etat==false" type="button" class="btn btn-danger "
                                                 (click)='validateApplication(item.id)'>valider</button>
-                                            <div *ngIf="item.etat==true">candidate validated</div>
+                                            <div *ngIf="item.etat==true" style="color: #f44336;">candidate validated</div>
                                             </td>
 
 

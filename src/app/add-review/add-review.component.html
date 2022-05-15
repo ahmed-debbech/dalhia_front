@@ -11,27 +11,23 @@
 
                             <option *ngFor="let r of reps" value="{{r.id}}"></option>
 
-                            <label>Review Body</label>
-                            <div class="col-3">
+                            <div class="col-12">
                                 <div class="input-group">
-                                    <input type="text" class="form-control " id="reviewBody" #reviewBody>
+                                    <input type="text" class="form-control " id="reviewBody" #reviewBody placeholder="Review Body">
                                 </div>
                             </div>
-
-                            <label>Review Date</label>
-                            <div class="col-3">
+                            <div class="col-12">
                                 <div class="input-group">
 
-                                    <input class="form-control" id="reviewDate" placeholder="yyyy-mm-dd" #reviewDate ngbDatepicker #c="ngbDatepicker">
+                                    <input class="form-control" id="reviewDate" placeholder="Review Date    yyyy-mm-dd" #reviewDate ngbDatepicker #c="ngbDatepicker">
                                     <button class="btn btn-outline-secondary calendar" (click)="c.toggle()" type="button"></button>
                                 </div>
                             </div>
 
 
-                            <label>Review Header</label>
-                            <div class="col-3">
+                            <div class="col-12">
                                 <div class="input-group">
-                                    <input type="text" class="form-control " id="reviewHeader" #reviewHeader>
+                                    <input type="text" class="form-control " id="reviewHeader" #reviewHeader placeholder="Review Header">
                                 </div>
                             </div>
 
@@ -39,16 +35,15 @@
 
                             <div>
 
-                                <label>Stars</label>
-                                <div class="col-3">
+                                <div class="col-12">
                                     <div class="input-group">
-                                        <input type="number" class="form-control " id="stars" #stars>
+                                        <input type="number" class="form-control " id="stars" #stars placeholder="Stars">
                                     </div>
                                 </div>
 
 
 
-                                <button mat-raised-button type="submit " class="btn btn-primary " (click)="addReview(myParam,reviewBody.value,reviewDate.value,reviewHeader.value,stars.value)">Add Review</button>
+                                <button mat-raised-button type="submit " class="btn btn-danger" (click)="addReview(myParam,reviewBody.value,reviewDate.value,reviewHeader.value,stars.value)">Add Review</button>
 
                             </div>
 

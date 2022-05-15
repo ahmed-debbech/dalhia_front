@@ -4,19 +4,19 @@
             <div class="input-group rounded">
                 <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" #searchText/>
                 <span class="input-group-text border-0" id="search-addon" (click)='searchOffer(searchText.value)'>
-                  <i class="fa fa-search"></i>
+                  <i class="fa fa-search" style="color: #f44336;"></i>
                 </span>
               </div>
+              <div class="save-button">
+                <button [routerLink]="['/offer/offerAdd']" class="btn btn-danger ">
+                    Add Offer
+                </button>
+            </div>  
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
 
                         <h4 class="card-title ">Offer Table</h4>
-                        <div class="save-button">
-                            <button [routerLink]="['/offer/offerAdd']">
-                                Add Offer
-                            </button>
-                        </div>
 
                         <p class="card-category"> Here is a subtitle for this table</p>
                     </div>
@@ -59,9 +59,9 @@
                                             {{item.startDate| date: 'dd/MM/yyyy'}}
                                         </td>
                                         
-                                        <td><button type="button" (click)='OfferUpdate(item.id)'>Edit</button></td>
+                                        <td><button type="button" (click)='OfferUpdate(item.id)' class="btn btn-danger ">Edit</button></td>
 
-                                        <td><button type="button" (click)='OfferDelete(item.id)'>Delete</button></td>
+                                        <td><button type="button" (click)='OfferDelete(item.id)' class="btn btn-danger ">Delete</button></td>
                                     </tr>
                                 </tbody>
                             </table>
