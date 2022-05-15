@@ -74,52 +74,9 @@ import { AllphasesuComponent } from 'app/coursesUser/phase/allphasesu/allphasesu
 import { PhaseuDetailsComponent } from 'app/coursesUser/phase/phaseu-details/phaseu-details.component';
 
 import { ClientForumRoutes, AdminForumRoutes } from '../../forum.routing';
-import { Component } from '@angular/core';
 
 export const AdminLayoutRoutes: Routes = [
-    // {
-    //   path: '',
-    //   children: [ {
-    //     path: 'dashboard',
-    //     component: DashboardComponent
-    // }]}, {
-    // path: '',
-    // children: [ {
-    //   path: 'userprofile',
-    //   component: UserProfileComponent
-    // }]
-    // }, {
-    //   path: '',
-    //   children: [ {
-    //     path: 'icons',
-    //     component: IconsComponent
-    //     }]
-    // }, {
-    //     path: '',
-    //     children: [ {
-    //         path: 'notifications',
-    //         component: NotificationsComponent
-    //     }]
-    // }, {
-    //     path: '',
-    //     children: [ {
-    //         path: 'maps',
-    //         component: MapsComponent
-    //     }]
-    // }, {
-    //     path: '',
-    //     children: [ {
-    //         path: 'typography',
-    //         component: TypographyComponent
-    //     }]
-    // }, {
-    //     path: '',
-    //     children: [ {
-    //         path: 'upgrade',
-    //         component: UpgradeComponent
-    //     }]
-    // }
-   
+  
     { path: 'dashboard',      component: DashboardComponent },
     {path : 'auth' , component: AuthComponent,canActivate : [DisconnectGuard]},
     {path : 'home' , component: HomeComponent},
@@ -208,7 +165,5 @@ export const AdminLayoutRoutes: Routes = [
         { path: 'user/coursesu/:id/detailscourseu/:idd/allphasesu',        component : AllphasesuComponent},
         { path: 'user/coursesu/:id/detailscourseu/:idd/allphasesu/:iddd/detailsphaseu', component: PhaseuDetailsComponent},
 
-
-        
     
 ];

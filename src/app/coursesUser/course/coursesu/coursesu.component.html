@@ -12,9 +12,9 @@
                             <p class="card-category">
                                 <span class="text-dark"> {{c.price}} DT </span>
                                 <br> {{c.modality}}
-                                <p *ngIf="c.modality == 'presentiel'">
-                                <a href="">click here to see the location </a>
-                                </div>
+                                <a *ngIf="c.modality == 'presentiel'" [href]="c.places[0].address" style="margin-left: 10px;"><i class="material-icons" style="color: red;">location_city</i></a>
+                            </p>
+                            </div>
                         <div class="card-footer">
                             <div class="stats">
                                 <p>

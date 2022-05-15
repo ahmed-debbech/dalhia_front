@@ -25,15 +25,16 @@ export const ROUTES: RouteInfo[] = [
     { path: '/bestandworstexpert', title: 'Ratings on experts',  icon:'plus', class: '' },
     { path: '/add-review', title: 'Add Review',  icon:'plus', class: '' },
     { path: '/admin/reviews', title: 'Reviews',  icon:'plus', class: '' },
+    { path: '/forum/feed', title: 'Forum',  icon:'forum', class: '' },
     /*{ path: '/add-report', title: 'Add Report',  icon:'plus', class: '' },*/
     /*{ path: '/reports', title: 'Reports',  icon:'plus', class: '' },*/
     /*{ path: '/associations', title: 'Associations',  icon:'plus', class: '' },*/
     
     
     
-    { path: '/admin/courses', title: 'Courses Admin',  icon: 'dashboard', class: '' },
+    //{ path: '/admin/courses', title: 'Courses Admin',  icon: 'dashboard', class: '' },
     { path: '/user/coursesu', title: 'Courses User',  icon: 'dashboard', class: '' },
-    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
+    { path: '/index', title: 'Dashboard',  icon: 'dashboard', class: '' },
     { path: '/ALLapplication', title: 'Application',  icon:'library_books', class: '' },
     { path: '/offer', title: 'Offer List',  icon:'content_paste', class: '' },
    
