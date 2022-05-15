@@ -58,7 +58,7 @@
                               </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" onClick="window.location.reload();" [disabled]="!productForm.valid">{{editMode? 'Update' : 'Add'}}</button>
+                                    <button type="submit" class="btn btn-danger" onClick="window.location.reload();" [disabled]="!productForm.valid">{{editMode? 'Update' : 'Add'}}</button>
                                   </div>
                               </form>
                             </div>
@@ -68,7 +68,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead class=" text-primary">
+                                <thead class=" text-danger">
                                     <th>
                                         ID
                                     </th>
@@ -118,7 +118,7 @@
                                             <button type="button" class="btn btn-danger" (click)="onDelete(product.productId)" onClick="window.location.reload();" [disabled]="check">Delete</button>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-primary"  (click)="onUpdate(product.productId)" data-toggle="modal" data-target="#exampleModal" [disabled]="check">Update</button>
+                                            <button type="button" class="btn btn-danger"  (click)="onUpdate(product.productId)" data-toggle="modal" data-target="#exampleModal" [disabled]="check">Update</button>
                                         </td>
                                         
                                     </tr>

@@ -267,7 +267,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     TopicDetailsComponent,
     AddTopicComponent,
     ForumNewsFeedComponent,
-    AdsAdditionComponent,
+    AdsAdditionComponent
   ],
   providers: [
     SnotifyService,{ provide: 'SnotifyToastConfig', useValue: ToastDefaults},

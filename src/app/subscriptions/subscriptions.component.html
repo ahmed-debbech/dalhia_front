@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary"  [disabled]="!subForm.valid">{{editMode? 'Update' : 'Add'}}</button>
+                                    <button type="submit" class="btn btn-danger"  [disabled]="!subForm.valid">{{editMode? 'Update' : 'Add'}}</button>
                                   </div>
                               </form>
                             </div>
@@ -52,7 +52,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead class=" text-primary">
+                                <thead class=" text-danger">
                                     <th>
                                         ID
                                     </th>

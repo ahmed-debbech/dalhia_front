@@ -17,14 +17,16 @@ export const ROUTES: RouteInfo[] = [
     { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
     { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },*/
+    
+    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
     { path: '/my-appointments', title: 'My Appointments',  icon:'plus', class: '' },
-    { path: '/my-reviews', title: 'My Reviews',  icon:'plus', class: '' },
+    { path: '/my-reviews', title: 'My Reviews',  icon:'rate_review', class: '' },
     { path: '/admin/appointment', title: 'Appointmants',  icon:'plus', class: '' },
     { path: '/add-appointment', title: 'Add Appointment',  icon:'plus', class: '' },
-    { path: '/experts', title: 'Experts',  icon:'plus', class: '' },
-    { path: '/bestandworstexpert', title: 'Ratings on experts',  icon:'plus', class: '' },
-    { path: '/add-review', title: 'Add Review',  icon:'plus', class: '' },
-    { path: '/admin/reviews', title: 'Reviews',  icon:'plus', class: '' },
+    { path: '/experts', title: 'Experts',  icon:'supervised_user_circle', class: '' },
+    { path: '/bestandworstexpert', title: 'Ratings on experts',  icon:'supervised_user_circle', class: '' },
+    { path: '/add-review', title: 'Add Review',  icon:'rate_review', class: '' },
+    { path: '/admin/reviews', title: 'Reviews',  icon:'rate_review', class: '' },
     { path: '/forum/feed', title: 'Forum',  icon:'forum', class: '' },
     /*{ path: '/add-report', title: 'Add Report',  icon:'plus', class: '' },*/
     /*{ path: '/reports', title: 'Reports',  icon:'plus', class: '' },*/
@@ -37,8 +39,6 @@ export const ROUTES: RouteInfo[] = [
     { path: '/index', title: 'Dashboard',  icon: 'dashboard', class: '' },
     { path: '/ALLapplication', title: 'Application',  icon:'library_books', class: '' },
     { path: '/offer', title: 'Offer List',  icon:'content_paste', class: '' },
-   
-
     { path: '/user', title: 'Users',  icon:'person', class: '' },
     { path: '/plans', title: 'Plans',  icon:'work', class: '' },
     { path: '/statistique', title: 'Statistique',  icon:'assessment', class: '' },
