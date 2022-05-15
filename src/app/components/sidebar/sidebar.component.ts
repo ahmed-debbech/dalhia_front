@@ -18,15 +18,18 @@ export const ROUTES: RouteInfo[] = [
     { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },*/
     
-    { path: '/index', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '/my-appointments', title: 'My Appointments',  icon:'plus', class: '' },
+    { path: '/dashboard', title: 'Home',  icon: 'home', class: '' },
+    { path: '/my-appointments', title: 'My Appointments',  icon:'question_answer', class: '' },
+    { path: '/admin/appointment', title: 'Appointmants',  icon:'question_answer', class: '' },
+    { path: '/add-appointment', title: 'Add Appointment',  icon:'question_answer', class: '' },
+
     { path: '/my-reviews', title: 'My Reviews',  icon:'rate_review', class: '' },
-    { path: '/admin/appointment', title: 'Appointmants',  icon:'plus', class: '' },
-    { path: '/add-appointment', title: 'Add Appointment',  icon:'plus', class: '' },
-    { path: '/experts', title: 'Experts',  icon:'supervised_user_circle', class: '' },
-    { path: '/bestandworstexpert', title: 'Ratings on experts',  icon:'supervised_user_circle', class: '' },
     { path: '/add-review', title: 'Add Review',  icon:'rate_review', class: '' },
     { path: '/admin/reviews', title: 'Reviews',  icon:'rate_review', class: '' },
+
+    { path: '/experts', title: 'Experts',  icon:'supervised_user_circle', class: '' },
+    { path: '/bestandworstexpert', title: 'Ratings on experts',  icon:'supervised_user_circle', class: '' },
+    
     { path: '/forum/feed', title: 'Forum',  icon:'forum', class: '' },
     /*{ path: '/add-report', title: 'Add Report',  icon:'plus', class: '' },*/
     /*{ path: '/reports', title: 'Reports',  icon:'plus', class: '' },*/
@@ -34,9 +37,9 @@ export const ROUTES: RouteInfo[] = [
     
     
     
-    //{ path: '/admin/courses', title: 'Courses Admin',  icon: 'dashboard', class: '' },
+    { path: '/admin/courses', title: 'Courses Admin',  icon: 'dashboard', class: '' },
     { path: '/user/coursesu', title: 'Courses User',  icon: 'dashboard', class: '' },
-    { path: '/index', title: 'Dashboard',  icon: 'dashboard', class: '' },
+    //{ path: '/index', title: 'Dashboard',  icon: 'dashboard', class: '' },
     { path: '/ALLapplication', title: 'Application',  icon:'library_books', class: '' },
     { path: '/offer', title: 'Offer List',  icon:'content_paste', class: '' },
     { path: '/user', title: 'Users',  icon:'person', class: '' },

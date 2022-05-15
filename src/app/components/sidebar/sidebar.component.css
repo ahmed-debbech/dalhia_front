@@ -2,7 +2,8 @@
 
 ul li a {
     display: block;
-    color: #000;
+    color: rgb(71, 0, 0);
+    font-weight: bold;
     padding: 8px 0 8px 16px;
     text-decoration: none;
 }
