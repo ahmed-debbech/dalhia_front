@@ -1,12 +1,13 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
+            <button type="button" class="btn btn-danger" style="margin-left: 900px;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" (click)="unsubscribe()" >Add new Plan</button>
+
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">Plans Table</h4>
                         <p class="card-category"> Here you can add , update and delete a plan</p>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" (click)="unsubscribe()" >Add new Plan</button>
                     </div>
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">

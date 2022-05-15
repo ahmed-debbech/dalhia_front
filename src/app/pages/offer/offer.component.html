@@ -6,13 +6,19 @@
                 <span class="input-group-text border-0" id="search-addon" (click)='searchOffer(searchText.value)'>
                   <i class="fa fa-search" style="color: #f44336;"></i>
                 </span>
-              </div>
-              <div class="save-button">
-                <button [routerLink]="['/offer/offerAdd']" class="btn btn-danger ">
-                    Add Offer
-                </button>
-            </div>  
+                <br>
+            </div>
+            <br>
+            <br>
+            <br>
             <div class="col-md-12">
+                <div class="save-button">
+                    <button [routerLink]="['/offer/offerAdd']" class="btn btn-danger ">
+                        Add Offer
+                    </button>
+                </div>  
+                <br>
+                <br>
                 <div class="card">
                     <div class="card-header card-header-danger">
 
@@ -23,7 +29,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead class=" text-primary">
+                                <thead class=" text-danger">
                                     <th>
                                         Title
                                     </th>

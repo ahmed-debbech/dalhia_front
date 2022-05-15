@@ -1,8 +1,8 @@
 <div class="main-content">
     <div class="row">
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-12 col-md-12">
             <div class="card">
-                <div class="card-header card-header-tabs" style="background-color: #cf6666;">
+                <div class="card-header card-header-tabs" style="background-color: #f44336;">
                     <div class="nav-tabs-navigation">
                         <div class="nav-tabs-wrapper">
                             <span class="nav-tabs-title">Resources list :</span>
@@ -37,11 +37,11 @@
                                     <tr *ngFor="let r of resources"> 
                                         <td> {{r.name}} || {{r.type}} || {{r.size}} || {{r.link}} </td>
                                         <td class="td-actions text-right">
-                                            <a [routerLink]="[r.id,'updateresource']" matTooltip="Edit resource" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon"><i class="material-icons">edit</i></a>
-                                            <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon" (click) = "deleteQuestion(q.id)" >
+                                            <a [routerLink]="[r.id,'updateresource']" matTooltip="Edit resource" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon"><i class="material-icons">edit</i></a>
+                                            <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon" (click) = "deleteQuestion(q.id)" >
                                                 <i class="material-icons">close</i>
                                             </button>
-                                            <a [routerLink]="[r.id,'detailsresource']" matTooltip="Resource details" [matTooltipPosition]="'above'" class="btn btn-dark btn-link btn-sm btn-just-icon"><i class="material-icons">details</i></a>
+                                            <a [routerLink]="[r.id,'detailsresource']" matTooltip="Resource details" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon"><i class="material-icons">details</i></a>
                                         </td>
                                     </tr>
                                 </tbody>
